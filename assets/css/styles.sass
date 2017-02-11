@@ -1,0 +1,60 @@
+@import "theme.sass"
+
+body
+  font-family: "Raleway", sans-serif
+  // display: block
+  // overflow-x: hidden
+  // overflow-y: auto
+  letter-spacing: 5px
+  -webkit-font-smoothing: antialiased
+  -webkit-backface-visibility: hidden
+  -moz-backface-visibility: hidden
+  -ms-backface-visibility: hidden
+  margin: 0
+
+p
+  display: block !important
+  .less-space
+    letter-spacing: 2px
+
+.capitalized
+  display: inline-block
+  text-transform: uppercase
+  &::first-letter
+    font-size: 150%
+
+.navbar-inverse
+  background-color: $color-primary-4
+  color: $color-primary-2
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active> a:focus
+  background-color: $color-primary-3
+  color: white
+
+.carousel,  .carousel-inner, .carousel-inner .item
+   width: 100%
+
+footer.section.section-primary
+  padding-top: 20px
+  padding-bottom: 20px
+  background-color: $color-secondary-1-4
+  color: $color-secondary-1-0
+
+  h4, h6
+    text-align: center
+    display: block
+
+  h4#social-media a
+    color: $color-secondary-1-0
+
+  h4#social-media .fa
+    padding-left: 30px
+    padding-right: 30px
+
+.row > h1
+  text-align: center
+  padding-bottom: 20px
+  padding-top: 20px
+  color: $color-secondary-2-4
