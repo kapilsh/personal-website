@@ -2,23 +2,25 @@
 
 body
   font-family: "Raleway", sans-serif
-  letter-spacing: 5px
+  letter-spacing: 2px
   -webkit-font-smoothing: antialiased
   -webkit-backface-visibility: hidden
   -moz-backface-visibility: hidden
   -ms-backface-visibility: hidden
   margin: 0
 
+  h1, h2, h3, h4, h5, h6
+    letter-spacing: 5px
+
 p
   display: block !important
   .less-space
     letter-spacing: 2px
 
-// .capitalized
-//   display: inline-block
-//   text-transform: uppercase
-//   &::first-letter
-//     font-size: 150%
+.capitalized
+  display: inline-block
+  text-transform: uppercase
+  letter-spacing: 5px
 
 .navbar a
   color: $color-primary-4
@@ -60,6 +62,13 @@ hr
   color: $color-primary-4
   padding-top: 10px
   padding-bottom: 10px
+
+li hr
+  color: $color-primary-4
+  padding-top: 0px
+  padding-bottom: 0px
+  margin-top: 0px
+  margin-bottom: 0px
 
 .navbar-brand
   font-size: 30px
@@ -104,6 +113,262 @@ a.list-group-item
 
 a.list-group-item:hover
   color: #FFFFFF
-  background-color: $color-primary-4
+  background-color: $color-primary-2
   h4, small
     color: #FFFFFF
+
+.panel
+  border-color: $color-primary-4
+
+.panel-heading
+  margin: 0px
+  padding: 0px
+
+  .panel-title
+    padding: 10px
+    color: $color-primary-4
+
+.dropdown:hover .dropdown-menu
+  display: block
+
+img.media-object
+  max-width: 75px
+
+
+.timeline
+  list-style: none
+  padding: 20px 0 20px
+  position: relative
+
+.timeline:before
+  top: 0
+  bottom: 0
+  position: absolute
+  content: " "
+  width: 3px
+  background-color: #eeeeee
+  left: 50%
+  margin-left: -1.5px
+
+.timeline > li
+  margin-bottom: 20px
+  position: relative
+
+.timeline > li:before,
+.timeline > li:after
+  content: " "
+  display: table
+
+.timeline > li:after
+  clear: both
+
+
+.timeline > li:before,
+.timeline > li:after
+  content: " "
+  display: table
+
+.timeline > li:after
+  clear: both
+
+.timeline > li > .timeline-panel
+  width: 46%
+  float: left
+  border: 1px solid #d4d4d4
+  border-radius: 2px
+  padding: 20px
+  position: relative
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175)
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175)
+
+.timeline > li > .timeline-panel:before
+  position: absolute
+  top: 26px
+  right: -15px
+  display: inline-block
+  border-top: 15px solid transparent
+  border-left: 15px solid #ccc
+  border-right: 0 solid #ccc
+  border-bottom: 15px solid transparent
+  content: " "
+
+.timeline > li > .timeline-panel:after
+  position: absolute
+  top: 27px
+  right: -14px
+  display: inline-block
+  border-top: 14px solid transparent
+  border-left: 14px solid #fff
+  border-right: 0 solid #fff
+  border-bottom: 14px solid transparent
+  content: " "
+
+.timeline > li > .timeline-badge
+  color: #FFFFFF
+  width: 50px
+  height: 50px
+  line-height: 50px
+  font-size: 1.4em
+  text-align: center
+  align-content: center
+  position: absolute
+  top: 16px
+  left: 50%
+  margin-left: -25px
+  z-index: 100
+  border-top-right-radius: 50%
+  border-top-left-radius: 50%
+  border-bottom-right-radius: 50%
+  border-bottom-left-radius: 50%
+
+.timeline > li.timeline-inverted > .timeline-panel
+  float: right
+
+.timeline > li.timeline-inverted > .timeline-panel:before
+  border-left-width: 0
+  border-right-width: 15px
+  left: -15px
+  right: auto
+
+.timeline > li.timeline-inverted > .timeline-panel:after
+  border-left-width: 0
+  border-right-width: 14px
+  left: -14px
+  right: auto
+
+.timeline-badge.professional
+    background-color: $color-primary-4 !important
+
+.timeline-badge.blog-entry
+    background-color: $color-primary-4 !important
+
+.timeline-badge.university
+    background-color: $color-secondary-1-4 !important
+
+.timeline-title
+    margin-top: 0
+    color: inherit
+
+.timeline-body > p,
+.timeline-body > ul
+  margin-bottom: 0
+  .timeline-body > p + p
+    margin-top: 5px
+
+@media (max-width: 767px)
+  ul.timeline:before
+    left: 40px
+
+  ul.timeline > li > .timeline-panel
+    width : calc(100% - 90px)
+    width: -moz-calc(100% - 90px)
+    width: -webkit-calc(100% - 90px)
+
+  ul.timeline > li > .timeline-badge
+    left: 15px
+    margin-left: 0
+    top: 16px
+
+  ul.timeline > li > .timeline-panel
+    float: right
+
+  ul.timeline > li > .timeline-panel:before
+    border-left-width: 0
+    border-right-width: 15px
+    left: -15px
+    right: auto
+
+  ul.timeline > li > .timeline-panel:after
+    border-left-width: 0
+    border-right-width: 14px
+    left: -14px
+    right: auto
+
+
+.glyphicon
+  align-content: center
+
+.timeline > li > .timeline-panel.panel
+  padding: 0px
+  margin: 0px
+  > .panel-heading.timeline-heading
+    padding: 0px
+    margin: 0px
+    > .timeline-title
+      padding: 10px
+      vertical-align: middle
+      font-weight: 700
+      a
+        color: $color-primary-4
+        font-size: 18px
+
+.timeline > li > .timeline-panel.panel:before
+  position: absolute
+  top: 50px
+  right: -15px
+  display: inline-block
+  border-top: 15px solid transparent
+  border-left: 15px solid #ccc
+  border-right: 0 solid #ccc
+  border-bottom: 15px solid transparent
+  content: " "
+
+.timeline > li > .timeline-panel.panel:after
+  position: absolute
+  top: 51px
+  right: -14px
+  display: inline-block
+  border-top: 14px solid transparent
+  border-left: 14px solid #fff
+  border-right: 0 solid #fff
+  border-bottom: 14px solid transparent
+  content: " "
+
+.timeline > li > .timeline-badge.blog-entry
+  color: #FFFFFF
+  width: 50px
+  height: 50px
+  line-height: 50px
+  font-size: 1.4em
+  text-align: center
+  align-content: center
+  position: absolute
+  top: 40px
+  left: 50%
+  margin-left: -25px
+  z-index: 100
+  border-top-right-radius: 50%
+  border-top-left-radius: 50%
+  border-bottom-right-radius: 50%
+  border-bottom-left-radius: 50%
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus
+  z-index: 2
+  color: #ffffff
+  cursor: default
+  background-color: $color-primary-4
+  border-color: $color-primary-4
+
+.pagination > li > a,
+.pagination > li > span
+  position: relative
+  float: left
+  padding: 6px 12px
+  margin-left: -1px
+  line-height: 1.42857143
+  color: $color-primary-4
+  text-decoration: none
+  background-color: #ffffff
+  border: 1px solid $color-primary-4
+
+.pagination > li > a:hover,
+.pagination > li > span:hover
+  background-color: #DDDDDD
+  color: $color-primary-4
+  font-weight: 600
+  border: 1px solid $color-primary-4
