@@ -2,9 +2,6 @@
 
 body
   font-family: "Raleway", sans-serif
-  // display: block
-  // overflow-x: hidden
-  // overflow-y: auto
   letter-spacing: 5px
   -webkit-font-smoothing: antialiased
   -webkit-backface-visibility: hidden
@@ -17,27 +14,24 @@ p
   .less-space
     letter-spacing: 2px
 
-.capitalized
-  display: inline-block
-  text-transform: uppercase
-  &::first-letter
-    font-size: 150%
+// .capitalized
+//   display: inline-block
+//   text-transform: uppercase
+//   &::first-letter
+//     font-size: 150%
 
-.navbar-inverse
-  background-color: $color-primary-4
-  color: $color-primary-2
+.navbar a
+  color: $color-primary-4
 
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active> a:focus
-  background-color: $color-primary-3
-  color: white
+ul.navbar-nav li a:hover
+  color: #FFFFFF
+  background: $color-primary-4
 
 .carousel,  .carousel-inner, .carousel-inner .item
    width: 100%
 
 .carousel,  .carousel-inner, .carousel-inner .item img
-   opacity: 0.5
+  width: 100%
 
 .carousel
   overflow: hidden
@@ -45,15 +39,12 @@ p
 footer.section.section-primary
   padding-top: 20px
   padding-bottom: 20px
-  background-color: $color-secondary-1-4
-  color: $color-secondary-1-0
+  background-color: $color-primary-4
+  color: #FFFFFF
 
   h4, h6
     text-align: center
     display: block
-
-  h4#social-media a
-    color: $color-secondary-1-0
 
   h4#social-media .fa
     padding-left: 30px
@@ -65,7 +56,54 @@ footer.section.section-primary
   padding-top: 20px
   color: $color-secondary-2-4
 
-//
-// .carousel-controls
-//   width: auto
-//   top: 300px
+hr
+  color: $color-primary-4
+  padding-top: 10px
+  padding-bottom: 10px
+
+.navbar-brand
+  font-size: 30px
+  font-family: "Aerolite"
+
+.navbar-toggle
+  border-color: $color-primary-4
+
+.navbar-toggle .icon-bar
+  background-color: $color-primary-4
+
+
+.btn-group
+  background-color: #FFFFFF
+
+.btn-group button.btn
+  background-color: #FFFFFF
+  padding-left: 20px
+  padding-right: 20px
+  a
+    span
+      color: $color-primary-4
+
+.btn-group button.btn:hover
+  background-color: $color-primary-4
+  a
+    span
+      color: #FFFFFF
+
+.caption p a.btn
+  background-color: #FFFFFF
+  border-color: $color-primary-4
+  color: $color-primary-4
+
+.caption p a.btn:hover
+  background-color: $color-primary-4
+  color: #FFFFFF
+
+a.list-group-item
+  border-color: $color-primary-4
+  background-color: #FFFFFF
+
+a.list-group-item:hover
+  color: #FFFFFF
+  background-color: $color-primary-4
+  h4, small
+    color: #FFFFFF

@@ -9,100 +9,132 @@
   </head>
   <body>
     <div class="cover">
-      <header class="navbar navbar-inverse navbar-static-top">
+      <header class="navbar navbar-static-top">
         <nav class="container">
-          <div class="navbar-header"><a href="index.html" class="navbar-brand">Kapil Sharma</a>
+          <div class="navbar-header"><a href="index.html" class="navbar-brand">{K:S}</a>
             <button data-toggle="collapse" data-target="#nav-header-collapse" aria-expanded="false" class="navbar-toggle collapsed"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar">    </span></button>
           </div>
           <div id="nav-header-collapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">ABOUT</span></a></li>
-              <li><a href="html/blog.html"><span class="fa fa-archive">&nbsp;</span><span class="capitalized">BLOG</span></a></li>
-              <li><a href="html/contact.html"><span class="fa fa-envelope">&nbsp;</span><span class="capitalized">CONTACT</span></a></li>
+            <ul class="nav navbar-nav">
+              <li><a href="html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">CV</span></a></li>
+              <li><a href="html/blog.html"><span class="fa fa-book">&nbsp;</span><span class="capitalized">BLOG</span></a></li>
+              <li><a href="html/blog.html"><span class="fa fa-external-link">&nbsp;</span><span class="capitalized">RESOURCES</span></a></li>
+              <li><a href="html/blog.html"><span class="fa fa-folder">&nbsp;</span><span class="capitalized">ARCHIVE</span></a></li>
             </ul>
           </div>
         </nav>
-        <div data-interval="false" data-ride="carousel" id="main-carousel" class="carousel slide">
-          <ol class="carousel-indicators">
-            <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#main-carousel" data-slide-to="1"></li>
-            <li data-target="#main-carousel" data-slide-to="2"></li>
-          </ol>
-          <div role="listbox" class="carousel-inner">
-            <div class="item active"><img class="carousel-img" src="./assets/images/math.jpg" alt="carousel1"/>
-              <div class="carousel-caption">
-                <h3>Mathematics</h3>
-                <!-- <p></p> -->
-              </div>
-            </div>
-            <div class="item"><img class="carousel-img" src="./assets/images/programmer.jpg" alt="carousel2"/>
-              <div class="carousel-caption">
-                <h3>Programming</h3>
-                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
-              </div>
-            </div>
-            <div class="item"><img class="carousel-img" src="./assets/images/trader.jpg" alt="carousel3"/>
-              <div class="carousel-caption">
-                <h3>Quantitative Trading</h3>
-                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
-              </div>
-            </div><a href="#main-carousel" data-slide="prev" role="button" class="left carousel-control"><span class="icon-prev fa fa-angle-left"></span></a><a href="#main-carousel" data-slide="next" role="button" class="right carousel-control"><span class="icon-next fa fa-angle-right"></span></a>
-          </div>
-        </div>
       </header>
     </div>
-    <div id="posts" class="section section-primary">
+    <div id="categories" class="section section-primary">
       <div class="container">
+          <div class="row">
+            <div class="col-md-3"><img src="./assets/images/profile.jpg" class="img-responsive"></div>
+            <div class="col-md-9">
+              <h3>Kapil Sharma</h3>
+              <h4>Math Geek, Programmer, Trader</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in. </p>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary">
+                   <a href="https://www.linkedin.com/in/kapil-sharma-frm-90094015">
+                     <span class="fa fa-1x fa-fw fa-linkedin">
+                     </span>
+                   </a>
+                 </button>
+                <button type="button" class="btn btn-secondary">
+                  <a href="https://github.com/kapilsh">
+                    <span class="fa fa-1x fa-fw fa-github">
+                    </span>
+                  </a></button>
+                <button type="button" class="btn btn-secondary">
+                  <a href="https://twitter.com/kapilthequant">
+                    <span class="fa fa-1x fa-fw fa-twitter">
+                    </span>
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <hr>
+          </div>
         <div class="row">
-          <h1>Top Posts</h1>
-        </div>
-        <div class="row">
-          <div class="col-md-3"><img src="https://placeimg.com/450/450/arch" class="img-responsive"/></div>
-          <div class="col-md-9">
-            <h3>Title of the post</h3>
-            <h6>August 22, 2016</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="assets/images/math.jpg" alt="...">
+              <div class="caption">
+                <h3>Mathematics</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <p>
+                  <a href="#" class="btn btn-primary" role="button">More</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="assets/images/programmer.jpg" alt="...">
+              <div class="caption">
+                <h3>Programming</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <p>
+                  <a href="#" class="btn btn-primary" role="button">More</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="assets/images/trader.jpg" alt="...">
+              <div class="caption">
+                <h3>Quantitative Trading</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <p>
+                  <a href="#" class="btn btn-primary" role="button">More</a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row"><br></div>
-        <div class="row">
-          <div class="col-md-3"><img src="https://placeimg.com/450/450/arch" class="img-responsive"/></div>
-          <div class="col-md-9">
-            <h3>Title of the post</h3>
-            <h6>August 22, 2016</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        </div>
-        <div class="row"><br></div>
-        <div class="row">
-          <div class="col-md-3"><img src="https://placeimg.com/450/450/arch" class="img-responsive"/></div>
-          <div class="col-md-9">
-            <h3>Title of the post</h3>
-            <h6>August 22, 2016</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        </div>
-        <div class="row"><br></div>
-        <div class="row">
-          <div class="col-md-3"><img src="https://placeimg.com/450/450/arch" class="img-responsive"/></div>
-          <div class="col-md-9">
-            <h3>Title of the post</h3>
-            <h6>August 22, 2016</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
+        <div>
+          <hr>
         </div>
         <div class="row">
-          <div class="col-md-12"><br></div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Recent Posts</h3>
+            </div>
+            <div class="panel-body list-group">
+                <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading">List group item heading |
+                    <small>February 12, 2017</small>
+                  </h4>
+                  <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </a>
+                <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading">List group item heading |
+                    <small>February 12, 2017</small>
+                  </h4>
+                  <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </a>
+                <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading">List group item heading |
+                    <small>February 12, 2017</small>
+                  </h4>
+                  <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
     <footer class="section section-primary">
       <div class="container">
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-12">
             <h4 id="social-media"><a href="https://www.linkedin.com/in/kapil-sharma-frm-90094015"> <span class="fa fa-1x fa-fw fa-linkedin"></span></a><a href="https://github.com/kapilsh"> <span class="fa fa-1x fa-fw fa-github"></span></a><a href="https://www.facebook.com/kapil.iitdelhi"> <span class="fa fa-1x fa-fw fa-facebook"></span></a><a href="https://twitter.com/kapilthequant"> <span class="fa fa-1x fa-fw fa-twitter"></span></a></h4>
           </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-md-12">
             <h6 id="copyright">2016 &copy; Copyright Kapil Sharma</h6>
