@@ -7,12 +7,12 @@ image[4] = "../assets/images/bp5.png";
 var size = image.length
 
 var i = 0;
-setInterval(fadeDivs, 3000);
+setInterval(fadeDivs, 5000);
 
 function fadeDivs() {
     $('.random-img img').fadeOut(100, function(){
         var x = Math.floor(size*Math.random())
-        $(this).attr('src', image[x]).fadeIn(100);
+        $(this).attr('src', image[x]).fadeIn(1000);
     })
     i++;
 }
