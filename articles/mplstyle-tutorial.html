@@ -1,9 +1,9 @@
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1., user-scalable=no, target-densityDpi=device-dpi" />
 <title>mplstyle-tutorial</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<!-- <script src="toc.js"></script> -->
 
 <style type="text/css">
     /*!
@@ -8455,15 +8455,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11213,7 +11213,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11648,7 +11648,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11691,7 +11691,7 @@ ul.typeahead-list > li > a {
 .dataframe th{background: #eee;}
 .dataframe td{
     background: #fff;
-    text-align: right;
+    text-align: right; 
     min-width:5em;
 }
 
@@ -11745,7 +11745,7 @@ div#notebook {
           </div>
           <div id="nav-header-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a href="../html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">CV</span></a></li>
+              <li><a href="../html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">ABOUT</span></a></li>
               <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="../html/blog.html"><span class="fa fa-book">&nbsp;</span><span class="capitalized">BLOG</span>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -11772,13 +11772,13 @@ div#notebook {
                 data-text="Kapil Sharma Blog Post"
                 data-via="kapilthequant"
                 data-show-count="false">
-                <span class="fa fa-4x fa-fw fa-twitter-square"></span>
+                Tweet
               </a>
               <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
               </script>
               </div>
                 <div class="col-md-11">
-
+                    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11831,8 +11831,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">rand_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">returns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rand_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ABC&quot;</span><span class="p">),</span>
-                       <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2016-12-01 08:30:00&quot;</span><span class="p">,</span>
+<span class="n">returns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rand_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ABC&quot;</span><span class="p">),</span> 
+                       <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2016-12-01 08:30:00&quot;</span><span class="p">,</span> 
                                            <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;1s&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
 
 <span class="n">prices</span> <span class="o">=</span> <span class="n">returns</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span> <span class="o">+</span> <span class="mi">100</span>
@@ -11879,7 +11879,7 @@ div#notebook {
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;A Time Series Chart&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
 </pre></div>
 
 </div>
