@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1., user-scalable=no, target-densityDpi=device-dpi" />
     <title>About Me</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
@@ -17,7 +16,12 @@
           </div>
           <div id="nav-header-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a href="about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">ABOUT</span></a></li>
+              <li>
+                <a href="about.html">
+                  <span class="fa fa-user">&nbsp;</span>
+                  <span class="capitalized">ABOUT</span>
+                </a>
+              </li>
               <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="blog.html"><span class="fa fa-book">&nbsp;</span><span class="capitalized">BLOG</span>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -27,7 +31,7 @@
                   <li><a href="#">Programming</a></li>
                   <li><a href="#">Quantitative Trading</a></li>
                 </ul>
-              </a></li>
+              </li>
               <li><a href="resources.html"><span class="fa fa-external-link">&nbsp;</span><span class="capitalized">RESOURCES</span></a></li>
               <li><a href="archive.html"><span class="fa fa-folder">&nbsp;</span><span class="capitalized">ARCHIVE</span></a></li>
             </ul>
@@ -38,34 +42,29 @@
     <div class="section section-primary">
       <div class="container">
         <div class="row">
-          <div class="col-md-2"><img src="../assets/images/profile.jpg" class="img-responsive"></div>
+          <div class="col-md-2">
+            <img src="../assets/images/profile.jpg" class="img-responsive" alt="profile-picture-small">
+          </div>
           <div class="col-md-10">
             <h4>Kapil Sharma</h4>
             <h5 class="page-header">Math Geek, Programmer, Trader, Musician</h5>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-secondary">
-                 <a href="https://www.linkedin.com/in/kapil-sharma-frm-90094015">
-                   <span class="fa fa-2x fa-fw fa-linkedin">
-                   </span>
-                 </a>
-               </button>
-              <button type="button" class="btn btn-secondary">
-                <a href="https://github.com/kapilsh">
-                  <span class="fa fa-2x fa-fw fa-github">
-                  </span>
-                </a></button>
-              <button type="button" class="btn btn-secondary">
-                <a href="https://twitter.com/kapilthequant">
-                  <span class="fa fa-2x fa-fw fa-twitter">
-                  </span>
+              <a role="button" class="btn btn-secondary" href="https://www.linkedin.com/in/kapil-sharma-frm-90094015">
+                <span class="fa fa-2x fa-fw fa-linkedin">
+                </span>
+               </a>
+              <a role="button" class="btn btn-secondary" href="https://github.com/kapilsh">
+                <span class="fa fa-2x fa-fw fa-github">
+                </span>
                 </a>
-              </button>
-              <button type="button" class="btn btn-secondary">
-                <a href="mailto:sharmakapil8@gmail.com">
-                  <span class="fa fa-2x fa-fw fa-envelope">
-                  </span>
-                </a>
-              </button>
+              <a role="button" class="btn btn-secondary" href="https://twitter.com/kapilthequant">
+                <span class="fa fa-2x fa-fw fa-twitter">
+                </span>
+              </a>
+              <a role="button" class="btn btn-secondary" href="mailto:sharmakapil8@gmail.com">
+                <span class="fa fa-2x fa-fw fa-envelope">
+                </span>
+              </a>
             </div>
           </div>
         </div>
