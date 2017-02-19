@@ -17,8 +17,9 @@
           </div>
           <div id="nav-header-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a href="../html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">ABOUT</span></a></li>
-              <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="../html/blog.html"><span class="fa fa-book">&nbsp;</span><span class="capitalized">BLOG</span>
+              <li><a href="../index.html"><span class="fa fa-home">&nbsp;</span><span class="capitalized">HOME</span></a></li>
+              <li><a href="html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">ABOUT</span></a></li>
+              <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="html/blog.html"><span class="fa fa-book">&nbsp;</span><span class="capitalized">BLOG</span>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="../html/blog.html">All</a></li>
@@ -29,7 +30,6 @@
                 </ul>
               </li>
               <li><a href="../html/resources.html"><span class="fa fa-external-link">&nbsp;</span><span class="capitalized">RESOURCES</span></a></li>
-              <li><a href="../html/archive.html"><span class="fa fa-folder">&nbsp;</span><span class="capitalized">ARCHIVE</span></a></li>
             </ul>
           </div>
         </nav>
@@ -37,52 +37,52 @@
     </div>
     <div class="section section-primary">
       <div class="container">
-        <ul class="timeline">
-          <li>
-            <div class="timeline-badge blog-entry"><i class="fa fa-1x fa-fw fa-tag"></i></div>
-            <div class="timeline-panel panel panel-default">
-              <div class="timeline-heading panel-heading">
-                <div class="timeline-title">
-                  <a href="../articles/mplstyle-tutorial.html">
+        <div class="row">
+          <div class="col-md-4 thumbnail random-img">
+            <img src="../assets/images/bp1.png" alt="...">
+          </div>
+          <div class="col-md-4 thumbnail random-img">
+            <img src="../assets/images/bp2.png" alt="...">
+          </div>
+          <div class="col-md-4 thumbnail random-img">
+            <img src="../assets/images/bp3.png" alt="...">
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+              <div class="thumbnail">
+                <a href="../articles/mplstyle-tutorial.html">
+                  <img class="img-responsive" src="../assets/images/mt1.png" alt="mplstyle tutorial">
+                </a>
+                <div class="caption">
+                  <h4>
                     Customizing matplotlib plots using stylesheets
-                  </a>
-                </div>
-              </div>
-              <hr>
-              <div class="panel-body">
-                <h6 class="timeline-title text-muted">
-                  <i class="fa fa-1x fa-fw fa-calendar">
-                  </i>&nbsp;February 14, 2017</h6>
+                  </h4>
+                  <h6 class="text-muted">
+                      <i class="fa fa-1x fa-fw fa-calendar">
+                      </i>&nbsp;February 14, 2017
+                    </h6>
                     <p>
                       One of my favorite libraries in Python is matplotlib.
                       In spite of many options that Python programmers have,
                       I still find the simplicity and rawness of matplotlib. great to work with.
-                      <a href="../articles/mplstyle-tutorial.html">more</a>
                     </p>
-                    <img class="img-responsive" src="../assets/images/mt1.png" alt="mplstyle tutorial">
+                    <p>
+                      <a href="../articles/mplstyle-tutorial.html" class="btn btn-primary" role="button">More</a>
+                    </p>
                 </div>
               </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-badge blog-entry"><i class="fa fa-1x fa-fw fa-tag"></i></div>
-              <div class="timeline-panel panel panel-default">
-                <div class="timeline-heading panel-heading">
-                  <div class="timeline-title"><a href="../index.html">First Cut</a>
-                  </div>
-                </div>
-                <hr>
-                <div class="panel-body">
-                  <h6 class="timeline-title text-muted">
-                    <i class="fa fa-1x fa-fw fa-calendar">
-                    </i>&nbsp;February 12, 2017</h6>
-                      <p>
-                        Updated the front-page and CV. More Coming Soon...
-                      </p>
-                  </div>
-                </div>
-              </li>
+          </div>
+          <div class="col-md-12">
+            <hr>
+            <ul class="pagination">
+              <li class="active"><a href="../html/blog.html">1</a></li>
+              <li><a href="../html/blog.html">2</a></li>
             </ul>
           </div>
+        </div>
+      </div>
     </div>
     <footer class="section section-primary">
       <div class="container">

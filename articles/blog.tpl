@@ -69,8 +69,9 @@ div#notebook {
           </div>
           <div id="nav-header-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a href="../html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">ABOUT</span></a></li>
-              <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="../html/blog.html"><span class="fa fa-book">&nbsp;</span><span class="capitalized">BLOG</span>
+              <li><a href="../index.html"><span class="fa fa-home">&nbsp;</span><span class="capitalized">HOME</span></a></li>
+              <li><a href="html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">ABOUT</span></a></li>
+              <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="html/blog.html"><span class="fa fa-book">&nbsp;</span><span class="capitalized">BLOG</span>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="../html/blog.html">All</a></li>
@@ -81,7 +82,6 @@ div#notebook {
                 </ul>
               </li>
               <li><a href="../html/resources.html"><span class="fa fa-external-link">&nbsp;</span><span class="capitalized">RESOURCES</span></a></li>
-              <li><a href="../html/archive.html"><span class="fa fa-folder">&nbsp;</span><span class="capitalized">ARCHIVE</span></a></li>
             </ul>
           </div>
         </nav>
