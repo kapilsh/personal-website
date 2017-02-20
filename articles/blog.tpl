@@ -10,43 +10,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-{% for css in resources.inlining.css -%}
-    <style type="text/css">
-    {{ css }}
-    </style>
-{% endfor %}
-
-<style type="text/css">
-/* Overrides of notebook CSS for static HTML export */
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}
-
-#notebook-container {
-  box-shadow: none !important;
-}
-
-@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  }
-  div.output_wrapper {
-    display: block;
-    page-break-inside: avoid;
-  }
-  div.output {
-    display: block;
-    page-break-inside: avoid;
-  }
-}
-</style>
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="../assets/css/styles.min.css"/>
+<link rel="stylesheet" href="../assets/css/pygments.css"/>
 
 {%- endblock html_head -%}
 {%- endblock header -%}
@@ -124,7 +91,9 @@ div#notebook {
       </div>
     </footer>
     <script>
-    $('h1').addClass("page-header")
+    $('h1').addClass("page-header");
+    $(".input_prompt,.output_prompt").remove();
+    $('table.dataframe').addClass('table').addClass('table-striped').addClass('table-hover');
     </script>
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
