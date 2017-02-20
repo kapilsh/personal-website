@@ -393,7 +393,7 @@ xo8fn8bGxtx///1VnAzYHHlXIwBAIa54AQAUIrwAAAoRXgAAhQgvAIBChBcAQCHCCwCgEOEFAFCI
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">X</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+<span class="n">beta</span>
 </pre></div>
 
 </div>
@@ -404,11 +404,13 @@ xo8fn8bGxtx///1VnAzYHHlXIwBAIa54AQAUIrwAAAoRXgAAhQgvAIBChBcAQCHCCwCgEOEFAFCI
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[ 0.16666667  1.5       ]
-</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 0.16666667,  1.5       ])</pre>
 </div>
+
 </div>
 
 </div>
@@ -732,7 +734,7 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_hat</span>
-<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="n">res</span>
 </pre></div>
 
 </div>
@@ -743,11 +745,13 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[ 0.33333333 -0.66666667  0.33333333]
-</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 0.33333333, -0.66666667,  0.33333333])</pre>
 </div>
+
 </div>
 
 </div>
@@ -771,7 +775,7 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">y_bar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">y_bar</span><span class="p">)</span>
+<span class="n">y_bar</span>
 </pre></div>
 
 </div>
@@ -782,11 +786,13 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[ 3.16666667  3.16666667  3.16666667]
-</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 3.16666667,  3.16666667,  3.16666667])</pre>
 </div>
+
 </div>
 
 </div>
@@ -800,7 +806,7 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_bar</span>
-<span class="k">print</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+<span class="n">base</span>
 </pre></div>
 
 </div>
@@ -811,11 +817,13 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[ -1.50000000e+00   1.33226763e-15   1.50000000e+00]
-</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ -1.50000000e+00,   1.33226763e-15,   1.50000000e+00])</pre>
 </div>
+
 </div>
 
 </div>
@@ -829,7 +837,7 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">dot_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dot_product</span><span class="p">)</span>
+<span class="n">dot_product</span>
 </pre></div>
 
 </div>
@@ -840,11 +848,13 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.0
-</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0</pre>
 </div>
+
 </div>
 
 </div>
@@ -868,7 +878,7 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">hyp</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_bar</span>
-<span class="k">print</span><span class="p">(</span><span class="n">hyp</span><span class="p">)</span>
+<span class="n">hyp</span>
 </pre></div>
 
 </div>
@@ -879,11 +889,13 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[-1.16666667 -0.66666667  1.83333333]
-</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([-1.16666667, -0.66666667,  1.83333333])</pre>
 </div>
+
 </div>
 
 </div>
@@ -906,7 +918,7 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">hyp</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">base</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">res</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">hyp</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">base</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">res</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -917,11 +929,13 @@ AAAATELxAgAAMAnFCwAAwCT/DzRIWO4blTyCAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>3.33066907388e-16
-</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3.3306690738754696e-16</pre>
 </div>
+
 </div>
 
 </div>
