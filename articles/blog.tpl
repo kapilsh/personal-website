@@ -105,3 +105,8 @@
     ga('send', 'pageview');
     </script>
 {%- endblock body %}
+
+{% block in_prompt -%}
+<div class="prompt input_prompt">
+</div>
+{%- endblock in_prompt %}

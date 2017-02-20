@@ -78,7 +78,8 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -93,7 +94,8 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
@@ -108,7 +110,8 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">,</span> <span class="s2">&quot;FB&quot;</span><span class="p">,</span> <span class="s2">&quot;TWTR&quot;</span><span class="p">,</span> <span class="s2">&quot;^GSPC&quot;</span><span class="p">,</span> <span class="s2">&quot;^DJI&quot;</span><span class="p">]</span>
@@ -121,7 +124,8 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;20160101&quot;</span>
@@ -135,7 +139,8 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pdd</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
@@ -148,7 +153,8 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">output_notebook</span><span class="p">(</span><span class="n">hide_banner</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -174,10 +180,10 @@
 
 
 
-<div id="c760593b-ed11-43b8-a088-0e6ac13b27c9"></div>
+<div id="72a47fad-ce02-4fa8-bb9e-a78f86f6b716"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
+var element = $('#72a47fad-ce02-4fa8-bb9e-a78f86f6b716');
 
 (function(global) {
   function now() {
@@ -321,7 +327,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">spx_dji</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;DJI&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="s2">&quot;^DJI&quot;</span><span class="p">][</span><span class="s2">&quot;Adj Close&quot;</span><span class="p">],</span> <span class="s2">&quot;SPX&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="s2">&quot;^GSPC&quot;</span><span class="p">][</span><span class="s2">&quot;Adj Close&quot;</span><span class="p">]})</span>
@@ -334,7 +341,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">returns</span> <span class="o">=</span> <span class="n">spx_dji</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -347,7 +355,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.charts</span> <span class="kn">import</span> <span class="n">Scatter</span>
@@ -519,7 +528,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">volumes</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Volume&quot;</span><span class="p">,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">,</span> <span class="s2">&quot;FB&quot;</span><span class="p">]]</span>
@@ -532,7 +542,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">returns</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Adj Close&quot;</span><span class="p">,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">,</span> <span class="s2">&quot;FB&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
@@ -545,7 +556,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">volumes</span> <span class="o">=</span> <span class="n">volumes</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -562,7 +574,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">vr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">volumes</span><span class="p">,</span> <span class="n">returns</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -575,7 +588,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Volume vs Returns&quot;</span><span class="p">)</span>
@@ -769,7 +783,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.charts</span> <span class="kn">import</span> <span class="n">Histogram</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
@@ -950,7 +965,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">big_tech</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Close&quot;</span><span class="p">,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">]]</span>
@@ -963,7 +979,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.charts</span> <span class="kn">import</span> <span class="n">Line</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_file</span>
@@ -1144,7 +1161,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">selected</span> <span class="o">=</span> <span class="s2">&quot;^DJI&quot;</span>
@@ -1165,7 +1183,8 @@ var element = $('#c760593b-ed11-43b8-a088-0e6ac13b27c9');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">TOOLS</span> <span class="o">=</span> <span class="s2">&quot;pan,wheel_zoom,box_zoom,reset,save&quot;</span>
