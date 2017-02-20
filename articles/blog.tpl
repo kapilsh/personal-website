@@ -104,7 +104,7 @@
     ga('create', 'UA-92270634-1', 'auto');
     ga('send', 'pageview');
     </script>
-    <script type="text/javascript" src="assets/js/animation.js"></script>
+    <script type="text/javascript" src="../assets/js/animation.js"></script>
 {%- endblock body %}
 
 {% block in_prompt -%}
