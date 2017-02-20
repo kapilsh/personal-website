@@ -89,6 +89,30 @@
               </div>
                 <div class="col-md-11">
                     {{ super() }}
+                    <hr>
+                      <img src="../assets/images/profile.jpg" class="img-responsive blog-end-image" alt="profile-picture">
+                      <h6>
+                        Kapil Sharma
+                      </h6>
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <a role="button" class="btn btn-secondary" href="https://www.linkedin.com/in/kapil-sharma-frm-90094015">
+                          <span class="fa fa-1x fa-fw fa-linkedin">
+                          </span>
+                         </a>
+                        <a role="button" class="btn btn-secondary" href="https://github.com/kapilsh">
+                          <span class="fa fa-1x fa-fw fa-github">
+                          </span>
+                          </a>
+                        <a role="button" class="btn btn-secondary" href="https://twitter.com/kapilthequant">
+                          <span class="fa fa-1x fa-fw fa-twitter">
+                          </span>
+                        </a>
+                        <a role="button" class="btn btn-secondary" href="mailto:sharmakapil8@gmail.com">
+                          <span class="fa fa-1x fa-fw fa-envelope">
+                          </span>
+                        </a>
+                      </div>
+                    <hr>
                 </div>
             </div>
         </div>
