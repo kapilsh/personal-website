@@ -1,2 +1,3 @@
-# kapilsh.github.io
-My Personal Github Pages Website
+This is code for my personal static website.
+
+Visit [www.kapil-sharma.com](http://www.kapil-sharma.com/)
