@@ -37,7 +37,7 @@
           <div id="nav-header-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li><a href="../index.html"><span class="fa fa-home">&nbsp;</span><span class="capitalized">HOME</span></a></li>
-              <li><a href="html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">ABOUT</span></a></li>
+              <li><a href="../html/about.html"><span class="fa fa-user">&nbsp;</span><span class="capitalized">ABOUT</span></a></li>
               <li class="dropdown"><a class="dropdown-toggle"  data-toggle="dropdown" href="html/blog.html"><span class="fa fa-book">&nbsp;</span><span class="capitalized">BLOG</span>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
