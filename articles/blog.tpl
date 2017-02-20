@@ -90,7 +90,6 @@
                 <div class="col-md-11">
                     {{ super() }}
                     <hr>
-                      <img src="../assets/images/profile.jpg" class="img-responsive blog-end-image" alt="profile-picture">
                       <h6>
                         Kapil Sharma
                       </h6>
