@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    {% include header.html %}
+    <div class="container section section-primary">
+      {{ content }}
+      <div class="row">
+        <hr>
+      </div>
+      {% include miniarticles.html %}
+    </div>
+    {% include footer.html %}
+    {% include scripts.html %}
+    {% include google.html %}
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+    <script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    {% include header.html %}
+    <div class="container section section-primary">
+      <div class="row">
+        <div class="col-md-1">
+          <a href="https://twitter.com/share"
+          class="twitter-share-button"
+          data-text="Kapil Sharma Blog Post"
+          data-via="kapilthequant"
+          data-show-count="true">
+          </a>
+          <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+          </script>
+        </div>
+        <div class="col-md-1">
+          <div class="fb-share-button"
+          data-href="https://developers.facebook.com/docs/plugins/"
+          data-layout="button" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"></a>
+          </div>
+        </div>
+          <div class="col-md-1">
+            <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+            <script type="IN/Share" data-counter="right"></script>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+              {{ content }}
+              <hr>
+          </div>
+        </div>
+      <div class="row">
+        <hr>
+      </div>
+      {% include miniarticles.html %}
+    </div>
+    {% include footer.html %}
+    {% include scripts.html %}
+    {% include google.html %}
+  </body>
+</html>

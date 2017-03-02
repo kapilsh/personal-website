@@ -1,0 +1,23 @@
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "README.md"
+  - "LICENSE.md"
+  - "*.gemspec"
+  - .gitignore
+
+gems:
+  - jekyll-assets
+
+title: "{ K:S } | Kapil Sharma"
+description: I am a Chicago-based Quantitative Researcher and Data Scientist working in the High Frequency Trading industry.
+brand: "{K:S}"
+my_name: Kapil Sharma
+headline: Math Geek, Programmer, Trader, Musician
+copyright: 2017 &copy; Copyright Kapil Sharma
+email: sharmakapil8@gmail.com
+twitter: kapilthequant
+github: kapilsh
+linkedin: kapil-sharma-frm-90094015
+
+markdown: kramdown
