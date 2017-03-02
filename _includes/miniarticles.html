@@ -1,0 +1,28 @@
+<div class="row">
+  {% for post in site.posts limit:4 %}
+  <div class="col-md-6">
+      <div class="thumbnail">
+        <a href="{{ post.url }}">
+          <img class="img-responsive" src="{{ post.image }}" alt="">
+        </a>
+        <div class="caption">
+          <h4>
+            {{ post.title }}
+          </h4>
+          <h6 class="text-muted">
+              <i class="fa fa-1x fa-fw fa-calendar">
+              </i>&nbsp;{{ post.date | date: "%B %d, %Y" }}
+            </h6>
+            <p>
+              {{ post.excerpt }}
+            </p>
+            <p>
+              <a href="{{ post.url }}" class="btn btn-primary" role="button">
+                More
+              </a>
+            </p>
+        </div>
+      </div>
+  </div>
+  {% endfor %}
+</div>
