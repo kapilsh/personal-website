@@ -1,28 +1,33 @@
 <div class="row">
-  {% for post in site.posts limit:4 %}
-  <div class="col-md-6">
-      <div class="thumbnail">
-        <a href="{{ post.url }}">
-          <img class="img-responsive" src="{{ post.image }}" alt="">
-        </a>
-        <div class="caption">
-          <h4>
-            {{ post.title }}
-          </h4>
-          <h6 class="text-muted">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">Recent Articles</h4>
+      </div>
+      <ul class="list-group">
+        {% for post in site.posts limit:4 %}
+          <li class="list-group-item">
+            <a href="{{ post.url }}">
+              {{ post.title }}
+            </a>
+            &nbsp;
+            <span class="text-muted">
               <i class="fa fa-1x fa-fw fa-calendar">
               </i>&nbsp;{{ post.date | date: "%B %d, %Y" }}
-            </h6>
+            </span>
             <p>
               {{ post.excerpt }}
             </p>
-            <p>
-              <a href="{{ post.url }}" class="btn btn-primary" role="button">
-                More
-              </a>
-            </p>
-        </div>
-      </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
-  {% endfor %}
+  <div class="col-md-2">
+  </div>
+</div>
+<div class="row">
+  <hr>
 </div>
