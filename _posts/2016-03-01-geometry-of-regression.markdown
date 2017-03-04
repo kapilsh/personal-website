@@ -68,16 +68,16 @@ X = np.append(np.ones(len(x)), x).reshape(2, 3).T
 X
 ```
 
-array([[ 1.,  1.],
-       [ 1.,  2.],
-       [ 1.,  3.]])
+    array([[ 1.,  1.],
+           [ 1.,  2.],
+           [ 1.,  3.]])
 
 ```python
 beta = np.matmul(np.linalg.inv(np.matmul(X.transpose(), X)), np.matmul(X.transpose(), y).T)
 beta
 ```
 
-array([ 0.16666667,  1.5       ])
+    array([ 0.16666667,  1.5       ])
 
 ```python
 b_0 = beta[0]
@@ -112,7 +112,7 @@ plt.show()
 res = y - y_hat
 res
 ```
-array([ 0.33333333, -0.66666667,  0.33333333])
+    array([ 0.33333333, -0.66666667,  0.33333333])
 
 Now the average vector $\bar y$
 
@@ -122,21 +122,21 @@ y_bar = np.mean(y) * np.ones(len(y))
 y_bar
 ```
 
-array([ 3.16666667,  3.16666667,  3.16666667])
+    array([ 3.16666667,  3.16666667,  3.16666667])
 
 ```python
 base = y_hat - y_bar
 base
 ```
 
-array([ -1.50000000e+00,   1.33226763e-15,   1.50000000e+00])
+    array([ -1.50000000e+00,   1.33226763e-15,   1.50000000e+00])
 
 ```python
 dot_product = np.dot(base, res)
 dot_product
 ```
 
-0.0
+    0.0
 
 Hence, we see that dot product between residual $\epsilon$ and $\hat y - \bar y$ equals $0$
 
@@ -145,7 +145,7 @@ hyp = y - y_bar
 hyp
 ```
 
-array([-1.16666667, -0.66666667,  1.83333333])
+    array([-1.16666667, -0.66666667,  1.83333333])
 
 Let's check the `Pythagoras Theorem`
 
@@ -154,7 +154,7 @@ Let's check the `Pythagoras Theorem`
 np.power(np.linalg.norm(hyp), 2) - np.power(np.linalg.norm(base), 2) - np.power(np.linalg.norm(res), 2)
 ```
 
-3.3306690738754696e-16
+    3.3306690738754696e-16
 
 which is practically $0$
 

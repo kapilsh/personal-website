@@ -18,7 +18,13 @@
               </i>&nbsp;{{ post.date | date: "%B %d, %Y" }}
             </span>
             <p>
-              {{ post.excerpt }}
+              {{ post.excerpt }}        
+              <a href="{{ post.url }}">
+                <span class="label label-primary">
+                  <i class="fa fa-1x fa-fw fa-link">
+                  </i>
+                  More
+              </span></a>
             </p>
             <p>
               {% for tag in post.tags %}

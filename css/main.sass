@@ -357,9 +357,6 @@ p.well-spaced
 .col-md-12 .thumbnail a img.img-responsive
   max-height: 450px
 
-pre.highlight
-  background-color: #272822
-
 table
   margin: 10px
 
@@ -376,12 +373,20 @@ pre
   border-left: 4px solid $color-secondary-1-2
   border-radius: 0
 
-.language-python p
-  position: relative
-  border: 1px solid $color-secondary-1-2
-  border-left: 4px solid $color-secondary-1-2
-  border-radius: 0
-  padding: 15px
+.highlighter-rouge
+  pre.highlight
+    background-color: $color-primary-1
+    color: $color-primary-4
+
+.language-python.highlighter-rouge
+    pre.highlight
+      background-color: #272822
+    p
+      position: relative
+      border: 1px solid $color-secondary-1-2
+      border-left: 4px solid $color-secondary-1-2
+      border-radius: 0
+      padding: 15px
 
 pre, code
   word-wrap: break-word
@@ -402,7 +407,7 @@ img
   h6
     color: $color-secondary-1-2
   p
-    line-height: 200%
+    line-height: 150%
   a.btn.btn-primary
     background-color: $color-primary-2
     color: $color-primary-4
@@ -428,18 +433,13 @@ img.img-background
   opacity: 0.3
   border-radius: 0
 
-.carousel-inner
-  padding: 0
-  margin: 0
-  .item
-    padding: 0
-    margin: 0
-    img
-      padding: 0
-      margin: 0
-
 .carousel-caption
+  display: table-cell
+  vertical-align: middle
   h3
+    padding: 0
+    margin-top: 5px
+    margin-bottom: 0px
     color: $color-primary-4
 
 .list-group-item
@@ -449,3 +449,7 @@ img.img-background
   a:hover
     color: $color-primary-4
     font-weight: 900
+
+.label-primary
+  background-color: $color-primary-4
+  color: #FFFFFF
