@@ -32,9 +32,6 @@ title: Articles
                   </i>&nbsp;{{ post.date | date: "%B %d, %Y" }}
                 </h6>
                 <p>
-                  {{ post.excerpt }}
-                </p>
-                <p>
                   {% for tag in post.tags %}
                     <span class="label label-tag">
                       <i class="fa fa-1x fa-fw fa-tags">
@@ -42,6 +39,10 @@ title: Articles
                       {{ tag }}
                     </span>
                   {% endfor %}
+                </p>
+                <p>
+                  {{ post.excerpt }}
+                  <a href="{{ post.url }}" class="btn btn-primary" role="button">Read More</a>
                 </p>
               </div>
             </div>

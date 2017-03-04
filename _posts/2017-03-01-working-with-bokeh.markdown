@@ -7,6 +7,9 @@ tags:
     - bokeh
 image: /images/wwb.png
 ---
+
+[Bokeh](http://bokeh.pydata.org/en/latest/) is an excellent python for interactive visualization in the web. I have been in the process of adopting it as my primary python plotting library. My favorite feature is creating dashboards using bokeh server. [Here are a few examples](http://bokeh.pydata.org/en/latest/docs/gallery.html). I will go through a few of the plotting features of `bokeh` in this post.
+
 <pre class="highlight"><code class="syntax"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="kn">as</span> <span class="nn">pdd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
