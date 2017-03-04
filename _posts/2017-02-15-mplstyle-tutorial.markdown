@@ -2,7 +2,9 @@
 layout: post
 title:  "Tutorial introduction to mplstyle stylesheets"
 date:   2017-02-15 08:00:00
-tags: python matplotlib
+tags:
+    - python
+    - matplotlib
 image: /images/mt1.png
 ---
 

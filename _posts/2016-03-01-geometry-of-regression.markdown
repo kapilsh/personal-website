@@ -2,7 +2,9 @@
 layout: post
 title:  "Geometry of Regression"
 date:   2017-03-01 22:00:00
-tags: python ML
+tags:
+    - python
+    - machinelearning
 image: /ipynb/geometric-representation-of-regression_files/regression.png
 ---
 

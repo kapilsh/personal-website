@@ -20,6 +20,15 @@
             <p>
               {{ post.excerpt }}
             </p>
+            <p>
+              {% for tag in post.tags %}
+                <span class="label label-tag">
+                  <i class="fa fa-1x fa-fw fa-tags">
+                  </i>
+                  {{ tag }}
+                </span>
+              {% endfor %}
+            </p>
           </li>
         {% endfor %}
       </ul>

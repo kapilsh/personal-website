@@ -2,7 +2,9 @@
 layout: post
 title:  "Working with bokeh plotting library"
 date:   2017-03-01 08:00:00
-tags: python bokeh
+tags:
+    - python
+    - bokeh
 image: /images/wwb.png
 ---
 <pre class="highlight"><code class="syntax"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
