@@ -59,8 +59,16 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-              {{ content }}
-              <hr>
+            <p>
+              {% for tag in page.tags %}
+                <span class="label label-tag">
+                  <i class="fa fa-1x fa-fw fa-tags">
+                  </i>
+                  {{ tag }}
+                </span>
+              {% endfor %}
+            </p>
+            {{ content }}
           </div>
         </div>
       <div class="row">
