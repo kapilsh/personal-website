@@ -6,28 +6,35 @@ tags:
     - python
     - bokeh
 image: /images/wwb.png
+comments: true
 ---
 
 [Bokeh](http://bokeh.pydata.org/en/latest/) is an excellent python for interactive visualization in the web. I have been in the process of adopting it as my primary python plotting library. My favorite feature is creating dashboards using bokeh server. [Here are a few examples](http://bokeh.pydata.org/en/latest/docs/gallery.html). I will go through a few of the plotting features of `bokeh` in this post.
 
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="kn">as</span> <span class="nn">pdd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-</code></pre>
+</code></pre></div>
 
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
 
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_notebook</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">,</span> <span class="s2">&quot;FB&quot;</span><span class="p">,</span> <span class="s2">&quot;TWTR&quot;</span><span class="p">,</span> <span class="s2">&quot;^GSPC&quot;</span><span class="p">,</span> <span class="s2">&quot;^DJI&quot;</span><span class="p">]</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;20160101&quot;</span>
 <span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;20161231&quot;</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">data</span> <span class="o">=</span> <span class="n">pdd</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">output_notebook</span><span class="p">(</span><span class="n">hide_banner</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</code></pre>
+</code></pre></div>
 
 <div id="01f2912b-82c7-4185-92d4-94036514c668"></div>
 <div class="output_subarea output_javascript ">
@@ -162,17 +169,20 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
 <h2 id="Scatter-Chart">Scatter Chart<a class="anchor-link" href="#Scatter-Chart">&#182;</a></h2>
 </div>
 
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">spx_dji</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;DJI&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="s2">&quot;^DJI&quot;</span><span class="p">][</span><span class="s2">&quot;Adj Close&quot;</span><span class="p">],</span> <span class="s2">&quot;SPX&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="s2">&quot;^GSPC&quot;</span><span class="p">][</span><span class="s2">&quot;Adj Close&quot;</span><span class="p">]})</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">returns</span> <span class="o">=</span> <span class="n">spx_dji</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="kn">from</span> <span class="nn">bokeh.charts</span> <span class="kn">import</span> <span class="n">Scatter</span>
 
 <span class="n">scatter</span> <span class="o">=</span> <span class="n">Scatter</span><span class="p">(</span><span class="n">returns</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SPX&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;DJI&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SPX vs DJI&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#539A9A&quot;</span><span class="p">,</span>
                   <span class="n">plot_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 
 <span class="n">show</span><span class="p">(</span><span class="n">scatter</span><span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <div class="bk-root">
     <div class="bk-plotdiv" id="e322e92b-35a1-447b-829d-3254877680cf"></div>
 </div>
@@ -312,19 +322,24 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
     }
   }(this));
 </script>
-</div>
+
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">volumes</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Volume&quot;</span><span class="p">,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">,</span> <span class="s2">&quot;FB&quot;</span><span class="p">]]</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">returns</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Adj Close&quot;</span><span class="p">,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">,</span> <span class="s2">&quot;FB&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">volumes</span> <span class="o">=</span> <span class="n">volumes</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">volumes</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="s2">&quot;Ticker&quot;</span><span class="p">,</span> <span class="s2">&quot;Volume&quot;</span><span class="p">]</span>
 
 <span class="n">returns</span> <span class="o">=</span> <span class="n">returns</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">returns</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="s2">&quot;Ticker&quot;</span><span class="p">,</span> <span class="s2">&quot;Returns&quot;</span><span class="p">]</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">vr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">volumes</span><span class="p">,</span> <span class="n">returns</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Volume vs Returns&quot;</span><span class="p">,</span>
            <span class="n">plot_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 
@@ -335,7 +350,7 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
          <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#FFAEAE&quot;</span><span class="p">,</span> <span class="s2">&quot;#84C2C2&quot;</span><span class="p">,</span> <span class="s2">&quot;#DBF5A7&quot;</span><span class="p">,</span> <span class="s2">&quot;#338181&quot;</span><span class="p">],</span> <span class="n">fill_alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <div class="bk-root">
     <div class="bk-plotdiv" id="bf31c9f2-2a1d-4e8f-b7a1-c6248e6200c3"></div>
 </div>
@@ -477,6 +492,7 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
 </script>
 <h2 id="Histogram">Histogram<a class="anchor-link" href="#Histogram">&#182;</a></h2>
 
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="kn">from</span> <span class="nn">bokeh.charts</span> <span class="kn">import</span> <span class="n">Histogram</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
 
 <span class="n">hist</span> <span class="o">=</span> <span class="n">Histogram</span><span class="p">(</span><span class="n">returns</span><span class="p">[</span><span class="n">returns</span><span class="o">.</span><span class="n">Ticker</span> <span class="o">==</span> <span class="s2">&quot;AMZN&quot;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Returns&quot;</span><span class="p">,</span>
@@ -484,7 +500,7 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
                  <span class="n">plot_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 
 <span class="n">show</span><span class="p">(</span><span class="n">hist</span><span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <div class="bk-root">
     <div class="bk-plotdiv" id="51615809-a7fa-4bf5-ab19-a9db06726ba0"></div>
 </div>
@@ -625,15 +641,17 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
   }(this));
 </script>
 <h2 id="Line">Line<a class="anchor-link" href="#Line">&#182;</a></h2>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">big_tech</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Close&quot;</span><span class="p">,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">]]</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="kn">from</span> <span class="nn">bokeh.charts</span> <span class="kn">import</span> <span class="n">Line</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_file</span>
 
 <span class="n">line</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">big_tech</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Price&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#539A9A&#39;</span><span class="p">,</span> <span class="s1">&#39;#D75555&#39;</span><span class="p">],</span>
             <span class="n">plot_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 
 <span class="n">show</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <div class="bk-root">
     <div class="bk-plotdiv" id="e02ee6d8-541e-46f4-b59a-e6bb47be156e"></div>
 </div>
@@ -774,6 +792,7 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
   }(this));
 </script>
 <h2 id="Candlestick">Candlestick<a class="anchor-link" href="#Candlestick">&#182;</a></h2>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">selected</span> <span class="o">=</span> <span class="s2">&quot;^DJI&quot;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">selected</span><span class="p">]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -783,7 +802,8 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
 <span class="n">dec</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Open</span> <span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">Close</span>
 <span class="n">w</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">1000</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
-</code></pre>
+</code></pre></div>
+<div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">TOOLS</span> <span class="o">=</span> <span class="s2">&quot;pan,wheel_zoom,box_zoom,reset,save&quot;</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">x_axis_type</span><span class="o">=</span><span class="s2">&quot;datetime&quot;</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="n">TOOLS</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">selected</span><span class="p">,</span>
@@ -796,7 +816,7 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
 <span class="n">p</span><span class="o">.</span><span class="n">vbar</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">[</span><span class="n">dec</span><span class="p">],</span> <span class="n">w</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">Open</span><span class="p">[</span><span class="n">dec</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">Close</span><span class="p">[</span><span class="n">dec</span><span class="p">],</span> <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#D75555&quot;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <div class="bk-root">
     <div class="bk-plotdiv" id="a1de79f2-b65b-47c7-a6bb-671b20274205"></div>
 </div>

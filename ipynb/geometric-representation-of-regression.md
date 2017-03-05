@@ -1,22 +1,15 @@
----
-layout: post
-title:  "Geometry of Regression"
-date:   2017-03-01 22:00:00
-tags:
-    - python
-    - machinelearning
-    - sympy
-image: /ipynb/geometric-representation-of-regression_files/regression.png
-comments: true
----
 
-A picture is worth a thousand words. [This post](http://stats.stackexchange.com/questions/123651/geometric-interpretation-of-multiple-correlation-coefficient-r-and-coefficient) on Stack Exchange gives a great description of the graphic and geometric representation of [Linear Regression](https://en.wikipedia.org/wiki/Linear_regression) problems. Let's see this in action using some simple examples.
+# Geometric Representation of Regression
 
-The below graphic, which appeared in the original stack-exchange post, captures the essence of Linear Regression very aptly.
+A picture is worth a thousand words. [This post](http://stats.stackexchange.com/questions/123651/geometric-interpretation-of-multiple-correlation-coefficient-r-and-coefficient) on Stack Exchange gives a great description of the graphic and geometric representation of [Linear Regression](https://en.wikipedia.org/wiki/Linear_regression) problems.
 
-![Regression Picture](/ipynb/geometric-representation-of-regression_files/regression.png)
+The below graphic captures the essence of Linear Regression very aptly.
+
+![Regression Picture](./regression.png)
 
 Source: [Stack Exchange](http://stats.stackexchange.com/questions/123651/geometric-interpretation-of-multiple-correlation-coefficient-r-and-coefficient)
+
+Let's see this in action using some simple $\mathbf{X}$ and $y$ examples.
 
 
 ```python
@@ -75,7 +68,7 @@ plt.show()
 ```
 
 
-![png](/ipynb/geometric-representation-of-regression_files/geometric-representation-of-regression_9_0.png)
+![png](geometric-representation-of-regression_files/geometric-representation-of-regression_9_0.png)
 
 
 ## Regression Coefficients
@@ -86,7 +79,7 @@ Linear regression coefficients $\beta$ are given by:
 \beta = (\mathbf{X^\intercal} \mathbf{X})^{-1} \mathbf{X^\intercal} y
 \end{equation}
 
-The geometrical meaning of the regression fit is the projection of $y$ on $\mathbf{span(1, X)}$. Regression coefficients represent the factors that make a linear combination of $\mathbb{1}$ and $\mathbf{X}$.
+The geometrical meaning of the regression fit is the projection of $y$ on $\mathbf{span(1, X)}$. Regression coefficients represents the factors that make a linear combination of $\mathbb{1}$ and $\mathbf{X}$.
 
 Let's calculate $\mathbf{\beta}$ for $\mathbf{X}$ and $y$ we defined above.
 
@@ -137,7 +130,7 @@ plt.show()
 ```
 
 
-![png](/ipynb/geometric-representation-of-regression_files/geometric-representation-of-regression_15_0.png)
+![png](geometric-representation-of-regression_files/geometric-representation-of-regression_15_0.png)
 
 
 ## Error Analysis
@@ -172,7 +165,7 @@ $$\left[\begin{matrix}3.16666666666667\\3.16666666666667\\3.16666666666667\end{m
 
 
 
-We can calculate the error in the average model or where we represent the predicted values as the average vector $\bar y$. Error in the model is given by $\kappa$ = $\bar y$ - $y$.
+We can calculate the error in the average model or where we represent the predicted values as the average vector $\bar y$, error in the model is given by $\kappa$ = $\bar y$ - $y$
 
 
 ```python
@@ -217,11 +210,12 @@ $$\left[\begin{matrix}5.55111512312578 \cdot 10^{-16}\end{matrix}\right]$$
 
 
 
-**Hence, we can see that $\eta$ and $\epsilon$ are normal to each other since their dot product is 0**
+**Hence, we can see that $\eta$ and $\epsilon$ are normal to each other**
 
+Hence, we see that dot product between residual $\epsilon$ and $\hat y - \bar y$ equals $0$
 
 From here we can also prove the relationship between Total Sum of Squares (SST), Sum of Squares due to Squares of
-Regression (SSR) and Sum of Squares due to Squares of Errors (SSE)
+Regression (SSR) and error/residuals (SSE)
 
 
 $\mathbf{SST} = \mathbf{SSR} + \mathbf{SSE}$
@@ -233,9 +227,11 @@ We can use [Pythagorean Theorem](Pythagorean theorem) to check the above relatio
 kappa.norm() ** 2  - eta.norm() ** 2 - res.norm() ** 2
 ```
 
+
+
+
 $$1.66533453693773 \cdot 10^{-15}$$
 
-Hence, as we expected, $\kappa$, $\eta$ and $\epsilon$ form a right angled triangle.
 
 
 ## Summary

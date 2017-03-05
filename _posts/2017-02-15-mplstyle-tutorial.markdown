@@ -6,6 +6,7 @@ tags:
     - python
     - matplotlib
 image: /images/mt1.png
+comments: true
 ---
 
 One of my favorite libraries in Python is [matplotlib](http://matplotlib.org/). Despite the many options we Python programmers have, I still find the simplicity and rawness of `matplotlib` great to work with. I recently discovered the usefulness of matplotlib stylesheets and how they can help in customizing your plots. In this tutorial, I have laid out the process that I used to get up and running with stylesheets.
