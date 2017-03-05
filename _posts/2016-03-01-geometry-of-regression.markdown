@@ -245,8 +245,10 @@ $\mathbf{SST} = \mathbf{SSR} + \mathbf{SSE}$
 - $\mathbf{SSR}$ can be represented by the squared norm of $\eta$
 - $\mathbf{SSE}$ can be represented by the squared norm of $\epsilon$
 
-We can use [Pythagorean Theorem](Pythagorean theorem) to check the above relationship i.e. ${||\kappa|||^2 = ||\eta|||^2 + ||\epsilon|||^2$
-
+We can use [Pythagorean Theorem](Pythagorean theorem) to check the above relationship i.e.
+\begin{equation}
+||\kappa||^2 = ||\eta||^2 + ||\epsilon||^2
+\end{equation}
 
 ```python
 kappa.norm() ** 2  - eta.norm() ** 2 - res.norm() ** 2
