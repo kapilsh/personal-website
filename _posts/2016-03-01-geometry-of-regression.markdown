@@ -18,6 +18,22 @@ The below graphic, which appeared in the original stack-exchange post, captures 
 
 Source: [Stack Exchange](http://stats.stackexchange.com/questions/123651/geometric-interpretation-of-multiple-correlation-coefficient-r-and-coefficient)
 
+## Overview
+
+The geometrical meaning of the Linear/Multiple Regression fit is the projection of predicted variable $y$ on $\mathbf{span(1, X)}$ (with constant) or $\mathbf{X}$ (without constant).
+
+In term of more generally understood form of Linear Regression:
+
+- **With Constant:** $\hat y = \beta_o + \beta_1 x$
+- **Without Constant:** $\hat y = \beta_1 x$
+
+We will focus on regression with constant.
+
+Regression coefficients represent the factors that make a linear combination of $\mathbb{1}$ and $\mathbf{X}$ i.e. the projection of $y$ in terms of a linear combination of $\mathbb{1}$ and $\mathbf{X}$.
+
+Additionally, n data points imply an n-dimensional vector for $y$, $\mathbb{1}$, and $\mathbf{X}$. Hence, I will be using only three data points for predictor and predicted variables to restrict ourselves to 3 dimensions. Reader can create the above graphic using the analysis below if they wish.
+
+## Analysis
 
 ```python
 import numpy as np
@@ -29,6 +45,7 @@ sp.init_printing(use_unicode=True)
 plt.style.use("ggplot")
 ```
 
+Let's create our $y$ and $\mathbf{X}$.
 
 ```python
 x = np.array([1.0, 2, 3])
@@ -86,8 +103,6 @@ Linear regression coefficients $\beta$ are given by:
 \beta = (\mathbf{X^\intercal} \mathbf{X})^{-1} \mathbf{X^\intercal} y
 \end{equation}
 
-The geometrical meaning of the regression fit is the projection of $y$ on $\mathbf{span(1, X)}$. Regression coefficients represent the factors that make a linear combination of $\mathbb{1}$ and $\mathbf{X}$.
-
 Let's calculate $\mathbf{\beta}$ for $\mathbf{X}$ and $y$ we defined above.
 
 
@@ -142,7 +157,7 @@ plt.show()
 
 ## Error Analysis
 
-Residuals for the model are given by: $\hat y$ - $y$. This represents the error in predicted values of y using both $\mathbb{1}$ and $\mathbf{X}$ in the model. The error vector is normal to the $\mathbf{span(1, X)}$ since it represents the component of $y$ that is not in $\mathbf{span(1, X)}$.
+Residuals for the model are given by: $\mathbf{\hat y - y}$. This represents the error in predicted values of y using both $\mathbb{1}$ and $\mathbf{X}$ in the model. The error vector is normal to the $\mathbf{span(1, X)}$ since it represents the component of $y$ that is not in $\mathbf{span(1, X)}$.
 
 
 ```python
@@ -172,7 +187,7 @@ $$\left[\begin{matrix}3.16666666666667\\3.16666666666667\\3.16666666666667\end{m
 
 
 
-We can calculate the error in the average model or where we represent the predicted values as the average vector $\bar y$. Error in the model is given by $\kappa$ = $\bar y$ - $y$.
+We can calculate the error in the average model or where we represent the predicted values as the average vector $\bar y$. Error in the model is given by $\mathbf{\kappa = \bar y - y}$.
 
 
 ```python
