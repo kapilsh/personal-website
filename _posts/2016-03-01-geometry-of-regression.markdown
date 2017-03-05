@@ -254,7 +254,7 @@ kappa.norm() ** 2  - eta.norm() ** 2 - res.norm() ** 2
 
 $$1.66533453693773 \cdot 10^{-15}$$
 
-Hence, as we expected, $\kappa$, $\eta$ and $\epsilon$ form a right angled triangle.
+**Hence, as we expected, $\kappa$, $\eta$ and $\epsilon$ form a right angled triangle.**
 
 ## Summary
 
