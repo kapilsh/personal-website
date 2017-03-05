@@ -157,7 +157,7 @@ plt.show()
 
 ## Error Analysis
 
-Residuals for the model are given by: $\hat y - y$. This represents the error in predicted values of y using both $\mathbb{1}$ and $\mathbf{X}$ in the model. The error vector is normal to the $\mathbf{span(1, X)}$ since it represents the component of $y$ that is not in $\mathbf{span(1, X)}$.
+Residuals for the model are given by: $\hat y$ - $y$. This represents the error in predicted values of y using both $\mathbb{1}$ and $\mathbf{X}$ in the model. The error vector is normal to the $\mathbf{span(1, X)}$ since it represents the component of $y$ that is not in $\mathbf{span(1, X)}$.
 
 
 ```python
@@ -187,7 +187,7 @@ $$\left[\begin{matrix}3.16666666666667\\3.16666666666667\\3.16666666666667\end{m
 
 
 
-We can calculate the error in the average model or where we represent the predicted values as the average vector $\bar y$. Error in the model is given by $\mathbf{\kappa = \bar y - y}$.
+We can calculate the error in the average model or where we represent the predicted values as the average vector $\bar y$. Error in the model is given by $\kappa$ = $\bar y$ - $y$.
 
 
 ```python
