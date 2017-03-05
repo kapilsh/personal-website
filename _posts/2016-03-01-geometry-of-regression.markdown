@@ -10,7 +10,7 @@ image: /ipynb/geometric-representation-of-regression_files/regression.png
 comments: true
 ---
 
-A picture is worth a thousand words. [This post](http://stats.stackexchange.com/questions/123651/geometric-interpretation-of-multiple-correlation-coefficient-r-and-coefficient) on Stack Exchange gives a great description of the graphic and geometric representation of [Linear Regression](https://en.wikipedia.org/wiki/Linear_regression) problems. Let's see this in action using some simple examples.
+A picture is worth a thousand words. [This post on stats Stack Exchange ](http://stats.stackexchange.com/questions/123651/geometric-interpretation-of-multiple-correlation-coefficient-r-and-coefficient) gives a great description of the geometric representation of [Linear Regression](https://en.wikipedia.org/wiki/Linear_regression) problems. Let's see this in action using some simple examples.
 
 The below graphic, which appeared in the original stack-exchange post, captures the essence of Linear Regression very aptly.
 
@@ -226,6 +226,10 @@ Regression (SSR) and Sum of Squares due to Squares of Errors (SSE)
 
 $\mathbf{SST} = \mathbf{SSR} + \mathbf{SSE}$
 
+- $\mathbf{SST}$ can be represented by the squared norm of $\kappa$
+- $\mathbf{SSR}$ can be represented by the squared norm of $\eta$
+- $\mathbf{SSE}$ can be represented by the squared norm of $\epsilon$
+
 We can use [Pythagorean Theorem](Pythagorean theorem) to check the above relationship.
 
 
@@ -236,7 +240,6 @@ kappa.norm() ** 2  - eta.norm() ** 2 - res.norm() ** 2
 $$1.66533453693773 \cdot 10^{-15}$$
 
 Hence, as we expected, $\kappa$, $\eta$ and $\epsilon$ form a right angled triangle.
-
 
 ## Summary
 
