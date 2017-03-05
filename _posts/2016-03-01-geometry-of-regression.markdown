@@ -31,7 +31,7 @@ We will focus on regression with constant.
 
 Regression coefficients represent the factors that make a linear combination of $\mathbb{1}$ and $\mathbf{X}$ i.e. the projection of $y$ in terms of a linear combination of $\mathbb{1}$ and $\mathbf{X}$.
 
-Additionally, \mathbf{N} data points imply an N-dimensional vector for $y$, $\mathbb{1}$, and $\mathbf{X}$. Hence, I will be using only three data points for predictor and predicted variables to restrict ourselves to 3 dimensions. Reader can create the above graphic using the analysis below if they wish.
+Additionally, $\mathbf{N}$ data points imply an $\mathbf{N}$-dimensional vector for $y$, $\mathbb{1}$, and $\mathbf{X}$. Hence, I will be using only three data points for predictor and predicted variables to restrict ourselves to 3 dimensions. Reader can create the above graphic using the analysis below if they wish.
 
 ## Analysis
 
