@@ -22,7 +22,7 @@ Source: [Stack Exchange](http://stats.stackexchange.com/questions/123651/geometr
 
 The geometrical meaning of the Linear/Multiple Regression fit is the projection of predicted variable $y$ on $\mathbf{span(1, X)}$ (with constant) or $\mathbf{X}$ (without constant).
 
-In term of more generally understood form of Linear Regression:
+In terms of more generally understood form of Linear Regression:
 
 - **With Constant:** $\hat y = \beta_o + \beta_1 x$
 - **Without Constant:** $\hat y = \beta_1 x$
@@ -31,7 +31,7 @@ We will focus on regression with constant.
 
 Regression coefficients represent the factors that make a linear combination of $\mathbb{1}$ and $\mathbf{X}$ i.e. the projection of $y$ in terms of a linear combination of $\mathbb{1}$ and $\mathbf{X}$.
 
-Additionally, n data points imply an n-dimensional vector for $y$, $\mathbb{1}$, and $\mathbf{X}$. Hence, I will be using only three data points for predictor and predicted variables to restrict ourselves to 3 dimensions. Reader can create the above graphic using the analysis below if they wish.
+Additionally, \mathbf{N} data points imply an N-dimensional vector for $y$, $\mathbb{1}$, and $\mathbf{X}$. Hence, I will be using only three data points for predictor and predicted variables to restrict ourselves to 3 dimensions. Reader can create the above graphic using the analysis below if they wish.
 
 ## Analysis
 
