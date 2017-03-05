@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Geometry of Regression"
-date:   2017-03-01 22:00:00
+date:   2017-03-05 22:00:00
 tags:
     - python
     - machinelearning
