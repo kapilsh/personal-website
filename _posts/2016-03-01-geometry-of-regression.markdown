@@ -258,6 +258,6 @@ $$1.66533453693773 \cdot 10^{-15}$$
 
 ## Summary
 
-Through this post, I demonstrated how we can interpret Linear/Multiple Regression geometrically.
+Through this post, I demonstrated how we can interpret linear/multiple regression geometrically.
 
 Also, I solved a linear regression model using Linear Algebra.
