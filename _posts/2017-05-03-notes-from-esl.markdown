@@ -5,7 +5,7 @@ date:   2017-05-01 22:00:00
 tags:
     - machinelearning
     - theory
-image: /images/ai.png
+image: /images/ai.jpg
 comments: true
 ---
 
