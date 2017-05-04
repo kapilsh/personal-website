@@ -29,13 +29,13 @@ Three types of variables:
 - Categorical
 - Ordinal
 
-Qualitative variables most times are represented by numbers such as $\{ 0, 1 \}$ or $\{ -1, 1 \}$.
+Qualitative variables most times are represented by numbers such as ${ 0, 1 }$ or ${ -1, 1 }$.
 
 The most used technique is using **dummy variables**, where k-level qualitative variable is represented by a vector of k binary variables.
 
 ## Linear Model versus k-Nearest Neighbors
 
-###Linear Model:
+### Linear Model:
 
 - Stable
 - Lots of assumptions
@@ -43,6 +43,6 @@ The most used technique is using **dummy variables**, where k-level qualitative 
 
 $\beta_o$ is considered the bias in the model.
 
-###k-NN
+### k-NN
 - Accurate
 - Unstable
