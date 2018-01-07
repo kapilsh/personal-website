@@ -10,7 +10,7 @@ image: /images/lin_reg.jpg
 comments: true
 ---
 
-An interesting way to understand Linear Regression is Gram-Schmidt Method of successive projections to calculate the coefficients of regression. Gram-Schmidt procedure transforms the variables into a new set of orthogonal or uncorrelated variables. On applying the procedure, we should get exactly the same regression coefficients as with projection of predicted variable on the feature space.
+An interesting way to understand [Linear Regression](https://en.wikipedia.org/wiki/Linear_regression) is [Gram-Schmidt Method](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process) of successive projections to calculate the coefficients of regression. Gram-Schmidt procedure transforms the variables into a new set of orthogonal or uncorrelated variables. On applying the procedure, we should get exactly the same regression coefficients as with projection of predicted variable on the feature space.
 
 Linear Model with number of inputs (p) such $p > 1$ is called multiple regression. We can represent least squares estimates of multiple regression in terms of estimates of univariate linear model. To understand this, let us assume a multivariate $(p > 1)$ linear model - $\mathbf{Y} = \mathbf{X}\beta + \epsilon$.
 
