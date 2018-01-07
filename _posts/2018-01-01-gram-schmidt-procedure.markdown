@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Gram-Schmidt Procedure"
-date:   2018-01-01 10:00:00
+date:   2018-01-07 10:00:00
 tags:
     - python
     - machinelearning
