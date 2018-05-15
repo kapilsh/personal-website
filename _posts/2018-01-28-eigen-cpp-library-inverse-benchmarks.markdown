@@ -3,6 +3,11 @@ layout: post
 title:  "Eigen3 Benchmarks"
 description:  "Matrix Inversion using Eigen C++ Library"
 image: /assets/images/posts/matrix.png
+tags:
+    - cpp
+    - Eigen3
+    - spdlog
+    - conan
 comments: true
 ---
 

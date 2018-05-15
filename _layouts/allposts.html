@@ -22,6 +22,11 @@
       <ul class="actions">
         <li><a href="{{ post.url }}" class="button next">More</a></li>
       </ul>
+      <ul class="actions">
+      {% for tag in post.tags %}
+      <li><span class="button special icon small fa-tags">{{ tag }}</span></li>
+      {% endfor %}
+      </ul>
     </li>
     {% endfor %}
   </ul>

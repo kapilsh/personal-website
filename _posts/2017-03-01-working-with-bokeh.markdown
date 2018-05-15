@@ -3,6 +3,9 @@ layout: post
 title:  "Bokeh Tutorial"
 description:  "Working with bokeh plotting library"
 image: /assets/images/posts/wwb.png
+tags:
+    - python
+    - bokeh
 comments: true
 ---
 

@@ -4,6 +4,9 @@ title: Mplstyle Tutorial
 description:  "Tutorial introduction to mplstyle stylesheets"
 date:   2017-02-15 08:00:00
 image: /assets/images/mt1.png
+tags:
+    - python
+    - matplotlib
 comments: true
 ---
 
