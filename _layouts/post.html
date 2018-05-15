@@ -1,87 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    {% include head.html %}
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-          processEscapes: true
-        }
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
-    <script type="text/javascript" async
-      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-  </head>
-  <body>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    {% include header.html %}
-    <div class="container section section-primary">
-      <div class="row">
-        <div class="col-md-1 col-sm-2 col-xs-4">
-          <a href="https://twitter.com/share"
-          class="twitter-share-button"
-          data-text="Kapil Sharma Article"
-          data-via="sharmakapil87"
-          data-show-count="true">
-          </a>
-          <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
-          </script>
+{% include head.html %}
+<body>
+  {% include header.html %}
+    <div id="main" class="alt">
+      <section id="one">
+        <div class="inner">
+          <header class="major">
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.description }}</p>
+          </header>
+          {% if page.show_image %}<span class="image main"><img src="{{ site.baseurl }}/{{ page.image }}" alt="" /></span>{% endif %}
+          <p>{{ content }}</p>
         </div>
-        <div class="col-md-1 col-sm-2 col-xs-4">
-          <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-            <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">
-              Share
-            </a>
-          </div>
-        </div>
-          <div class="col-md-1 col-sm-2 col-xs-4">
-            <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-            <script type="IN/Share" data-counter="right"></script>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            {% include blogheader.html %}
-          </div>
-        </div>
-        <div class="row">
-          <hr>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <p>
-              {% for tag in page.tags %}
-                <span class="label label-tag">
-                  <i class="fa fa-1x fa-fw fa-tags">
-                  </i>
-                  {{ tag }}
-                </span>
-              {% endfor %}
-            </p>
-            {{ content }}
-          </div>
-        </div>
-      <div class="row">
-        <hr>
-      </div>
-      <div class="row">
+      </section>
+      <section id="two">
+        <div class="inner">
         {% include disqus.html %}
       </div>
-      {% include miniarticles.html %}
+      </section>
     </div>
     {% include footer.html %}
-    {% include scripts.html %}
     {% include google.html %}
-    <script id="dsq-count-scr" src="//www-sharmakapil-com.disqus.com/count.js" async></script>
-  </body>
+</body>
 </html>

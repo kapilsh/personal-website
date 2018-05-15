@@ -1,42 +1,27 @@
-<div class="cover">
-  <header class="navbar navbar-static-top">
-    <nav class="container">
-      <div class="navbar-header">
-        <a href="/index.html" class="navbar-brand">{{ site.brand }}</a>
-        <button data-toggle="collapse" data-target="#nav-header-collapse" aria-expanded="false" class="navbar-toggle collapsed">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div id="nav-header-collapse" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="/index.html">
-              <span class="fa fa-home">&nbsp;</span>
-              <span class="capitalized">HOME</span>
-            </a>
-          </li>
-          <li>
-            <a href="/about.html">
-              <span class="fa fa-user">&nbsp;</span>
-              <span class="capitalized">ABOUT</span>
-            </a>
-          </li>
-          <li>
-            <a href="/blog.html">
-              <span class="fa fa-book">&nbsp;</span>
-              <span class="capitalized">BLOG</span>
-            </a>
-          </li>
-          <li>
-            <a href="/extras.html">
-              <span class="fa fa-external-link">&nbsp;</span>
-              <span class="capitalized">EXTRAS</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-</div>
+<!-- Wrapper -->
+<div id="wrapper">
+
+<header id="header"{% if page.layout == "landing" %} class="alt style2"{% endif %}{% if page.layout == "home" %} class="alt"{% endif %}>
+	<a href="{{ "" | absolute_url }}" class="logo"><strong>{{ site.title }}</strong> <span>{{ site.subtitle }}</span></a>
+	<nav>
+		<a href="#menu">Menu</a>
+	</nav>
+</header>
+
+<nav id="menu">
+	<ul class="links">
+        {% for page in site.pages %}
+		    {% if page.layout == "home" %}
+		        <li><a href="{{ "" | absolute_url }}">{{ page.title }}</a></li>
+	    	{% endif %}
+		{% endfor %}
+		{% for page in site.pages %}
+		    {% if page.layout != "home" and page.nav-menu == true %}
+		        <li><a href="{{ page.url | absolute_url }}">{{ page.title }}</a></li>
+		    {% endif %}
+		{% endfor %}
+	</ul>
+	<ul class="actions vertical">
+		<li><a href="index.html" class="button special fit">Get Started</a></li>
+	</ul>
+</nav>

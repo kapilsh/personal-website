@@ -9,15 +9,37 @@ exclude:
 gems:
   - jekyll-assets
 
-title: "Kapil Sharma"
-description: I am a Chicago-based Quantitative Researcher and Data Scientist working in the High Frequency Trading industry.
-brand: "{K:S}"
-my_name: Kapil Sharma
-headline: Math Geek, Programmer, Trader, Musician
-copyright: 2017 &copy; Copyright Kapil Sharma
+title: Kapil Sharma
 email: sharmakapil8@gmail.com
-twitter: sharmakapil87
-github: kapilsh
-linkedin: kapil-sharma-frm-90094015
+description: Data Scientist, Math Geek, Programmer, Musician
+baseurl: ""
+url: http://www.sharmakapil.com
+author: Kapil Sharma
+street_address: 216 W Jackson Blvd
+city: Chicago
+state: IL
+zip_code: 60601
+country: United States of America
+phone: +1-312-566-7843
 
+tiles-count: 4
+
+# social settings
+500px_url:
+facebook_url:
+github_url: https://github.com/kapilsh
+gitlab_url:
+googleplus_url:
+instagram_url:
+linkedin_url: https://www.linkedin.com/in/kapil-sharma-90094015/
+pinterest_url:
+slack_url:
+twitter_url: https://twitter.com/_k_sharma
+
+highlighter: rouge
+
+# build settings
 markdown: kramdown
+
+sass:
+  style: compressed

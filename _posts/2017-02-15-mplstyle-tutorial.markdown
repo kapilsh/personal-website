@@ -1,11 +1,9 @@
 ---
 layout: post
-title:  "Tutorial introduction to mplstyle stylesheets"
+title: Mplstyle Tutorial
+description:  "Tutorial introduction to mplstyle stylesheets"
 date:   2017-02-15 08:00:00
-tags:
-    - python
-    - matplotlib
-image: /images/mt1.png
+image: /assets/images/mt1.png
 comments: true
 ---
 
@@ -13,7 +11,7 @@ One of my favorite libraries in Python is [matplotlib](http://matplotlib.org/). 
 
 ## Introduction: Matplotlib Stylesheets
 
-A good amount of my workflow involves creating reproducible research in [jupyter-notebooks](http://jupyter.readthedocs.io/en/latest/content-quickstart.html). Notebooks are great for adhoc research as well as for creating publication quality pdf reports or web based dashboards. In fact, I have produced this particular webpage in a [notebook](/ipynb/mplstyle-tutorial.ipynb).
+A good amount of my workflow involves creating reproducible research in [jupyter-notebooks](http://jupyter.readthedocs.io/en/latest/content-quickstart.html). Notebooks are great for adhoc research as well as for creating publication quality pdf reports or web based dashboards. In fact, I have produced this particular webpage in a notebook.
 
 While matplotlib comes with a lot of different stylesheets, I have run into scenarios where I wanted to create a style that resembled a particular color-scheme. This led me to explore [matplotlib stylesheets](http://matplotlib.org/users/style_sheets.html#defining-your-own-style).
 
@@ -152,7 +150,7 @@ plot_ts(prices)
 ```
 
 
-![png](/ipynb/mplstyle-tutorial_files/mplstyle-tutorial_12_0.png)
+![png](/assets/images/posts/mplstyle-tutorial_12_0.png)
 
 
 ## Available stylesheets
@@ -209,7 +207,7 @@ plot_ts(prices)
 ```
 
 
-![png](/ipynb/mplstyle-tutorial_files/mplstyle-tutorial_19_0.png)
+![png](/assets/images/posts/mplstyle-tutorial_19_0.png)
 
 
 ### bmh
@@ -221,7 +219,7 @@ plot_ts(prices)
 ```
 
 
-![png](/ipynb/mplstyle-tutorial_files/mplstyle-tutorial_21_0.png)
+![png](/assets/images/posts/mplstyle-tutorial_21_0.png)
 
 
 ## Customization
@@ -232,9 +230,9 @@ First thing I did was find a good palette of colors. One great resource to find 
 
 Here is a good article on [how and why to choose a good color palette](http://www.makeuseof.com/tag/pick-color-scheme-like-pro/).
 
-![Palleton 1](/ipynb/mplstyle-tutorial_files/paletton1.png)
+![Palleton 1](/assets/images/posts/paletton1.png)
 
-![Palleton 12](/ipynb/mplstyle-tutorial_files/paletton2.png)
+![Palleton 12](/assets/images/posts/paletton2.png)
 
 Using the color-scheme, I have created a new mplstyle document, which you can download from [kapilsh.mplstyle](/ipynb/kapilsh.mplstyle).
 
@@ -289,7 +287,7 @@ plot_ts(prices)
 ```
 
 
-![png](/ipynb/mplstyle-tutorial_files/mplstyle-tutorial_30_0.png)
+![png](/assets/images/posts/mplstyle-tutorial_30_0.png)
 
 
 
@@ -314,7 +312,7 @@ plt.show()
 ```
 
 
-![png](/ipynb/mplstyle-tutorial_files/mplstyle-tutorial_31_0.png)
+![png](/assets/images/posts/mplstyle-tutorial_31_0.png)
 
 
 
@@ -333,7 +331,7 @@ plt.show()
 ```
 
 
-![png](/ipynb/mplstyle-tutorial_files/mplstyle-tutorial_32_0.png)
+![png](/assets/images/posts/mplstyle-tutorial_32_0.png)
 
 
 ## Summary

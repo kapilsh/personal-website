@@ -1,12 +1,8 @@
 ---
 layout: post
 title:  "Geometry of Regression"
-date:   2017-03-05 22:00:00
-tags:
-    - python
-    - machinelearning
-    - sympy
-image: /ipynb/geometric-representation-of-regression_files/regression.png
+description:  "Geometric Interpretation of Linear Regression"
+image: /assets/images/posts/regression.png
 comments: true
 ---
 
@@ -14,7 +10,7 @@ A picture is worth a thousand words. [This post on stats Stack Exchange ](http:/
 
 The below graphic, which appeared in the original stack-exchange post, captures the essence of Linear Regression very aptly.
 
-![Regression Picture](/ipynb/geometric-representation-of-regression_files/regression.png)
+![Regression Picture](/assets/images/posts/regression.png)
 
 Source: [Stack Exchange](http://stats.stackexchange.com/questions/123651/geometric-interpretation-of-multiple-correlation-coefficient-r-and-coefficient)
 
@@ -92,7 +88,7 @@ plt.show()
 ```
 
 
-![png](/ipynb/geometric-representation-of-regression_files/geometric-representation-of-regression_9_0.png)
+![png](/assets/images/posts/geometric-representation-of-regression_9_0.png)
 
 
 ## Regression Coefficients
@@ -152,7 +148,7 @@ plt.show()
 ```
 
 
-![png](/ipynb/geometric-representation-of-regression_files/geometric-representation-of-regression_15_0.png)
+![png](/assets/images/posts/geometric-representation-of-regression_15_0.png)
 
 
 ## Error Analysis

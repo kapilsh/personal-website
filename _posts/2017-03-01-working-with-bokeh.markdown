@@ -1,11 +1,8 @@
 ---
 layout: post
-title:  "Working with bokeh plotting library"
-date:   2017-03-01 08:00:00
-tags:
-    - python
-    - bokeh
-image: /images/wwb.png
+title:  "Bokeh Tutorial"
+description:  "Working with bokeh plotting library"
+image: /assets/images/posts/wwb.png
 comments: true
 ---
 
@@ -166,7 +163,7 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
 </script>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Scatter-Chart">Scatter Chart<a class="anchor-link" href="#Scatter-Chart">&#182;</a></h2>
+<h2 id="Scatter-Chart">Scatter Chart<a class="anchor-link"></a></h2>
 </div>
 
 <div class="language-python highlighter-rouge">
@@ -322,6 +319,8 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
     }
   }(this));
 </script>
+
+<br>
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">volumes</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Volume&quot;</span><span class="p">,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">,</span> <span class="s2">&quot;FB&quot;</span><span class="p">]]</span>
@@ -490,8 +489,10 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
     }
   }(this));
 </script>
-<h2 id="Histogram">Histogram<a class="anchor-link" href="#Histogram">&#182;</a></h2>
 
+<br>
+
+<h2 id="Histogram">Histogram<a class="anchor-link"></a></h2>
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="kn">from</span> <span class="nn">bokeh.charts</span> <span class="kn">import</span> <span class="n">Histogram</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
 
@@ -640,7 +641,10 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
     }
   }(this));
 </script>
-<h2 id="Line">Line<a class="anchor-link" href="#Line">&#182;</a></h2>
+
+<br>
+
+<h2 id="Line">Line<a class="anchor-link"></a></h2>
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">big_tech</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Close&quot;</span><span class="p">,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">]]</span>
 </code></pre></div>
@@ -791,7 +795,8 @@ var element = $('#01f2912b-82c7-4185-92d4-94036514c668');
     }
   }(this));
 </script>
-<h2 id="Candlestick">Candlestick<a class="anchor-link" href="#Candlestick">&#182;</a></h2>
+<br>
+<h2 id="Candlestick">Candlestick<a class="anchor-link"></a></h2>
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><code class="syntax"><span class="n">selected</span> <span class="o">=</span> <span class="s2">&quot;^DJI&quot;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">selected</span><span class="p">]</span>

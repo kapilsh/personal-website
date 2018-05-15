@@ -1,12 +1,8 @@
 ---
 layout: post
 title:  "Gram-Schmidt Procedure"
-date:   2018-01-07 10:00:00
-tags:
-    - python
-    - machinelearning
-    - statistics
-image: /images/lin_reg.jpg
+description: "Solving Regression using Gram-Schmidt Procedure"
+image: /assets/images/posts/lin_reg.jpg
 comments: true
 ---
 
