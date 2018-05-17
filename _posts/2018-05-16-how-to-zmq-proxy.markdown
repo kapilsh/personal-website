@@ -7,7 +7,6 @@ image: /assets/images/forwarder.png
 tags:
     - java
     - zeromq
-title_image: /assets/images/network.jpg
 comments: true
 ---
 
