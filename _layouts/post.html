@@ -16,7 +16,7 @@
               {% endfor %}
               </ul>
           </header>
-          {% if page.title_image %}<span class="image main"><img src="{{ site.baseurl }}{{ page.title_image }}" alt="Title Image" /></span>{% endif %}
+          {% if page.show_image %}<span class="image main"><img src="{{ site.baseurl }}/{{ page.image }}" alt="" /></span>{% endif %}
           <p>{{ content }}</p>
         </div>
       </section>
