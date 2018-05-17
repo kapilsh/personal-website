@@ -15,8 +15,8 @@
               <li style="padding: 5px;"><span class="button special icon small fa-tags">{{ tag }}</span></li>
               {% endfor %}
               </ul>
-              {% if page.title_image %}<span class="image main"><img src="{{ site.baseurl }}{{ page.title_image }}" alt="Title Image" /></span>{% endif %}
           </header>
+          {% if page.title_image %}<span class="image main"><img src="{{ site.baseurl }}{{ page.title_image }}" alt="Title Image" /></span>{% endif %}
           <p>{{ content }}</p>
         </div>
       </section>
