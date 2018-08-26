@@ -21,7 +21,7 @@ In this post, I will go through an example to estimate a simple non-linear funct
 
 Let's setup our environment. 
 
-Also, I have a jupyter notebook for this post on my [Github](https://github.com/kapilsh/ml-projects/tree/master/kernel_regression).
+Also, I have a `Jupyter` notebook for this post on my [Github](https://github.com/kapilsh/ml-projects/tree/master/kernel_regression).
 
 ```python
 import numpy as np
