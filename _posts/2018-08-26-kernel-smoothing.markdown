@@ -139,8 +139,8 @@ for idx, h in enumerate(h_values):
     p.line(x, predict(x, x, y, h), color=colors[idx], line_width=2, legend="y_hat (h={})".format(h))
     
 p.title.text = "Kernel Regression (Gaussian)"
-p.xaxis.axis_label = "x"
-p.yaxis.axis_label = "f(x)"
+p.xaxis.axis_label = "X"
+p.yaxis.axis_label = "Y"
 
 curdoc().clear()
 doc = curdoc()
@@ -252,8 +252,8 @@ p.line(x, f(x, 2), color="#F92672", line_width=3, legend="Actual", line_dash="da
 p.line(x, predict(x, x, y, h_optimal), color="#A6E22E", line_width=2, legend="y_hat (h={})".format(h_optimal))
     
 p.title.text = "Cross Validation - LOOCV - Optimal Fit"
-p.xaxis.axis_label = "x"
-p.yaxis.axis_label = "f(x)"
+p.xaxis.axis_label = "X"
+p.yaxis.axis_label = "Y"
 
 curdoc().clear()
 doc = curdoc()
@@ -345,8 +345,8 @@ p.line(x, f(x, 2), color="#F92672", line_width=3, legend="Actual", line_dash="da
 p.line(x, predict(x, x, y, h_optimal), color="#A6E22E", line_width=2, legend="y_hat (h={})".format(h_optimal))
     
 p.title.text = "Cross Validation - K-Fold - Optimal Fit"
-p.xaxis.axis_label = "x"
-p.yaxis.axis_label = "f(x)"
+p.xaxis.axis_label = "X"
+p.yaxis.axis_label = "Y"
 
 curdoc().clear()
 doc = curdoc()
