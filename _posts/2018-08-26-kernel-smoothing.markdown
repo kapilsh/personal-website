@@ -2,7 +2,7 @@
 layout: post
 title: Kernel Smoothing
 description:  Gaussian Kernel Smoothing and Optimal Bandwidth Selection  
-date: 2018-08-24 08:00:00
+date: 2018-08-26 08:00:00
 image: /assets/images/NNSmoother.svg
 tags:
     - python
@@ -13,13 +13,13 @@ comments: true
 bokeh: true
 ---
 
-[Kernel Methods](https://en.wikipedia.org/wiki/Kernel_method) are one of the most popular non-parametric methods to estimate probability density and regrssion functions. As the word `Non-Parametric` implies, they use the structural information in the existing data to estimate response variable for out-of-sample data. 
+[Kernel Method](https://en.wikipedia.org/wiki/Kernel_method) is one of the most popular non-parametric methods to estimate probability density and regression functions. As the word `Non-Parametric` implies, it uses the structural information in the existing data to estimate response variable for out-of-sample data. 
 
-In this post, I will go through an example to estimate a simple non-linear function using [Gaussian Kernel](https://en.wikipedia.org/wiki/Radial_basis_function_kernel) Smoothing from first principles. I will also discuss how to use [**Leave One Out Cross Validation (LOOCV)**](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) and [**k-Fold Cross Validation**](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) to estimate the `bandwidth` parameter $$h$$ for the kernel.
+In this post, I will go through an example to estimate a simple non-linear function using [Gaussian Kernel](https://en.wikipedia.org/wiki/Radial_basis_function_kernel) smoothing from first principles. I will also discuss how to use [**Leave One Out Cross Validation (LOOCV)**](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) and [**K-Fold Cross Validation**](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) to estimate the `bandwidth` parameter $$h$$ for the kernel.
 
 ## Setup
 
-Let's setup our environment ... The Usual Suspects
+Let's setup our environment:
 
 ```python
 import numpy as np
@@ -30,7 +30,7 @@ from bokeh.plotting import figure, show
 from bokeh.themes import Theme
 from bokeh.embed import components
 ```
-Here's a handy trick if you want to use your own theme in bokeh. I have added the theme below in the **Appendix**.
+Here's a handy trick if you want to use your own theme in `bokeh`. I have added the theme below in the **Appendix**.
 
 ```python
 plot_theme = Theme("./theme.yml") 
@@ -97,9 +97,13 @@ def gaussian_kernel(x, x0, h):
 
 ### One Dimentional Smoother
 
-In **Kernel Regression**, for a given point x, we use a weighted average of the nearby points’ response variable as the estimated value. One such technique is [**k-Nearest Neighbor Regrsssion**](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
+In **Kernel Regression**, for a given point $$x_0$$, we use a weighted average of the nearby points’ response variable as the estimated value. One such technique is [**k-Nearest Neighbor Regression**](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
 
-In **Kernel Smoothing**, we take the idea further by using all the training data and continously decrease the weights for points farther away from the given point $$x_0$$. The `bandwidth` parameter $$h$$ mentioned earlier controls the decreasing rate of the weights. `Bandwidth` $$h$$ can also be interpreted as the width of kernel at current point. Smaller the width, more localized is the effect of the kernel. This idea of localization goes beyond **Gaussian Kernel** and also applies to other common kernel functions such as the [Epanechnikov Kernel](http://gmelli.org/RKB/Epanechnikov_Kernel).
+In **Kernel Smoothing**, we take the idea further by using all the training data and continously decrease the weights for points farther away from the given point $$x_0$$. The `bandwidth` parameter $$h$$ mentioned earlier controls the decreasing rate of the weights. `Bandwidth` $$h$$ can also be interpreted as the width of the kernel, centered at $$x_0$$. 
+
+> When the `bandwidth` is smaller, the weighting effect of the kernel is more localized 
+
+This idea of localization goes beyond **Gaussian Kernel** and also applies to other common kernel functions such as the [Epanechnikov Kernel](http://gmelli.org/RKB/Epanechnikov_Kernel).
 
 As part of the procedure, we use the kernel function and the `bandwidth` $$h$$ to smooth the data points to obtain a local estimate of the response variable.
 
@@ -113,7 +117,7 @@ where $$\mathbf{K_h}$$ represents kernel with a specific `bandwidth` $$h$$.
 
 In essense, it is the weighted average of all the response variable values $$y_i$$ with weights equal to the kernel function centered at $$x_0$$ (the estimation point) for each $$x_i$$. Different `bandwidth` values will give different kernel function values, and in turn, different weights.
 
-Let's implement it in python to see the results of changing the `bandwidth`:
+Let's implement it in Python to see the results of changing the `bandwidth`:
 
 ```python
 def predict(x_test, x_train, y_train, bandwidth, kernel_func=gaussian_kernel):
@@ -178,11 +182,11 @@ The next step is to find a **"good"** value for `bandwidth` and we can use [Cros
 
 ## Cross Validation
 
-[Cross Validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) is a common method to tackle over-fitting the data to the training set. The data is split into parts such that some of it is used as the **training set** and the rest as the **validation set**. 
+[Cross Validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) is a common method to tackle over-fitting the parameters of the model. The data is split into parts such that some of it is used as the **training set** and the rest as the **validation set**. 
 
 Splitting the data helps with not using the same data twice to fit the model parameters. Either the data point is used in training set or validation set. Training set is used to fit our model parameters, which are used to predict the values of response variable in the validation set. Hence, we can calculate the quality of our prediction based on the prediction error of validation set. 
 
-[`scikit-learn`](http://scikit-learn.org/stable/) has modules for different cross-validation techniques. However, I will implement these from scratch using `numpy` to avoid the dependency on `scikit-learn` just for cross validation.
+[`scikit-learn`](http://scikit-learn.org/stable/) has modules for different cross validation techniques. However, I will implement these from scratch using `numpy` to avoid the dependency on `scikit-learn` just for cross validation.
 
 Let's discuss two of these techniques:
 
@@ -275,7 +279,7 @@ def split_k_fold(x, y, folds):
         [y[n * split_size:(n + 1) * split_size] for n in np.arange(folds)])
 ```
 
-Let's try $$K = 4$$ and $$10$$ tries for each $$h$$. Similar to `LOOCV`, let's plot the `MSE` vs `bandwidth` to see their relationship. We can optimize the `bandwidth` by minimizing the `MSE`. 
+Let's try $$K = 4$$ and $$10$$ tries for each $$h$$. Similar to `LOOCV`, let's plot the `MSE` vs `bandwidth` to see their relationship. Again, we can optimize the `bandwidth` by minimizing the `MSE`. 
 
 ```python
 num_folds = 4
@@ -331,8 +335,6 @@ print(h_optimal)
 # 0.03
 ```
 
-Below the estimator for the optimal `bandwidth` $$0.03$$:
-
 ```python
 p = figure(plot_width=600, plot_height=600)
 p.circle(x, y, size=10, alpha=0.2, color="#66D9EF", legend="y")
@@ -362,7 +364,7 @@ For this particular example, compared to `LOOCV`, `K-Fold CV` smoothing is more 
 
 ## Final Words
 
-In this post, we took a step-by-step approach to fit **Kernel Smoothing** using **Gaussian Kernel**. Same approach can be applied using other kernels. We also applied Cross Validation to choose an optimal `bandwidth` parameter.
+In this post, we took a step-by-step approach to fit **Kernel Smoothing** using **Gaussian Kernel**. Same approach can be applied using other kernels. We also applied **Cross Validation** to choose an optimal `bandwidth` parameter.
 
 ## Sources
 
