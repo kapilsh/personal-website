@@ -4,9 +4,9 @@ title:  "Geometry of Regression"
 description:  "Geometric Interpretation of Linear Regression"
 image: /assets/images/posts/regression.png
 tags:
-    - python
-    - machinelearning
-    - sympy
+     - python
+     - machine learning
+     - sympy
 comments: true
 ---
 

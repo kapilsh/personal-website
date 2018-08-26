@@ -1,3 +1,7 @@
 _site/*
 *.jekyll-metadata*
 ipynb/.ipynb_checkpoints/*
+
+.sass-cache/
+.vscode/
+Gemfile.lock
