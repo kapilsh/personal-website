@@ -16,16 +16,16 @@ I previously wrote a [post](http://www.sharmakapil.com/2018/08/26/kernel-smoothi
 
 ## Setup
 
-I generated some data in my previous [post](http://www.sharmakapil.com/2018/08/26/kernel-smoothing.html) and I will reuse the same data for this post. The data was generated from the function $\mathbf{y = f(x) = sin(4x) + 2}$ with some **Gaussian** noise and here's how it looks like:
+I generated some data in my previous [post](http://www.sharmakapil.com/2018/08/26/kernel-smoothing.html) and I will reuse the same data for this post. The data was generated from the function $\mathbf{y = f(x) = sin(4x) + 2}$ with some **Gaussian** noise and here's how it looks:
 
 {% include bokeh/local_linear/yvx_div.html %}
 {% include bokeh/local_linear/yvx_script.html %}
 
 ## Local Linear Regression
 
-As I mentioned in the previous article, in kernel smoothing out-of-sample predictions on the edges and in sparse regions can have significant errors and bias. In **Local Linear Regression**, we try to reduce this bias to first order by fitting straight lines instead of local constants. 
+As I mentioned in the previous article, in kernel smoothing out-of-sample predictions on the edges and in sparse regions can have significant errors and bias. In **Local Linear Regression**, we try to reduce this bias to first order, by fitting straight lines instead of local constants. 
 
-Local linear regression solves a weighted least squares problem at each out-of-sample point $x_0$, geiven by:
+Local linear regression solves a weighted least squares problem at each out-of-sample point $x_0$, given by:
 
 \begin{equation}
 \mathbf{\min\limits_{\alpha(x_0), \beta(x_0)} \sum\limits_{i=1}^N} K_\lambda(x_0, x_i) ( y_i - \alpha(x_0) - \beta(x_0) x_i )^2
@@ -38,7 +38,7 @@ which gives us $\hat \alpha(x_0)$ and $\hat \beta(x_0)$. The estimate $\hat y_0$
 \mathbf{\hat y_0 = \hat \alpha(x_0) + \hat \beta(x_0) x_0}
 \end{equation}
 
-> **NOTE:** Even though we fit an entire linear model, we only use it fit a single point $x_0$ 
+> **NOTE:** Even though we fit an entire linear model, we only use it to fit a single point $x_0$ 
 
 Let's formulate the matrix expression to calculate $\hat y_0$ and then implement it in `Python`.
 
@@ -74,7 +74,7 @@ def predict(x_test, x_train, y_train, h):
     return np.array(y_hat)
 ```
 
-Let's choose a few bandwidth values and check the fits:
+Let's choose a few `bandwidth` values and check the fits:
 
 ```python
 h_values = [0.01, 0.1, 1]
@@ -168,11 +168,11 @@ show(p)
 {% include bokeh/local_linear/local_lines_div.html %}
 {% include bokeh/local_linear/local_lines_script.html %}
 
-One great resource that I came across related to local linear regression is the lecture below:
+One great resource that I came across related to local linear regression is the lecture below (**Statistical Machine Learning, Larry Wasserman, CMU, Jan 2016**):
 
 {% include videos/local_linear.html %}
 
-As in the previous post, I will end this post by estimating optimal `bandwidth` using **Leave Out Out Cross Validation** and **K-Fold Cross Validation** below:
+As in the previous post, I will end this post by estimating optimal `bandwidth` using **Leave One Out Cross Validation** and **K-Fold Cross Validation** below:
 
 ## Cross Validation
 
@@ -209,7 +209,7 @@ h_optimal : 0.06
 
 ## Final Words
 
-In this post, we extended the **Kernel Smoothing** technique to fit local linear function instead of local constants at each input point. Fitting locally linear functions helps us reduce the bias and error on the edges of our data. 
+In this post, we extended the **Kernel Smoothing** technique to fit local linear functions instead of local constants at each input point. Fitting locally linear functions helps us reduce the bias and error on the edges and sparse regions of our data. 
 
 ## Sources
 
