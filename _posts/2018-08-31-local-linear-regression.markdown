@@ -2,7 +2,7 @@
 layout: post
 title: Local Linear Regression
 description: Moving from Locally Weighted Constants to Lines 
-date: 2018-08-26 08:00:00
+date: 2018-08-31 08:00:00
 image: /assets/images/Localregressionsmoother.svg
 tags:
     - python
