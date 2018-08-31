@@ -23,7 +23,7 @@ I generated some data in my previous [post](http://www.sharmakapil.com/2018/08/2
 
 ## Local Linear Regression
 
-As I mentioned in the previous article, in kernel smoothing out-of-sample prediction on the edges and in sparse In **Local Linear Regression**, we try to reduce this bias to first order by fitting straight lines instead of local constants. 
+As I mentioned in the previous article, in kernel smoothing out-of-sample predictions on the edges and in sparse regions can have significant errors and bias. In **Local Linear Regression**, we try to reduce this bias to first order by fitting straight lines instead of local constants. 
 
 Local linear regression solves a weighted least squares problem at each out-of-sample point $x_0$, geiven by:
 
@@ -32,7 +32,7 @@ Local linear regression solves a weighted least squares problem at each out-of-s
 \end{equation}
 
 
-which gives us $\hat \alpha(x_0)$ and $\hat \beta(x_0)$. The estimate $\hat y_0$ is given by:
+which gives us $\hat \alpha(x_0)$ and $\hat \beta(x_0)$. The estimate $\hat y_0$ is then given by:
 
 \begin{equation}
 \mathbf{\hat y_0 = \hat \alpha(x_0) + \hat \beta(x_0) x_0}
@@ -46,8 +46,8 @@ Let's formulate the matrix expression to calculate $\hat y_0$ and then implement
 Let,
 
 - $b(x)^T$ be a 2-d vector given by: $b(x)^T = (1, x_0)$
-- $\mathbf{B}$ be a $N X 2$ matrix with the $i^th$ row $b(x)^T$
-- $\mathbf{W(x_0)}$ be $N X N$ diagonal matrix with $i_th$ diagonal element $K_\lambda(x_0, x_i)$
+- $\mathbf{B}$ be a $N \times 2$ matrix with the $i^{th}$ row $b(x)^T$
+- $\mathbf{W(x_0)}$ be $N \times N$ diagonal matrix with $i^{th}$ diagonal element $K_\lambda(x_0, x_i)$
 
 Then,
 
@@ -103,7 +103,7 @@ show(p)
 {% include bokeh/local_linear/reg_by_h_div.html %}
 {% include bokeh/local_linear/reg_by_h_script.html %} 
 
-To illustrate how the algorithm works, I wil choose a few x values and show the local linear fits for each of those points. I will use `h = 0.1` since the corresponding fit looks pretty reasonable. As explained above, we will get the corresponding $\hat \alpha(x_0)$ and $\hat \beta(x_0)$ for each point.
+To illustrate how the algorithm works, I wil choose a few $x$ values and show the local linear fits for each of those points. I will use `h = 0.1` since the corresponding fit looks pretty reasonable. As explained above, we will get the corresponding $\hat \alpha(x_0)$ and $\hat \beta(x_0)$ for each point.
 
 ```python
 h_trial = 0.1
@@ -130,7 +130,7 @@ array([ 3.96096982, -2.14935988]),
 array([ 5.16166187, -4.00951684])]
 ```
 
-Now that we have the local coefficients, let's plot the local fits for each point and the whole fit.
+Now that we have the local coefficients, let's plot the local lines at each point in `x_trial` and the complete fit.
 
 ```python
 p = figure(plot_width=800, plot_height=400)
@@ -168,19 +168,19 @@ show(p)
 {% include bokeh/local_linear/local_lines_div.html %}
 {% include bokeh/local_linear/local_lines_script.html %}
 
-```python
-h_range = np.linspace(0.01, 0.2, 20)
-mses = [np.mean(np.power(y - predict(x, x, y, h), 2)) for h in h_range]
-```
 One great resource that I came across related to local linear regression is the lecture below:
 
 {% include videos/local_linear.html %}
 
-As in the previous post, I will end this post by estimating optimal `bandwidth` using **Leave Out Out Cross Validation** and **K-Fold Cross Validation** bwlow:
+As in the previous post, I will end this post by estimating optimal `bandwidth` using **Leave Out Out Cross Validation** and **K-Fold Cross Validation** below:
 
 ## Cross Validation
 
 ### Leave One Out Cross Validation (LOOCV)
+
+```python
+h_range = np.linspace(0.01, 0.2, 20) # Range to check h in
+```
 
 {% include bokeh/local_linear/loocv_mse_div.html %}
 {% include bokeh/local_linear/loocv_mse_script.html %}
