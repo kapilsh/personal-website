@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Local Linear Regression
-description: Moving from Locally Weighted Constants to Functions 
+description: Moving from Locally Weighted Constants to Lines 
 date: 2018-08-26 08:00:00
 image: /assets/images/Localregressionsmoother.svg
 tags:
@@ -12,24 +12,52 @@ comments: true
 bokeh: true
 ---
 
-I previously wrote a [post](http://www.sharmakapil.com/2018/08/26/kernel-smoothing.html) about **Kernel Smoothing** and how it can be used to fit any relationship non-parametrically. In this port I will extend on that idea and try to mitigate the disadvantages of kernel smoothing using **Local Linear Regression**. 
+I previously wrote a [post](http://www.sharmakapil.com/2018/08/26/kernel-smoothing.html) about **Kernel Smoothing** and how it can be used to fit a non-linear function non-parametrically. In this post, I will extend on that idea and try to mitigate the disadvantages of kernel smoothing using **Local Linear Regression**. 
 
 ## Setup
 
-I generated some data in my previous [post](http://www.sharmakapil.com/2018/08/26/kernel-smoothing.html) and I will reuse the same data. The data was generated from the function $\mathbf{y = f(x) = sin(4x) + 2}$ with some gaussian noise and here's how it looks like:
+I generated some data in my previous [post](http://www.sharmakapil.com/2018/08/26/kernel-smoothing.html) and I will reuse the same data for this post. The data was generated from the function $\mathbf{y = f(x) = sin(4x) + 2}$ with some **Gaussian** noise and here's how it looks like:
 
 {% include bokeh/local_linear/yvx_div.html %}
 {% include bokeh/local_linear/yvx_script.html %}
 
 ## Local Linear Regression
 
-As I mentioned in the previous article, kernel smoothing has issues in out-of-sample prediction on the edges and in sparse regions. In **Local Linear Regression**, we try to reduce this bias to first order by fitting straight lines instead of local constants. 
+As I mentioned in the previous article, in kernel smoothing out-of-sample prediction on the edges and in sparse In **Local Linear Regression**, we try to reduce this bias to first order by fitting straight lines instead of local constants. 
 
-Locally weighted regression solves a weighted least squares problem at each out-of-sample point $x_0$, geiven by:
+Local linear regression solves a weighted least squares problem at each out-of-sample point $x_0$, geiven by:
 
 \begin{equation}
-\mathbf{Equation Goes Here}
+\mathbf{\min\limits_{\alpha(x_0), \beta(x_0)} \sum\limits_{i=1}^N} K_\lambda(x_0, x_i) ( y_i - \alpha(x_0) - \beta(x_0) x_i )^2
 \end{equation}
+
+
+which gives us $\hat \alpha(x_0)$ and $\hat \beta(x_0)$. The estimate $\hat y_0$ is given by:
+
+\begin{equation}
+\mathbf{\hat y_0 = \hat \alpha(x_0) + \hat \beta(x_0) x_0}
+\end{equation}
+
+> **NOTE:** Even though we fit an entire linear model, we only use it fit a single point $x_0$ 
+
+Let's formulate the matrix expression to calculate $\hat y_0$ and then implement it in `Python`.
+
+
+Let,
+
+- $b(x)^T$ be a 2-d vector given by: $b(x)^T = (1, x_0)$
+- $\mathbf{B}$ be a $N X 2$ matrix with the $i^th$ row $b(x)^T$
+- $\mathbf{W(x_0)}$ be $N X N$ diagonal matrix with $i_th$ diagonal element $K_\lambda(x_0, x_i)$
+
+Then,
+
+\begin{equation}
+\mathbf{\hat y_0} = b(x_0)^\intercal (\mathbf{B}^\intercal\mathbf{W}\mathbf{B})^{-1} \mathbf{B}^\intercal \mathbf{W(x_0)} \mathbf{y} 
+\end{equation}
+
+> The final estimate $\hat y_0$ is still linear in $y_i's$ since the weights do not depend on $y$ at all
+
+> In other words, $b(x_0)^\intercal (\mathbf{B}^\intercal\mathbf{W}\mathbf{B})^{-1} \mathbf{B}^\intercal \mathbf{W(x_0)}$ is a linear operator on $y$ and is independent of $y$
 
 ```python
 def predict(x_test, x_train, y_train, h):
@@ -45,6 +73,8 @@ def predict(x_test, x_train, y_train, h):
     
     return np.array(y_hat)
 ```
+
+Let's choose a few bandwidth values and check the fits:
 
 ```python
 h_values = [0.01, 0.1, 1]
@@ -71,8 +101,9 @@ show(p)
 ```
 
 {% include bokeh/local_linear/reg_by_h_div.html %}
-{% include bokeh/local_linear/reg_by_h_script.html %}
+{% include bokeh/local_linear/reg_by_h_script.html %} 
 
+To illustrate how the algorithm works, I wil choose a few x values and show the local linear fits for each of those points. I will use `h = 0.1` since the corresponding fit looks pretty reasonable. As explained above, we will get the corresponding $\hat \alpha(x_0)$ and $\hat \beta(x_0)$ for each point.
 
 ```python
 h_trial = 0.1
@@ -99,6 +130,7 @@ array([ 3.96096982, -2.14935988]),
 array([ 5.16166187, -4.00951684])]
 ```
 
+Now that we have the local coefficients, let's plot the local fits for each point and the whole fit.
 
 ```python
 p = figure(plot_width=800, plot_height=400)
@@ -140,172 +172,46 @@ show(p)
 h_range = np.linspace(0.01, 0.2, 20)
 mses = [np.mean(np.power(y - predict(x, x, y, h), 2)) for h in h_range]
 ```
+One great resource that I came across related to local linear regression is the lecture below:
 
+{% include videos/local_linear.html %}
 
-```python
-p = figure(plot_width=800, plot_height=400)
-p.circle(x=h_range, y=mses, size=10, color="#66D9EF")
-p.line(x=h_range, y=mses, color="#66D9EF", line_width=3)
-
-p.title.text = "MSE vs Bandwidth"
-p.xaxis.axis_label = "Bandwidth"
-p.yaxis.axis_label = "MSE"
-
-p.y_range = Range1d(0.8, 1.2)  # from bokeh.models import Range1d
-
-curdoc().clear()
-doc = curdoc()
-doc.theme = plot_theme
-doc.add_root(p)
-show(p)
-```
-{% include bokeh/local_linear/mse_vs_h_div.html %}
-{% include bokeh/local_linear/mse_vs_h_script.html %}
+As in the previous post, I will end this post by estimating optimal `bandwidth` using **Leave Out Out Cross Validation** and **K-Fold Cross Validation** bwlow:
 
 ## Cross Validation
 
 ### Leave One Out Cross Validation (LOOCV)
 
-```python
-mse_values = []
-
-for h in h_range:
-    errors = []
-    for idx, val in enumerate(x):
-        x_test = np.array([val])
-        y_test = np.array([y[idx]])
-        x_train = np.append(x[:idx], x[idx+1:])
-        y_train = np.append(y[:idx], y[idx+1:])
-        assert len(x_train) == data_size - 1
-        y_test_hat = predict(x_test, x_train, y_train, h)
-        errors.append((y_test_hat - y_test)[0])
-    mse_values.append(np.mean(np.power(errors, 2)))
-```
-
-
-```python
-p = figure(plot_width=800, plot_height=400)
-p.circle(x=h_range, y=mse_values, size=10, color="#66D9EF")
-p.line(x=h_range, y=mse_values, color="#66D9EF", line_width=3)
-
-p.title.text = "Cross Validation - LOOCV - MSE vs Bandwidth"
-p.xaxis.axis_label = "Bandwidth"
-p.yaxis.axis_label = "MSE"
-
-p.y_range = Range1d(0.8, 1.2)
-
-curdoc().clear()
-doc = curdoc()
-doc.theme = plot_theme
-doc.add_root(p)
-show(p)
-```
-
 {% include bokeh/local_linear/loocv_mse_div.html %}
 {% include bokeh/local_linear/loocv_mse_script.html %}
 
-```python
-h_optimal = h_range[np.argmin(mse_values)]
-print(h_optimal)
 ```
-`Out[1] : 0.09`
-
-```python
-p = figure(plot_width=800, plot_height=400)
-p.circle(x, y, size=10, alpha=0.2, color="#66D9EF", legend="y")
-p.line(x, f(x, 2), color="#F92672", line_width=3, legend="Actual", line_dash="dashed")
-
-p.line(x, predict(x, x, y, h_optimal), color="#A6E22E", line_width=2, legend="y_hat (h={})".format(h_optimal))
-    
-p.title.text = "Cross Validation - LOOCV - Optimal Fit"
-p.xaxis.axis_label = "x"
-p.yaxis.axis_label = "f(x)"
-
-curdoc().clear()
-doc = curdoc()
-doc.theme = plot_theme
-doc.add_root(p)
-show(p)
+h_optimal : 0.09
 ```
-
 {% include bokeh/local_linear/loocv_fit_div.html %}
 {% include bokeh/local_linear/loocv_fit_script.html %}
 
 ### K-Fold Cross Validation
 
-
 ```python
 num_folds = 10
 num_tries = 5
-
-fold_indices  = np.arange(num_folds)
-mse_values = []
-
-for h in h_range:
-    trial_mses = []
-    for trial in np.arange(num_tries):
-        x_splits, y_splits = split_k_fold(x, y, num_folds)
-        mses = []
-        for idx in fold_indices:
-            test_idx = idx
-            train_idx = np.setdiff1d(fold_indices, [idx])
-            train_x, test_x, train_y, test_y = (np.concatenate(x_splits[train_idx]), 
-                                                x_splits[test_idx], 
-                                                np.concatenate(y_splits[train_idx]), 
-                                                y_splits[test_idx])
-            test_y_hat = predict(test_x, train_x, train_y, h)
-            mses.append(np.mean(np.power(test_y_hat - test_y, 2)))
-        trial_mses.append(np.mean(mses))
-    mse_values.append(np.mean(trial_mses))
 ```
-
-
-```python
-p = figure(plot_width=800, plot_height=400)
-p.circle(x=h_range, y=mse_values, size=10, color="#66D9EF")
-p.line(x=h_range, y=mse_values, color="#66D9EF", line_width=3)
-
-p.title.text = "Cross Validation - K-Fold - MSE vs Bandwidth"
-p.xaxis.axis_label = "Bandwidth"
-p.yaxis.axis_label = "MSE"
-
-p.y_range = Range1d(0.8, 1.2)
-
-curdoc().clear()
-doc = curdoc()
-doc.theme = plot_theme
-doc.add_root(p)
-show(p)
-```
-
 {% include bokeh/local_linear/kcv_mse_div.html %}
 {% include bokeh/local_linear/kcv_mse_script.html %}
 
-
-```python
-h_optimal = h_range[np.argmin(mse_values)]
-print(h_optimal)
 ```
-
-`Out[2] : 0.06`
-
-```python
-p = figure(plot_width=800, plot_height=400)
-p.circle(x, y, size=10, alpha=0.2, color="#66D9EF", legend="y")
-p.line(x, f(x, 2), color="#F92672", line_width=3, legend="Actual", line_dash="dashed")
-
-p.line(x, predict(x, x, y, h_optimal), color="#A6E22E", line_width=2, legend="y_hat (h={})".format(h_optimal))
-    
-p.title.text = "Cross Validation - K-Fold - Optimal Fit"
-p.xaxis.axis_label = "x"
-p.yaxis.axis_label = "f(x)"
-
-curdoc().clear()
-doc = curdoc()
-doc.theme = plot_theme
-doc.add_root(p)
-show(p)
+h_optimal : 0.06
 ```
 
 {% include bokeh/local_linear/kcv_fit_div.html %}
 {% include bokeh/local_linear/kcv_fit_script.html %}
+
+## Final Words
+
+In this post, we extended the **Kernel Smoothing** technique to fit local linear function instead of local constants at each input point. Fitting locally linear functions helps us reduce the bias and error on the edges of our data. 
+
+## Sources
+
+1. [Elements of Statistical Learning - Chapter 6](https://www.amazon.com/Elements-Statistical-Learning-Prediction-Statistics/dp/0387848576)
+2. [Non-Parametric regression](https://www.youtube.com/watch?v=e9mN6UH5QIQ)
