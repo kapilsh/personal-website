@@ -6,8 +6,8 @@ date: 2018-08-31 08:00:00
 image: /assets/images/Localregressionsmoother.svg
 tags:
     - python
-    - machine learning
-    - kernel methods
+    - machine-learning
+    - kernel-methods
 comments: true
 bokeh: true
 ---

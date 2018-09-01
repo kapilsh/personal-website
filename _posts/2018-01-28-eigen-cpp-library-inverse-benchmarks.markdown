@@ -5,7 +5,7 @@ description:  "Matrix Inversion using Eigen C++ Library"
 image: /assets/images/posts/matrix.png
 tags:
     - cpp
-    - Eigen3
+    - eigen3
     - spdlog
     - conan
 comments: true

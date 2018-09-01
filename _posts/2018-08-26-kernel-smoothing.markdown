@@ -6,9 +6,9 @@ date: 2018-08-26 08:00:00
 image: /assets/images/NNSmoother.svg
 tags:
     - python
-    - machine learning
-    - kernel methods
-    - cross validation
+    - machine-learning
+    - kernel-methods
+    - cross-validation
 comments: true
 bokeh: true
 ---

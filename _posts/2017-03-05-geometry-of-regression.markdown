@@ -5,7 +5,7 @@ description:  "Geometric Interpretation of Linear Regression"
 image: /assets/images/posts/regression.png
 tags:
      - python
-     - machine learning
+     - machine-learning
      - sympy
 comments: true
 ---

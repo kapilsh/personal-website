@@ -5,7 +5,7 @@ description: "Solving Regression using Gram-Schmidt Procedure"
 image: /assets/images/posts/lin_reg.jpg
 tags:
     - python
-    - machinelearning
+    - machine-learning
     - statistics
 comments: true
 ---
