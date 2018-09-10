@@ -42,6 +42,7 @@ auto& [xr, yr] = a; // xr refers to a[0], yr refers to a[1]
 ## Parallel algorithms
 ## New algorithms
 ## Filesystem support
+## Polymorphic Allocators
 ## Improved insertion and splicing for associative containers
 ## Variable templates for metafunctions
 ## Boolean logic metafunctions
