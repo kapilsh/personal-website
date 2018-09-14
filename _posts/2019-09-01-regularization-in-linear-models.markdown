@@ -209,21 +209,125 @@ Our new regression coefficients are given by:
 
 > Inputs need to be standardized to bring ridge coefficients to equivalent scale
 
-Notice that $\beta_0$ is left out of the penalty term, since that will make the intercept depend on origin of $Y$. In other words, if we add a constant c to all $y_i$, our intercept should not change but if we include $\beta_0$ in penalty term, it will change. Hence, we reparameterize the model such that effective $y_i$ are given by $y_i - \bar y$ where $\bar y$ is given by $\dfrac{\sum _i^N y_i}{N}$. After reparameterization, $X$ has $p$ columns instead of $p+1$ and no constant term. Now, we can reqrite our `ridge` coefficients in matri form as:
+Notice that $\beta_0$ is left out of the penalty term, since that will make the intercept depend on origin of $Y$. In other words, if we add a constant c to all $y_i$, our intercept should not change but if we include $\beta_0$ in penalty term, it will change. Hence, we reparameterize the model such that effective $y_i$ are given by $y_i - \bar y$ where $\bar y$ is given by $\dfrac{\sum _i^N y_i}{N}$. After reparameterization, $X$ has $p$ columns instead of $p+1$ and no constant term. Now, we can rewrite our `ridge` coefficients in matrix form as:
 
 
 \begin{equation}
 \hat \beta^{ridge} = (\mathbf{X}^\intercal \mathbf{X} + \lambda \mathbf{I})^{-1}\mathbf{X}^\intercal y
 \end{equation}
 
-{% include bokeh/regularization/lambda_ridge_div.html %}
-{% include bokeh/regularization/lambda_ridge_script.html %}
+Now, let's analyze the effect of $\lambda$ on shrinkage of ridge regression coefficients. It's easy to notice to that $\lambda = 0$ should just lead to least squares coefficients. 
+
+```python
+ridge_coeffs = np.append([0], np.logspace(0, 5.0, 21))
+x_train = x_data.loc[train_idx].values.copy()
+y_train = y_data.loc[train_idx].copy()
+y_train = y_train - np.mean(y_train)
+
+betas_ridge = {}
+for lambdaa in ridge_coeffs:
+    betas = np.linalg.inv(x_train.T.dot(x_train) + 
+                          lambdaa * np.identity(len(x_train[0]))).dot(x_train.T).dot(y_train)
+    betas_ridge[lambdaa] = pd.Series(betas, index=x_data.columns)
+betas_ridge = pd.DataFrame(betas_ridge).T
+```
+
+
+```python
+p = figure(plot_width=800, plot_height=600)
+
+for col, color in zip(x_data.columns, Spectral10):
+    p.line(x=np.log10(betas_ridge.index.values), y=betas_ridge[col].values, legend=col, color=color)
+    p.circle(x=np.log10(betas_ridge.index.values), y=betas_ridge[col].values, legend=col, color=color)
+    
+    
+p.title.text = "Coefficient Shrinkage in Ridge Regression (Beta vs log(lambda))"
+p.xaxis.axis_label = "log\u2081\u2080(\u03BB)"
+p.yaxis.axis_label = "Coefficient"
+p.legend.location = "top_right"
+
+curdoc().clear()
+doc = curdoc()
+doc.theme = plot_theme
+doc.add_root(p)
+show(p)
+```
 
 {% include bokeh/regularization/lambda_ridge_logl_div.html %}
 {% include bokeh/regularization/lambda_ridge_logl_script.html %}
 
+> - As $\lambda$ increases, coefficients' magnitudes get smaller 
+> - We can see that at large values of $\lambda$, all coefficients approach $0$
+
+### Alternate Formulation
+
+We can formulate the ridge regression solution alternatively as below:
+
+\begin{equation}
+\hat \beta^{ridge} = \mathbf{argmin}_{\beta} \Bigg \\{ \sum _{i = 1}^N (y_i - \beta_0 - \sum _{j = 1}^p x _{ij} \beta_j )^2 \Bigg \\} \hspace{1cm} s.t. \sum _{j = 1}^p \beta _j^2 <= t
+\end{equation}
+
+where there is a one-to-one correspondence betwee $\lambda$ and $t$
+
+If we scale $t$, such that we divide it by $\sum_{j = 1}^p \beta_{ls(j)}^2$, or ($\|\| \beta_{ls} \|\|_2$), we get a shrinkage factor, which is in the domain $[0, 1]$. **Notice that I haven't used the squared norm.**. I will discuss later why I made that decision.
+
+Let's plot our ridge coefficients against the shrinkage factor $\dfrac{t}{\|\| \beta \|\|_2}$:
+
+```python
+ols_beta_norm = np.linalg.norm(betas_estimate_table.Beta.values[1:])
+
+ridge_coeffs = np.linspace(0, ols_beta_norm, 21)
+x_train = x_data.loc[train_idx].values.copy()
+y_train = y_data.loc[train_idx].copy()
+y_train = y_train - np.mean(y_train)
+
+def fit_ridge(t, x_train, y_train):
+    return so.minimize(
+        fun=norm, x0=np.zeros(len(x_train[0])),
+        constraints={
+            "type": "ineq",
+            "fun": lambda x: t - np.linalg.norm(x)
+        },
+        args=(x_train, y_train)
+    )
+
+betas_ridge = {}
+
+for t in ridge_coeffs:
+    result = fit_ridge(t, x_train=x_train, y_train=y_train)
+    shrink_coeff = t / ols_beta_norm
+    betas_ridge[shrink_coeff] = pd.Series(result.x, index=x_data.columns)
+
+betas_ridge = pd.DataFrame(betas_ridge).T
+betas_ridge.sort_index(inplace=True)
+```
+
+```python
+p = figure(plot_width=800, plot_height=600)
+
+for col, color in zip(x_data.columns, Spectral10):
+    p.line(x=betas_ridge.index, y=betas_ridge[col].values, legend=col, color=color)
+    p.circle(x=betas_ridge.index, y=betas_ridge[col].values, legend=col, color=color)
+    
+    
+p.title.text = "Coefficient Shrinkage in Ridge Regression"
+p.xaxis.axis_label = "Shrinkage Factor: t / ||\u03B2||\u2082"
+p.yaxis.axis_label = "Coefficient"
+p.legend.location = "top_left"
+
+curdoc().clear()
+doc = curdoc()
+doc.theme = plot_theme
+doc.add_root(p)
+show(p)
+```
+
 {% include bokeh/regularization/lambda_ridge_t_div.html %}
 {% include bokeh/regularization/lambda_ridge_t_script.html %}
+
+> - As we see, $t$ determines how large the coefficients can get 
+> - If $t$ is closer to $0$, none of the betas can get too large
+> - On the other hand, as $t \rightarrow 1$, takes the coefficients get closer to the least squares coefficients.
 
 ## Lasso Regression
 
