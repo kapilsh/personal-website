@@ -2,7 +2,7 @@
 layout: post
 title: Regularization in Linear Models
 description: Ridge and Lasso Regression
-date: 2018-09-01 08:00:00
+date: 2018-09-14 08:00:00
 image: /assets/images/ridge_lasso.png
 tags:
     - python
@@ -197,7 +197,8 @@ We can see that the variance is much higher for the out-of-sample data, as expec
 Next, let's discuss how we can use regularization to help with this model.  
 
 ## Ridge Regression
-Ridge Regression imposes an `L2-norm` based penalty on the sizes of coefficients given by $\beta^{\intercal} \beta$. We also introduce a complexity parameter $\lambda >= 0$ that controls the amount of shrinkage. Hence, the total shrinkage is given by $\lambda \beta^{\intercal} \beta$. 
+
+Ridge Regression imposes an $L_2$ `norm` based penalty on the sizes of coefficients given by $\beta^{\intercal} \beta$. We also introduce a complexity parameter $\lambda >= 0$ that controls the amount of shrinkage. Hence, the total shrinkage is given by $\lambda \beta^{\intercal} \beta$. 
 
 > As the value of $\lambda$ gets larger, we get higher shrinkage
 
@@ -258,6 +259,8 @@ show(p)
 
 > - As $\lambda$ increases, coefficients' magnitudes get smaller 
 > - We can see that at large values of $\lambda$, all coefficients approach $0$
+
+> One interesting thing to note is that the **gradient** of $\|\| \beta \|\|_2$ is $2 \beta$. Hence, the gradient gets smaller and smaller as $\beta$ gets closer to $\mathbf{0}$. Hence, $\beta$ assymptotically approaches $\mathbf{0}$.
 
 ### Alternate Formulation
 
@@ -325,14 +328,93 @@ show(p)
 {% include bokeh/regularization/lambda_ridge_t_div.html %}
 {% include bokeh/regularization/lambda_ridge_t_script.html %}
 
-> - As we see, $t$ determines how large the coefficients can get 
+> - As we can see, $t$ determines how large the coefficients can get 
 > - If $t$ is closer to $0$, none of the betas can get too large
-> - On the other hand, as $t \rightarrow 1$, takes the coefficients get closer to the least squares coefficients.
+> - On the other hand, as $t \rightarrow 1$, the coefficients get closer to the least squares coefficients.
 
 ## Lasso Regression
+
+Lasso regrssion imposes an $L_1$ penalty to the regression coefficient compared to the $L_2$ penalty in case of ridge. Hence, the coefficient formulation changes slightly to:
+
+\begin{equation}
+\hat \beta^{lasso} = \mathbf{argmin}_{\beta} \Bigg \\{ \sum _{i = 1}^N (y_i - \beta_0 - \sum _{j = 1}^p x _{ij} \beta_j )^2 + \lambda \sum _{j = 1}^p |\beta _j| \Bigg \\}
+\end{equation}
+
+or alternatively:
+
+\begin{equation}
+\hat \beta^{lasso} = \mathbf{argmin}_{\beta} \Bigg \\{ \sum _{i = 1}^N (y_i - \beta_0 - \sum _{j = 1}^p x _{ij} \beta_j )^2 \Bigg \\} \hspace{1cm} s.t. \sum _{j = 1}^p |\beta _j| <= t
+\end{equation}
+
+Let's look at the shrinkage of coefficients for a range of $\lambda's$:
+
+```python
+lasso_coeffs = np.linspace(0, 10, 21)
+x_train = x_data.loc[train_idx].values.copy()
+y_train = y_data.loc[train_idx].copy()
+y_train = y_train - np.mean(y_train)
+
+def modified_norm(betas, x_train, y_train, coeff):
+    return norm(betas=betas, x_train=x_train, 
+                y_train=y_train) + coeff * np.sum(np.abs(betas))
+    
+def fit_lasso(lambdaa, x_train, y_train):
+    return so.minimize(
+        fun=modified_norm, x0=np.zeros(len(x_train[0])),
+        args=(x_train, y_train, lambdaa)
+    )
+
+betas_lasso = {}
+
+for lambdaa in lasso_coeffs:
+    result = fit_lasso(lambdaa, x_train=x_train, y_train=y_train)
+    betas_lasso[lambdaa] = pd.Series(result.x, index=x_data.columns)
+    
+betas_lasso = pd.DataFrame(betas_lasso).T
+betas_lasso.sort_index(inplace=True)
+```
+
+```python
+p = figure(plot_width=800, plot_height=600)
+
+for col, color in zip(x_data.columns, Spectral10):
+    p.line(x=betas_lasso.index, y=betas_lasso[col].values, legend=col, color=color)
+    p.circle(x=betas_lasso.index, y=betas_lasso[col].values, legend=col, color=color)
+    
+    
+p.title.text = "Coefficient Shrinkage in Lasso Regression"
+p.xaxis.axis_label = "\u03BB"
+p.yaxis.axis_label = "Coefficient"
+p.legend.location = "top_right"
+
+curdoc().clear()
+doc = curdoc()
+doc.theme = plot_theme
+doc.add_root(p)
+show(p)
+```
+{% include bokeh/regularization/lambda_lasso_l_div.html %}
+{% include bokeh/regularization/lambda_lasso_l_script.html %}
+
+> - Making $t$ sufficiently small will automatically make certain coefficients $0$
+> - If $t$ is chosen larger than $\sum _{j = 1}^p \|\beta_j\|$, sum of absolute values of least square coefficients, lasso coefficients are equal to least square coefficients
+
+Again, similar to ridge, if we scale $t$, such that we divide it by $\sum_{j = 1}^p \| \beta_{ls(j)} \| $, or ($\|\| \beta_{ls} \|\|_1$), we get a shrinkage factor, which is in the domain $[0, 1]$. 
+
+> I used the $L_2$ norm directly instead of squaring it earlier to scale ridge and lasso shrinkage factors equally
+
+Let's plot the lasso coefficients $w.r.t.$ the shrinkage factor:
 
 {% include bokeh/regularization/lambda_lasso_div.html %}
 {% include bokeh/regularization/lambda_lasso_script.html %}
 
-{% include bokeh/regularization/lambda_lasso_l_div.html %}
-{% include bokeh/regularization/lambda_lasso_l_script.html %}
+> We can see that as $t$ gets sufficiently small, the coefficients start dropping out of the model. Hence, lasso regression can be used for feature selection 
+
+## Final Words
+
+In this post, I discussed how to use regularization in case of linear models and specifically explored Ridge and Lasso techniques. I also discussed how Ridge proportionally shrinks the least squares coefficients versus Lasso that shrinks each coefficients by a constant factor i.e. $\lambda$. Finally, we also saw how Lasso can be used for feature selection/drop-out in a linear model.
+
+## Sources
+
+1. [Elements of Statistical Learning - Chapter 3](https://www.amazon.com/Elements-Statistical-Learning-Prediction-Statistics/dp/0387848576)
+2. [Stanford STATS 305](http://statweb.stanford.edu/~tibs/sta305files/Rudyregularization.pdf)
