@@ -121,7 +121,7 @@ coeffs = [local_coeffs(x_0, x, y, h_trial) for x_0 in x_trials]
 print(coeffs)
 ```
 
-```
+```out
 [array([ 1.10375711, -0.24977984]), 
 array([ 1.93831019,  3.12814681]), 
 array([ 2.04711505,  3.62427698]), 
@@ -185,7 +185,7 @@ h_range = np.linspace(0.01, 0.2, 20) # Range to check h in
 {% include bokeh/local_linear/loocv_mse_div.html %}
 {% include bokeh/local_linear/loocv_mse_script.html %}
 
-```
+```out
 h_optimal : 0.09
 ```
 {% include bokeh/local_linear/loocv_fit_div.html %}
@@ -200,7 +200,7 @@ num_tries = 5
 {% include bokeh/local_linear/kcv_mse_div.html %}
 {% include bokeh/local_linear/kcv_mse_script.html %}
 
-```
+```out
 h_optimal : 0.06
 ```
 
