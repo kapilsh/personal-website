@@ -10,12 +10,12 @@ gems:
   - jekyll-assets
 
 title: Kapil Sharma
-email: sharmakapil8@gmail.com
+email: ------------------
 description: Data Scientist, Math Geek, Programmer, Musician
 baseurl: ""
 url: http://www.sharmakapil.com
 author: Kapil Sharma
-street_address: 425 S Financial Place
+street_address: ------------------------
 city: Chicago
 state: IL
 zip_code: 60605
