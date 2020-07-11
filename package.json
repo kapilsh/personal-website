@@ -1,5 +1,5 @@
 {
-  "name": "kapil.github.io",
+  "name": "www.sharmakapil.com",
   "version": "0.0.1",
   "description": "Personal Website",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "http://kapilsh.github.io",
+  "homepage": "http://kapilsh.github.io/personal-website",
   "author": "Kapil Sharma",
   "license": "MIT",
   "devDependencies": {
