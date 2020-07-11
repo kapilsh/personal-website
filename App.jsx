@@ -22,7 +22,11 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
+        <Router
+          onUpdate={() => window.scrollTo(0, 0)}
+          history={history}
+          basename={`${process.env.PUBLIC_URL}`}
+        >
           <Layout />
         </Router>
       </Provider>
