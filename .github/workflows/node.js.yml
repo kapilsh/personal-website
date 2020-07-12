@@ -19,6 +19,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -29,9 +33,5 @@ jobs:
         run: |
           git config --global user.name $user_name
           git config --global user.email $user_email
-          git remote set-url origin https://kapilsh:${github_token}@github.com/kapilsh/personal-website.git
+          git remote set-url --push origin https://kapilsh:${github_token}@github.com/kapilsh/personal-website.git
           npm run deploy
-        env:
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
-          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
