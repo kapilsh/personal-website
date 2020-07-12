@@ -28,7 +28,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Deploy
-        run: |
-          git config --global user.name 'Kapil Sharma'
-          git config --global user.email 'kapilsh@users.noreply.github.com'
-          npm run deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist
