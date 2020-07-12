@@ -1,9 +1,7 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 import Layout from "./components/ApplicationLayout";
-import { Provider } from "react-redux";
 import ReactGA from "react-ga";
-import store from "./store";
 import "./App.css";
 
 import { createBrowserHistory } from "history";
@@ -21,11 +19,9 @@ history.listen((location) => {
 class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-        <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
-          <Layout />
-        </Router>
-      </Provider>
+      <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
+        <Layout />
+      </Router>
     );
   }
 }
