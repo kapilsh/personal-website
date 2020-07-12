@@ -6,13 +6,13 @@ import { GithubFilled } from "@ant-design/icons";
 import { PythonSnippet } from "../snippets/PythonSnippet";
 import { BashSnippet } from "../snippets/BashSnippet";
 
-import Image1 from "../../../static/kernel_smoothing_bokeh_plot_1.png";
-import Image2 from "../../../static/kernel_smoothing_bokeh_plot_2.png";
-import Image3 from "../../../static/kernel_smoothing_bokeh_plot_3.png";
-import Image4 from "../../../static/kernel_smoothing_bokeh_plot_4.png";
-import Image5 from "../../../static/kernel_smoothing_bokeh_plot_5.png";
-import Image6 from "../../../static/kernel_smoothing_bokeh_plot_6.png";
-import Image7 from "../../../static/kernel_smoothing_bokeh_plot_7.png";
+import Image1 from "../../../../static/kernel_smoothing_bokeh_plot_1.png";
+import Image2 from "../../../../static/kernel_smoothing_bokeh_plot_2.png";
+import Image3 from "../../../../static/kernel_smoothing_bokeh_plot_3.png";
+import Image4 from "../../../../static/kernel_smoothing_bokeh_plot_4.png";
+import Image5 from "../../../../static/kernel_smoothing_bokeh_plot_5.png";
+import Image6 from "../../../../static/kernel_smoothing_bokeh_plot_6.png";
+import Image7 from "../../../../static/kernel_smoothing_bokeh_plot_7.png";
 
 const { Title, Paragraph } = Typography;
 

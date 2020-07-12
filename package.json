@@ -2,7 +2,7 @@
   "name": "www.sharmakapil.com",
   "version": "0.0.1",
   "description": "Personal Website",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --watch --hot --config webpack.dev.config.js ",
     "build": "webpack --config webpack.prod.config.js",

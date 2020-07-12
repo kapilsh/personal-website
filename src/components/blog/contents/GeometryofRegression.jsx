@@ -6,9 +6,9 @@ import MathJax from "react-mathjax";
 import { PythonSnippet } from "../snippets/PythonSnippet";
 import { BashSnippet } from "../snippets/BashSnippet";
 
-import regressionImage from "../../../static/regression.png";
-import graph1 from "../../../static/geometric_regression_1.png";
-import graph2 from "../../../static/geometric_regression_2.png";
+import regressionImage from "../../../../static/regression.png";
+import graph1 from "../../../../static/geometric_regression_1.png";
+import graph2 from "../../../../static/geometric_regression_2.png";
 
 const { Title, Paragraph } = Typography;
 

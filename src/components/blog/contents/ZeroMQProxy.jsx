@@ -1,8 +1,8 @@
 import React from "react";
 import { Typography, Alert } from "antd";
 import { CodeBlock, dracula } from "react-code-blocks";
-import ZmqProxyImage from "../../../static/zmq_proxy.png";
-import ForwarderImage from "../../../static/forwarder.png";
+import ZmqProxyImage from "../../../../static/zmq_proxy.png";
+import ForwarderImage from "../../../../static/forwarder.png";
 import { GithubFilled } from "@ant-design/icons";
 
 const { Title, Paragraph } = Typography;

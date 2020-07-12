@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Row, Col, Typography } from "antd";
-import profileImage from "../../static/profile.png";
+import profileImage from "../../../static/profile.png";
 
 const { Meta } = Card;
 const { Paragraph } = Typography;

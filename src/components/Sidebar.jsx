@@ -10,7 +10,7 @@ import {
 const { Sider } = Layout;
 import { Avatar } from "antd";
 import { Link } from "react-router-dom";
-import profileImage from "../static/profile_avatar.jpg";
+import profileImage from "../../static/profile_avatar.jpg";
 
 const socialStyles = {
   fontSize: "2.5em",

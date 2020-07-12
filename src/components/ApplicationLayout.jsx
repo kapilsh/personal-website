@@ -1,15 +1,13 @@
 import React from "react";
 
-import { Layout, Menu, Space, PageHeader, Tag, Divider, Card } from "antd";
+import { Layout, Space, PageHeader, Tag, Card } from "antd";
 
 import Sidebar from "./Sidebar";
 import Content from "./Content";
 import posts from "../posts";
 import { Link } from "react-router-dom";
-import { TagOutlined } from "@ant-design/icons";
 
 const { Sider } = Layout;
-const { Meta } = Card;
 
 const PostTag = ({ text }) => (
   <Tag color={"#1890ff"}>

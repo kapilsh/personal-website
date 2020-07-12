@@ -1,7 +1,7 @@
 import React from "react";
 import { Result, Button } from "antd";
 import { HomeFilled } from "@ant-design/icons";
-import Image404 from "../static/404.jpg";
+import Image404 from "../../static/404.jpg";
 import { Link } from "react-router-dom";
 
 class NotFound extends React.Component {

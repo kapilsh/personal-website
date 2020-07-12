@@ -2,11 +2,11 @@ import React from "react";
 import { Typography, Alert } from "antd";
 import { CodeBlock, dracula } from "react-code-blocks";
 import MathJax from "react-mathjax";
-import prostateScatterImage from "../../../static/prostate_multi_scatter.png";
-import ridgeBetas from "../../../static/ridge_betas.png";
-import ridgeCoeffShrinkage from "../../../static/ridge_coeff_shrinkage.png";
-import lassoCoeffShrinkage from "../../../static/lasso_coeff_shrinkage.png";
-import lassoShrinkageFactor from "../../../static/lasso_shrinkage_factor.png";
+import prostateScatterImage from "../../../../static/prostate_multi_scatter.png";
+import ridgeBetas from "../../../../static/ridge_betas.png";
+import ridgeCoeffShrinkage from "../../../../static/ridge_coeff_shrinkage.png";
+import lassoCoeffShrinkage from "../../../../static/lasso_coeff_shrinkage.png";
+import lassoShrinkageFactor from "../../../../static/lasso_shrinkage_factor.png";
 
 const { Title, Paragraph } = Typography;
 
