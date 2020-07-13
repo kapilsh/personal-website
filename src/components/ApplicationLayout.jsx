@@ -44,7 +44,7 @@ class AppLayout extends React.Component {
         >
           <PageHeader className="site-page-header" title="More Posts" />
           {posts.map((post, index) => {
-            const link = post.title.replaceAll(" ", "-").toLowerCase();
+            const link = post.title.split(" ").join("-").toLowerCase();
             return (
               <Link to={`/posts/${link}`}>
                 <Card

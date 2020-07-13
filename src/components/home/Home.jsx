@@ -41,7 +41,7 @@ class Home extends React.Component {
           {posts
             .slice(this.state.minValue, this.state.maxValue)
             .map((post, index) => {
-              const link = post.title.replaceAll(" ", "-").toLowerCase();
+              const link = post.title.split(" ").join("-").toLowerCase();
               return (
                 <div key={index}>
                   <Link to={`/posts/${link}`}>
