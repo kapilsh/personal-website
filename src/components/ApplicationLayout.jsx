@@ -12,7 +12,7 @@ const { Sider } = Layout;
 const PostTag = ({ text }) => (
   <Tag color={"#1890ff"}>
     <Space />
-    <span>#{text.replaceAll(" ", "").toLowerCase()}</span>
+    <span>#{text.split(" ").join("").toLowerCase()}</span>
     <Space />
   </Tag>
 );
