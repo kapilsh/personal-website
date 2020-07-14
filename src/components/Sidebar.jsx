@@ -6,6 +6,7 @@ import {
   TwitterSquareFilled,
   LinkedinFilled,
   GithubFilled,
+  BoxPlotOutlined,
 } from "@ant-design/icons";
 const { Sider } = Layout;
 import { Avatar } from "antd";
@@ -45,6 +46,11 @@ class Sidebar extends React.Component {
             <ReadFilled />
             <span>{"About"}</span>
             <Link to={"/about"} />
+          </Menu.Item>
+          <Menu.Item>
+            <BoxPlotOutlined />
+            <span>{"Options"}</span>
+            <Link to={"/options"} />
           </Menu.Item>
           <Divider />
         </Menu>

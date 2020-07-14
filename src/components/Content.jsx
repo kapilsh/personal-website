@@ -7,6 +7,7 @@ import Home from "./home/Home";
 import About from "./about/About";
 import Blog from "./blog/Blog";
 import NotFound from "./NotFound";
+import Options from "./options/Options";
 
 class ContentPage extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class ContentPage extends React.Component {
           <Switch>
             <Route exact path={"/"} component={Home} />
             <Route path={"/about"} component={About} />
+            <Route path={"/options"} component={Options} />
             <Route path={"/posts/:postId"} component={Blog} />
             <Route path="/404" component={NotFound} />
             <Redirect path="*" to="/404" />
