@@ -29,3 +29,18 @@ export const BS = (s, k, vol, t, r) => {
     { kind: "theta", call: callTheta, put: putTheta },
   ];
 };
+
+export const IVSolver = (p, s, k, t, r, type) => {
+  const tolerance = 0.0001;
+  const vol_prev = 0.1;
+  const vol_next = 0.25;
+
+  while (Math.abs(vol_next - vol_prev) > tolerance) {
+    const bs = BS(s, k, vol_next, t, r)
+    const vega = type == "Put" ? bs.vega.put : bs.vega.call
+    const price = type == "Put" ? bs.price.put : bs.price.call
+    vol_prev = vol_next
+    vol_next = vol_prev - (price / vega)
+  }
+  return vol_next
+}

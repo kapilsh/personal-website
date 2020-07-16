@@ -1,10 +1,10 @@
 import React from "react";
-import { PageHeader, Row, Col, InputNumber, Form, Table, Tabs } from "antd";
+import { PageHeader, Row, Col, InputNumber, Form, Table, Tabs, Switch, Alert } from "antd";
 import { useLocalStore, useObserver } from "mobx-react";
 
 import { BS } from "../../pricingmodels/BlackScholes";
 
-const { TabPane } = Tabs;
+const { ErrorBoundary } = Alert;
 
 const StoreContext = React.createContext();
 
@@ -15,11 +15,17 @@ const StoreProvider = ({ children }) => {
     volatility: 0.16,
     time: 0.25,
     rate: 0.0,
+    solverPrice: 3.20,
+    solverType: "Call",
+    useSolver: false,
     setStrike: (x) => (store.strike = x),
     setUnderlying: (x) => (store.underlying = x),
     setVolatility: (x) => (store.volatility = x),
     setTime: (x) => (store.time = x),
     setRate: (x) => (store.rate = x),
+    setUseSolver: (x) => (store.useSolver = x),
+    setSolverPrice: (x) => (store.solverPrice = x),
+    setSolverType: (x) => (store.solverType = x),
     get bs() {
       return BS(
         store.underlying,
@@ -77,11 +83,28 @@ const Parameter = (props) => {
   );
 };
 
+const ThrowError = () => {
+
+
+  const onClick = () => {
+    setError(new Error('An Uncaught Error'));
+  };
+
+
+
+  return (
+    <Button type="danger" onClick={onClick}>
+      Click me to throw a error
+    </Button>
+  );
+};
+
+
 const Parameters = () => {
   const store = React.useContext(StoreContext);
 
   return useObserver(() => (
-    <>
+    <ErrorBoundary>
       <Parameter
         value={store.strike}
         step={0.25}
@@ -112,7 +135,21 @@ const Parameters = () => {
         setValue={store.setTime}
         label={"Time to Expiry"}
       />
-    </>
+      <Switch defaultChecked={false} onChange={store.setUseSolver} checkedChildren="Imply" unCheckedChildren={"Price"} />
+      <br />
+      <Parameter
+        value={store.solverPrice}
+        step={0.0001}
+        setValue={(x) => {
+          if (store.useSolver) {
+            store.setSolverPrice(x)
+          } else {
+            throw new Error("Toggle PRICE -> IMPLY to use Implied Volatility Solver")
+          }
+        }}
+        label={"Solver Price"}
+      />
+    </ErrorBoundary>
   ));
 };
 
