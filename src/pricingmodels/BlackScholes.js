@@ -18,8 +18,8 @@ export const BS = (s, k, vol, t, r) => {
   const vega = StandardNormalDistribution.pdf(d1) * s * sqrt(t);
   const thetaPart1 =
     (StandardNormalDistribution.pdf(d1) * s * vol) / (2 * sqrt(t));
-  const callTheta = thetaPart1 - r * pvk * StandardNormalDistribution.cdf(d2);
-  const putTheta = thetaPart1 + r * pvk * StandardNormalDistribution.cdf(-d2);
+  const callTheta = -thetaPart1 - r * pvk * StandardNormalDistribution.cdf(d2);
+  const putTheta = -thetaPart1 + r * pvk * StandardNormalDistribution.cdf(-d2);
 
   return [
     { kind: "price", call: callPrice, put: putPrice },
