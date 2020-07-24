@@ -6,7 +6,7 @@ const { TabPane } = Tabs;
 
 const PricingTabs = () => (
   <Tabs defaultActiveKey="1">
-    <TabPane tab="BS Pricer" key="1">
+    <TabPane tab="Black Scholes" key="1">
       <BSPricer />
     </TabPane>
   </Tabs>

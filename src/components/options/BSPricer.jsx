@@ -1,10 +1,8 @@
 import React from "react";
-import { PageHeader, Row, Col, InputNumber, Form, Table, Tabs, Switch, Alert } from "antd";
+import { Row, Col, InputNumber, Form, Table, Switch, Alert, Radio } from "antd";
 import { useLocalStore, useObserver } from "mobx-react";
 
-import { BS } from "../../pricingmodels/BlackScholes";
-
-const { ErrorBoundary } = Alert;
+import { BS, IVSolver } from "../../pricingmodels/BlackScholes";
 
 const StoreContext = React.createContext();
 
@@ -15,7 +13,7 @@ const StoreProvider = ({ children }) => {
     volatility: 0.16,
     time: 0.25,
     rate: 0.0,
-    solverPrice: 3.20,
+    solverPrice: 3.2,
     solverType: "Call",
     useSolver: false,
     setStrike: (x) => (store.strike = x),
@@ -24,8 +22,28 @@ const StoreProvider = ({ children }) => {
     setTime: (x) => (store.time = x),
     setRate: (x) => (store.rate = x),
     setUseSolver: (x) => (store.useSolver = x),
-    setSolverPrice: (x) => (store.solverPrice = x),
-    setSolverType: (x) => (store.solverType = x),
+    setSolverPrice: (x) => {
+      store.solverPrice = x;
+      store.volatility = IVSolver(
+        store.solverPrice,
+        store.underlying,
+        store.strike,
+        store.time,
+        store.rate,
+        store.solverType
+      );
+    },
+    setSolverType: (x) => {
+      store.solverType = x;
+      store.volatility = IVSolver(
+        store.solverPrice,
+        store.underlying,
+        store.strike,
+        store.time,
+        store.rate,
+        store.solverType
+      );
+    },
     get bs() {
       return BS(
         store.underlying,
@@ -74,7 +92,6 @@ const Parameter = (props) => {
           step={props.step}
           value={props.value}
           onChange={(value) => {
-            console.log(`${props.label} changed to ${value}`);
             props.setValue(value);
           }}
         />
@@ -83,28 +100,16 @@ const Parameter = (props) => {
   );
 };
 
-const ThrowError = () => {
-
-
-  const onClick = () => {
-    setError(new Error('An Uncaught Error'));
-  };
-
-
-
-  return (
-    <Button type="danger" onClick={onClick}>
-      Click me to throw a error
-    </Button>
-  );
-};
-
+const radioButtonsOptions = [
+  { label: "Put", value: "Put" },
+  { label: "Call", value: "Call" },
+];
 
 const Parameters = () => {
   const store = React.useContext(StoreContext);
 
   return useObserver(() => (
-    <ErrorBoundary>
+    <>
       <Parameter
         value={store.strike}
         step={0.25}
@@ -135,21 +140,43 @@ const Parameters = () => {
         setValue={store.setTime}
         label={"Time to Expiry"}
       />
-      <Switch defaultChecked={false} onChange={store.setUseSolver} checkedChildren="Imply" unCheckedChildren={"Price"} />
+      <Switch
+        defaultChecked={false}
+        onChange={store.setUseSolver}
+        checkedChildren="Imply"
+        unCheckedChildren={"Price"}
+      />
+      <br />
       <br />
       <Parameter
         value={store.solverPrice}
         step={0.0001}
         setValue={(x) => {
           if (store.useSolver) {
-            store.setSolverPrice(x)
-          } else {
-            throw new Error("Toggle PRICE -> IMPLY to use Implied Volatility Solver")
+            store.setSolverPrice(x);
           }
         }}
         label={"Solver Price"}
       />
-    </ErrorBoundary>
+      <Radio.Group
+        options={radioButtonsOptions}
+        onChange={(x) => {
+          if (store.useSolver) {
+            store.setSolverType(x.target.value);
+          }
+        }}
+        value={store.solverType}
+        optionType="button"
+        buttonStyle="solid"
+      />
+      <hr />
+      <Alert
+        message="NOTE"
+        description="Toggle PRICE -> IMPLY to use Implied Volatility Solver"
+        type="warning"
+        showIcon
+      />
+    </>
   ));
 };
 

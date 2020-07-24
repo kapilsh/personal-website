@@ -32,15 +32,32 @@ export const BS = (s, k, vol, t, r) => {
 
 export const IVSolver = (p, s, k, t, r, type) => {
   const tolerance = 0.0001;
-  const vol_prev = 0.1;
-  const vol_next = 0.25;
+  var volLeft = 0.0001;
+  var volRight = 2.0;
 
-  while (Math.abs(vol_next - vol_prev) > tolerance) {
-    const bs = BS(s, k, vol_next, t, r)
-    const vega = type == "Put" ? bs.vega.put : bs.vega.call
-    const price = type == "Put" ? bs.price.put : bs.price.call
-    vol_prev = vol_next
-    vol_next = vol_prev - (price / vega)
+  const price = (v, cp) => {
+    const sigmaSqrtT = v * Math.sqrt(t);
+    const d1 = Math.log(s / k) / sigmaSqrtT + sigmaSqrtT / 2;
+    const d2 = d1 - sigmaSqrtT;
+    const pvk = k * Math.exp(-r * t);
+
+    return cp == "Put"
+      ? StandardNormalDistribution.cdf(-d2) * pvk -
+          StandardNormalDistribution.cdf(-d1) * s
+      : StandardNormalDistribution.cdf(d1) * s -
+          pvk * StandardNormalDistribution.cdf(d2);
+  };
+
+  while (Math.abs(volLeft - volRight) > tolerance) {
+    const priceLeft = price(volLeft, type);
+    const priceRight = price(volRight, type);
+    const midPrice = (priceLeft + priceRight) / 2.0;
+    const midVol = (volLeft + volRight) / 2.0;
+    if (p > midPrice) {
+      volLeft = midVol;
+    } else {
+      volRight = midVol;
+    }
   }
-  return vol_next
-}
+  return Math.round((volLeft + volRight) * 0.5 * 10000.0) / 10000;
+};
