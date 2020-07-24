@@ -1,10 +1,8 @@
 import React from "react";
-import { PageHeader, Row, Col, InputNumber, Form, Table, Tabs } from "antd";
+import { Row, Col, InputNumber, Form, Table, Switch, Alert, Radio } from "antd";
 import { useLocalStore, useObserver } from "mobx-react";
 
-import { BS } from "../../pricingmodels/BlackScholes";
-
-const { TabPane } = Tabs;
+import { BS, IVSolver } from "../../pricingmodels/BlackScholes";
 
 const StoreContext = React.createContext();
 
@@ -15,11 +13,37 @@ const StoreProvider = ({ children }) => {
     volatility: 0.16,
     time: 0.25,
     rate: 0.0,
+    solverPrice: 3.2,
+    solverType: "Call",
+    useSolver: false,
     setStrike: (x) => (store.strike = x),
     setUnderlying: (x) => (store.underlying = x),
     setVolatility: (x) => (store.volatility = x),
     setTime: (x) => (store.time = x),
     setRate: (x) => (store.rate = x),
+    setUseSolver: (x) => (store.useSolver = x),
+    setSolverPrice: (x) => {
+      store.solverPrice = x;
+      store.volatility = IVSolver(
+        store.solverPrice,
+        store.underlying,
+        store.strike,
+        store.time,
+        store.rate,
+        store.solverType
+      );
+    },
+    setSolverType: (x) => {
+      store.solverType = x;
+      store.volatility = IVSolver(
+        store.solverPrice,
+        store.underlying,
+        store.strike,
+        store.time,
+        store.rate,
+        store.solverType
+      );
+    },
     get bs() {
       return BS(
         store.underlying,
@@ -68,7 +92,6 @@ const Parameter = (props) => {
           step={props.step}
           value={props.value}
           onChange={(value) => {
-            console.log(`${props.label} changed to ${value}`);
             props.setValue(value);
           }}
         />
@@ -76,6 +99,11 @@ const Parameter = (props) => {
     </Row>
   );
 };
+
+const radioButtonsOptions = [
+  { label: "Put", value: "Put" },
+  { label: "Call", value: "Call" },
+];
 
 const Parameters = () => {
   const store = React.useContext(StoreContext);
@@ -111,6 +139,42 @@ const Parameters = () => {
         step={0.0001}
         setValue={store.setTime}
         label={"Time to Expiry"}
+      />
+      <Switch
+        defaultChecked={false}
+        onChange={store.setUseSolver}
+        checkedChildren="Imply"
+        unCheckedChildren={"Price"}
+      />
+      <br />
+      <br />
+      <Parameter
+        value={store.solverPrice}
+        step={0.0001}
+        setValue={(x) => {
+          if (store.useSolver) {
+            store.setSolverPrice(x);
+          }
+        }}
+        label={"Solver Price"}
+      />
+      <Radio.Group
+        options={radioButtonsOptions}
+        onChange={(x) => {
+          if (store.useSolver) {
+            store.setSolverType(x.target.value);
+          }
+        }}
+        value={store.solverType}
+        optionType="button"
+        buttonStyle="solid"
+      />
+      <hr />
+      <Alert
+        message="NOTE"
+        description="Toggle PRICE -> IMPLY to use Implied Volatility Solver"
+        type="warning"
+        showIcon
       />
     </>
   ));
