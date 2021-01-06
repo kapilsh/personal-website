@@ -44,7 +44,7 @@
     "@bokeh/bokehjs": "^2.1.1",
     "@nteract/display-area": "^5.0.4-alpha.0",
     "antd": "^4.3.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "hyvor-talk-react": "^1.0.1",
     "mathjs": "^7.1.0",
     "mime": ">=1.4.1",
