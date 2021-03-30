@@ -8,6 +8,7 @@ import About from "./about/About";
 import Blog from "./blog/Blog";
 import NotFound from "./NotFound";
 import PricingPanel from "./options/PricingPanel";
+import withTracker from "../WithTracker"
 
 class ContentPage extends React.Component {
   render() {
@@ -16,11 +17,11 @@ class ContentPage extends React.Component {
       <Layout style={{ marginLeft: 80, marginRight: marginRight }}>
         <Content style={{ margin: "10px", padding: "10px" }}>
           <Switch>
-            <Route exact path={"/"} component={Home} />
-            <Route path={"/about"} component={About} />
-            <Route path={"/options"} component={PricingPanel} />
-            <Route path={"/posts/:postId"} component={Blog} />
-            <Route path="/404" component={NotFound} />
+            <Route exact path={"/"} component={withTracker(Home)} />
+            <Route path={"/about"} component={withTracker(About)} />
+            <Route path={"/options"} component={withTracker(PricingPanel)} />
+            <Route path={"/posts/:postId"} component={withTracker(Blog)} />
+            <Route path="/404" component={withTracker(NotFound)} />
             <Redirect path="*" to="/404" />
           </Switch>
         </Content>

@@ -11,10 +11,6 @@ ReactGA.initialize(trackingId);
 
 const history = createBrowserHistory();
 
-history.listen((location) => {
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname);
-});
 
 class App extends React.Component {
   render() {
