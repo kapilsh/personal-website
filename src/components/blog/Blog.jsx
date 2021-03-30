@@ -5,6 +5,7 @@ import HyvorTalk from "hyvor-talk-react";
 import { TagOutlined, CalendarOutlined } from "@ant-design/icons";
 
 import "./Blog.css";
+import NotFound from "../NotFound";
 
 const { Title } = Typography;
 
@@ -31,6 +32,11 @@ const Blog = ({ match }) => {
   const post = posts.filter(
     (p) => p.title.split(" ").join("-").toLowerCase() === postId
   )[0];
+  if (post == null) {
+      return (
+          <NotFound />
+          )
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
