@@ -12,7 +12,7 @@ import graph2 from "../../../../static/geometric_regression_2.png";
 
 const { Title, Paragraph } = Typography;
 
-class GeometryofRegression extends React.Component {
+class GeometryOfRegression extends React.Component {
   render() {
     return (
       <>
@@ -349,4 +349,4 @@ plt.show()`}
   }
 }
 
-export default GeometryofRegression;
+export default GeometryOfRegression;

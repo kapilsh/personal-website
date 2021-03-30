@@ -29,7 +29,7 @@ const Blog = ({ match }) => {
     params: { postId },
   } = match;
   const post = posts.filter(
-    (p) => p.title.split(" ").join("-").toLowerCase() == postId
+    (p) => p.title.split(" ").join("-").toLowerCase() === postId
   )[0];
   useEffect(() => {
     window.scrollTo(0, 0);

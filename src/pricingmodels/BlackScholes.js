@@ -32,8 +32,8 @@ export const BS = (s, k, vol, t, r) => {
 
 export const IVSolver = (p, s, k, t, r, type) => {
   const tolerance = 0.0001;
-  var volLeft = 0.0001;
-  var volRight = 2.0;
+  let volLeft = 0.0001;
+  let volRight = 2.0;
 
   const price = (v, cp) => {
     const sigmaSqrtT = v * Math.sqrt(t);
@@ -41,7 +41,7 @@ export const IVSolver = (p, s, k, t, r, type) => {
     const d2 = d1 - sigmaSqrtT;
     const pvk = k * Math.exp(-r * t);
 
-    return cp == "Put"
+    return cp === "Put"
       ? StandardNormalDistribution.cdf(-d2) * pvk -
           StandardNormalDistribution.cdf(-d1) * s
       : StandardNormalDistribution.cdf(d1) * s -
