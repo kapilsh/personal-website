@@ -7,6 +7,7 @@ import networkImage from "../../static/network.jpg";
 import matrixImage from "../../static/matrix.png";
 import linRegImage from "../../static/lin_reg.jpg";
 import regressionImage from "../../static/regression.png";
+import faceDetectionImage from "../../static/face-detection.jpg"
 
 import MyPersonalSetup from "../components/blog/contents/MyPersonalSetup";
 import RegularizationInLinearModels from "../components/blog/contents/RegularizationInLinearModels";
@@ -16,8 +17,18 @@ import ZeroMQProxy from "../components/blog/contents/ZeroMQProxy";
 import EigenBenchmarks from "../components/blog/contents/EigenBenchmarks";
 import GramSchmidtProcedure from "../components/blog/contents/GramSchmidtProcedure";
 import GeometryOfRegression from "../components/blog/contents/GeometryOfRegression";
+import FaceDetection from "../components/blog/contents/FaceDetection";
 
 const posts = [
+    {
+        title: "Playing with OpenCV",
+        tags: ["Python", "Machine Learning"],
+        description: "Face Detection using OpenCV in Python",
+        image: faceDetectionImage,
+        date: "February 16, 2019",
+        content: "Playing around with opencv and face detection on human and dog images",
+        component: <FaceDetection/>,
+    },
     {
         title: "My Personal Setup",
         tags: ["Linux", "General"],
