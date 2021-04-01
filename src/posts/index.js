@@ -8,6 +8,7 @@ import matrixImage from "../../static/matrix.png";
 import linRegImage from "../../static/lin_reg.jpg";
 import regressionImage from "../../static/regression.png";
 import faceDetectionImage from "../../static/face-detection.jpg"
+import dogDetectionImage from "../../static/dog-detection-cover.jpg"
 
 import MyPersonalSetup from "../components/blog/contents/MyPersonalSetup";
 import RegularizationInLinearModels from "../components/blog/contents/RegularizationInLinearModels";
@@ -18,8 +19,18 @@ import EigenBenchmarks from "../components/blog/contents/EigenBenchmarks";
 import GramSchmidtProcedure from "../components/blog/contents/GramSchmidtProcedure";
 import GeometryOfRegression from "../components/blog/contents/GeometryOfRegression";
 import FaceDetection from "../components/blog/contents/FaceDetection";
+import PreTrainedDogDetection from "../components/blog/contents/PreTrainedDogDetection";
 
 const posts = [
+    {
+        title: "Dog Detection",
+        tags: ["Python", "Machine Learning", "Deep Learning", "CNN"],
+        description: "Dog Detection using pre-trained VGG-16",
+        image: dogDetectionImage,
+        date: "February 19, 2019",
+        content: "As a next step from previous post, I used a pre-trained VGG-16 model to detect dogs in images",
+        component: <PreTrainedDogDetection/>,
+    },
     {
         title: "Playing with OpenCV",
         tags: ["Python", "Machine Learning"],

@@ -13,7 +13,7 @@ export const PythonSnippet = (props) => {
         language={"python"}
         showLineNumbers={!props.hideLineNumbers}
         theme={dracula}
-        wrapLines
+        monokai
       />
       <br />
     </div>
