@@ -26,7 +26,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|svg|ico)$/,
+        test: /\.(jpe?g|png|gif|ico)$/,
         use: [
           {
             loader: "url-loader",
@@ -39,11 +39,20 @@ module.exports = {
         ],
       },
       {
+        test: /\.svg/,
+        use: {
+          loader: "svg-url-loader",
+          options: {
+            iesafe: true,
+          },
+        },
+      },
+      {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: "url-loader",
       },
       {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: "url-loader",
       },
       {

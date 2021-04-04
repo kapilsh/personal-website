@@ -23,7 +23,7 @@ const BlogDate = ({ date }) => (
   </Space>
 );
 
-const numEachPage = 4;
+const numEachPage = 6;
 
 class Home extends React.Component {
   constructor(props) {
