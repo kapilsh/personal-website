@@ -9,6 +9,8 @@ import {BashSnippet} from "../snippets/BashSnippet";
 import Image1 from "../../../../static/dog-breed-classification-1.png";
 import Image2 from "../../../../static/dog-breed-classification-2.svg";
 import Image3 from "../../../../static/impressed.gif";
+import Image4 from "../../../../static/dog-breed-classification-3.png";
+import Image5 from "../../../../static/dog-breed-classification-4.png";
 
 const {Title, Paragraph} = Typography;
 const {Panel} = Collapse;
@@ -25,9 +27,10 @@ class DogBreedClassification extends React.Component {
                 </Paragraph>
                 <Title level={3}>Loading Data</Title>
                 <Paragraph>
-                    Our initial step to start training is define our data loaders. For this, we will be using <a
+                    Our initial step before we start training is to define our data loaders. For this, we will be
+                    using <a
                     href={"https://pytorch.org/docs/stable/data.html#module-torch.utils.data"}>PyTorch DataLoader</a>.
-                    We need to provide the folder the training,. validation and testing images are. As part of the
+                    We need to provide the path for the training, validation and testing images. As part of the
                     training, we will need to apply some transformations to the data such as resizing, random flips,
                     rotations, normalization, etc. We can apply the transformation as part of the data loader so that
                     transformations are already handled when images are fed into the network. Images can be trained in
@@ -129,7 +132,8 @@ class DogBreedClassification extends React.Component {
                     This is a practical post, so I won't get into too much details on how I came up with the
                     architecture. However, the general idea is to apply convolutional filters to the image to capture
                     spatial features from the image and then use pooling to enhance the features after each layer. I
-                    will be using 5 convolutional layers, with layer followed by a max-pooling layer. The convolutional
+                    will be using 5 convolutional layers, with each convolutional layer followed by a max-pooling layer.
+                    The convolutional
                     layers are followed by 2 fully-connected layers with ReLU activation and dropout in the middle.
                 </Paragraph>
                 <Paragraph>
@@ -176,6 +180,16 @@ class DogBreedClassification extends React.Component {
                     "        return x"}/>
                 </Panel>
             </Collapse>
+            <img
+                alt="Architecture"
+                src={Image5}
+                style={{
+                    width: "75%",
+                    display: "block",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                }}
+            />
             <br/>
             <Typography>
                 <Title level={3}>Model Training and Validation</Title>
@@ -362,6 +376,13 @@ class DogBreedClassification extends React.Component {
                 }}
             />
             <br/>
+            <Alert
+                message="NOTE"
+                description="The validation loss stops improving much after epoch 10. Training loss keeps decreasing, as expected"
+                type="info"
+                showIcon
+            />
+            <br/>
             <Typography>
                 <Title level={3}>Testing</Title>
                 <Paragraph>
@@ -388,6 +409,24 @@ class DogBreedClassification extends React.Component {
                 "2020-03-03 21:54:56.663 | INFO     | breed_classifier:__init__:137 - CUDA is enabled - using GPU\n" +
                 "2020-03-03 21:55:04.558 | INFO     | __main__:test:39 - Test Results: TestResult(test_loss=3.607608267239162, correct_labels=161, total_labels=836)"}
                 hideLineNumbers/>
+            <br/>
+            <Typography>
+                <Paragraph>
+                    Let's look at some of the prediction results in the images below. <span
+                    style={{"color": "red"}}>Red</span> and <span style={{"color": "green"}}>Green</span> boxes indicate
+                    incorrect and correct predictions, respectively.
+                </Paragraph>
+            </Typography>
+            <img
+                alt="Class9fication Test Results"
+                src={Image4}
+                style={{
+                    width: "80%",
+                    display: "block",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                }}
+            />
             <br/>
             <img
                 alt="Impressed"
