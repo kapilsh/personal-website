@@ -1,5 +1,5 @@
 import React from "react";
-import {Typography, Alert, Menu} from "antd";
+import {Typography} from "antd";
 
 import {PythonSnippet} from "../snippets/PythonSnippet";
 import {BashSnippet} from "../snippets/BashSnippet";

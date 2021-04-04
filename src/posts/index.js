@@ -9,6 +9,8 @@ import linRegImage from "../../static/lin_reg.jpg";
 import regressionImage from "../../static/regression.png";
 import faceDetectionImage from "../../static/face-detection.jpg"
 import dogDetectionImage from "../../static/dog-detection-cover.jpg"
+import dogBreedClassifyImage from "../../static/dog-breed-classify.jpg"
+
 
 import MyPersonalSetup from "../components/blog/contents/MyPersonalSetup";
 import RegularizationInLinearModels from "../components/blog/contents/RegularizationInLinearModels";
@@ -20,8 +22,18 @@ import GramSchmidtProcedure from "../components/blog/contents/GramSchmidtProcedu
 import GeometryOfRegression from "../components/blog/contents/GeometryOfRegression";
 import FaceDetection from "../components/blog/contents/FaceDetection";
 import PreTrainedDogDetection from "../components/blog/contents/PreTrainedDogDetection";
+import DogBreedClassification from "../components/blog/contents/DogBreedClassification";
 
 const posts = [
+    {
+        title: "Dog Breed Classification",
+        tags: ["Python", "Machine Learning", "Deep Learning", "CNN"],
+        description: "Train a Convolutional Neural Network to Detect Dog Breeds",
+        image: dogBreedClassifyImage,
+        date: "March 22, 2019",
+        content: "In this post, I train a CNN to classify dog breeds",
+        component: <DogBreedClassification/>,
+    },
     {
         title: "Dog Detection",
         tags: ["Python", "Machine Learning", "Deep Learning", "CNN"],
