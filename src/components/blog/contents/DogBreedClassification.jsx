@@ -129,7 +129,7 @@ class DogBreedClassification extends React.Component {
             <Typography>
                 <Title level={3}>Architecture</Title>
                 <Paragraph>
-                    This is a practical post, so I won't get into too much details on how I came up with the
+                    This is a practical post, so I won't get into too much detail on how I came up with the
                     architecture. However, the general idea is to apply convolutional filters to the image to capture
                     spatial features from the image and then use pooling to enhance the features after each layer. I
                     will be using 5 convolutional layers, with each convolutional layer followed by a max-pooling layer.
