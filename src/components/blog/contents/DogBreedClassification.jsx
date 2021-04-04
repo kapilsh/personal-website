@@ -285,11 +285,11 @@ class DogBreedClassification extends React.Component {
             <Collapse accordian>
                 <Panel header="Training / Validation Logs" key="1">
                     <BashSnippet
-                        text={"2020-03-02 21:57:47.630 | INFO     | __main__:__init__:28 - ROOT_DIR: /data/dog_images/\n" +
-                        "2020-03-02 21:57:47.630 | INFO     | __main__:__init__:29 - BATCH_SIZE: 64\n" +
-                        "2020-03-02 21:57:47.630 | INFO     | __main__:__init__:30 - NUM WORKERS: 0\n" +
-                        "2020-03-02 21:57:47.673 | INFO     | __main__:__init__:138 - CUDA is enabled - using GPU\n" +
-                        "2020-03-02 21:57:49.294 | INFO     | __main__:train:147 - Model Architecture: \n" +
+                        text={"2019-03-02 21:57:47.630 | INFO     | __main__:__init__:28 - ROOT_DIR: /data/dog_images/\n" +
+                        "2019-03-02 21:57:47.630 | INFO     | __main__:__init__:29 - BATCH_SIZE: 64\n" +
+                        "2019-03-02 21:57:47.630 | INFO     | __main__:__init__:30 - NUM WORKERS: 0\n" +
+                        "2019-03-02 21:57:47.673 | INFO     | __main__:__init__:138 - CUDA is enabled - using GPU\n" +
+                        "2019-03-02 21:57:49.294 | INFO     | __main__:train:147 - Model Architecture: \n" +
                         "NeuralNet(\n" +
                         "  (conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1))\n" +
                         "  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n" +
@@ -305,57 +305,57 @@ class DogBreedClassification extends React.Component {
                         "  (dropout): Dropout(p=0.3, inplace=False)\n" +
                         "  (fc2): Linear(in_features=400, out_features=133, bias=True)\n" +
                         ")\n" +
-                        "2020-03-02 21:57:49.294 | INFO     | __main__:_train_epoch:175 - [Epoch 0] Starting training phase\n" +
-                        "2020-03-02 21:58:52.011 | INFO     | __main__:_train_epoch:189 - [Epoch 0] Starting eval phase\n" +
-                        "2020-03-02 21:58:58.073 | INFO     | __main__:train:159 - Validation Loss Decreased: inf => 4.704965. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 21:58:58.096 | INFO     | __main__:_train_epoch:175 - [Epoch 1] Starting training phase\n" +
-                        "2020-03-02 22:00:01.268 | INFO     | __main__:_train_epoch:189 - [Epoch 1] Starting eval phase\n" +
-                        "2020-03-02 22:00:07.681 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.704965 => 4.440237. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 22:00:07.700 | INFO     | __main__:_train_epoch:175 - [Epoch 2] Starting training phase\n" +
-                        "2020-03-02 22:01:10.125 | INFO     | __main__:_train_epoch:189 - [Epoch 2] Starting eval phase\n" +
-                        "2020-03-02 22:01:16.491 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.440237 => 4.318264. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 22:01:16.514 | INFO     | __main__:_train_epoch:175 - [Epoch 3] Starting training phase\n" +
-                        "2020-03-02 22:02:19.505 | INFO     | __main__:_train_epoch:189 - [Epoch 3] Starting eval phase\n" +
-                        "2020-03-02 22:02:25.860 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.318264 => 4.110924. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 22:02:25.886 | INFO     | __main__:_train_epoch:175 - [Epoch 4] Starting training phase\n" +
-                        "2020-03-02 22:03:27.334 | INFO     | __main__:_train_epoch:189 - [Epoch 4] Starting eval phase\n" +
-                        "2020-03-02 22:03:33.551 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.110924 => 4.011838. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 22:03:33.574 | INFO     | __main__:_train_epoch:175 - [Epoch 5] Starting training phase\n" +
-                        "2020-03-02 22:04:37.324 | INFO     | __main__:_train_epoch:189 - [Epoch 5] Starting eval phase\n" +
-                        "2020-03-02 22:04:43.689 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.011838 => 3.990763. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 22:04:43.718 | INFO     | __main__:_train_epoch:175 - [Epoch 6] Starting training phase\n" +
-                        "2020-03-02 22:05:46.730 | INFO     | __main__:_train_epoch:189 - [Epoch 6] Starting eval phase\n" +
-                        "2020-03-02 22:05:53.396 | INFO     | __main__:train:159 - Validation Loss Decreased: 3.990763 => 3.849251. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 22:05:53.421 | INFO     | __main__:_train_epoch:175 - [Epoch 7] Starting training phase\n" +
-                        "2020-03-02 22:06:58.002 | INFO     | __main__:_train_epoch:189 - [Epoch 7] Starting eval phase\n" +
-                        "2020-03-02 22:07:04.432 | INFO     | __main__:_train_epoch:175 - [Epoch 8] Starting training phase\n" +
-                        "2020-03-02 22:08:07.631 | INFO     | __main__:_train_epoch:189 - [Epoch 8] Starting eval phase\n" +
-                        "2020-03-02 22:08:14.045 | INFO     | __main__:_train_epoch:175 - [Epoch 9] Starting training phase\n" +
-                        "2020-03-02 22:09:16.695 | INFO     | __main__:_train_epoch:189 - [Epoch 9] Starting eval phase\n" +
-                        "2020-03-02 22:09:23.421 | INFO     | __main__:train:159 - Validation Loss Decreased: 3.849251 => 3.717872. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 22:09:23.445 | INFO     | __main__:_train_epoch:175 - [Epoch 10] Starting training phase\n" +
-                        "2020-03-02 22:10:27.581 | INFO     | __main__:_train_epoch:189 - [Epoch 10] Starting eval phase\n" +
-                        "2020-03-02 22:10:34.121 | INFO     | __main__:train:159 - Validation Loss Decreased: 3.717872 => 3.588202. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 22:10:34.144 | INFO     | __main__:_train_epoch:175 - [Epoch 11] Starting training phase\n" +
-                        "2020-03-02 22:11:38.351 | INFO     | __main__:_train_epoch:189 - [Epoch 11] Starting eval phase\n" +
-                        "2020-03-02 22:11:44.652 | INFO     | __main__:_train_epoch:175 - [Epoch 12] Starting training phase\n" +
-                        "2020-03-02 22:12:47.946 | INFO     | __main__:_train_epoch:189 - [Epoch 12] Starting eval phase\n" +
-                        "2020-03-02 22:12:54.915 | INFO     | __main__:_train_epoch:175 - [Epoch 13] Starting training phase\n" +
-                        "2020-03-02 22:13:58.543 | INFO     | __main__:_train_epoch:189 - [Epoch 13] Starting eval phase\n" +
-                        "2020-03-02 22:14:04.912 | INFO     | __main__:_train_epoch:175 - [Epoch 14] Starting training phase\n" +
-                        "2020-03-02 22:15:07.638 | INFO     | __main__:_train_epoch:189 - [Epoch 14] Starting eval phase\n" +
-                        "2020-03-02 22:15:14.058 | INFO     | __main__:_train_epoch:175 - [Epoch 15] Starting training phase\n" +
-                        "2020-03-02 22:16:17.191 | INFO     | __main__:_train_epoch:189 - [Epoch 15] Starting eval phase\n" +
-                        "2020-03-02 22:16:23.634 | INFO     | __main__:_train_epoch:175 - [Epoch 16] Starting training phase\n" +
-                        "2020-03-02 22:17:26.982 | INFO     | __main__:_train_epoch:189 - [Epoch 16] Starting eval phase\n" +
-                        "2020-03-02 22:17:33.304 | INFO     | __main__:_train_epoch:175 - [Epoch 17] Starting training phase\n" +
-                        "2020-03-02 22:18:36.207 | INFO     | __main__:_train_epoch:189 - [Epoch 17] Starting eval phase\n" +
-                        "2020-03-02 22:18:42.790 | INFO     | __main__:_train_epoch:175 - [Epoch 18] Starting training phase\n" +
-                        "2020-03-02 22:19:46.360 | INFO     | __main__:_train_epoch:189 - [Epoch 18] Starting eval phase\n" +
-                        "2020-03-02 22:19:53.077 | INFO     | __main__:train:159 - Validation Loss Decreased: 3.588202 => 3.558330. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
-                        "2020-03-02 22:19:53.106 | INFO     | __main__:_train_epoch:175 - [Epoch 19] Starting training phase\n" +
-                        "2020-03-02 22:20:57.718 | INFO     | __main__:_train_epoch:189 - [Epoch 19] Starting eval phase\n" +
-                        "2020-03-02 22:21:04.343 | INFO     | __main__:train:248 - Training Results: TrainedModel(train_losses=[4.828373968033565, 4.561895974477133, 4.3049539429800845, 4.10613343602135, 3.9616453170776356, 3.837490134012132, 3.729485934121267, 3.6096336637224464, 3.4845925603594092, 3.390888084684101, 3.2799783706665036, 3.20562988917033, 3.072563396181379, 2.9623924732208247, 2.870406493686495, 2.7523970808301663, 2.665678980236962, 2.535139397212437, 2.430639664332072, 2.333072783833458], validation_losses=[4.704964978354318, 4.440237283706664, 4.318263803209577, 4.110924073628017, 4.011837703841073, 3.990762727601187, 3.8492509978158136, 3.8797887223107472, 3.911121691976275, 3.717871563775199, 3.5882019826344083, 3.6028132949556624, 3.6062802246638705, 3.741273845945086, 3.6166011095047, 3.5896864277975893, 3.968828797340393, 3.668894120625087, 3.558329514094762, 3.6221354859215875], optimal_validation_loss=3.558329514094762)\n" +
+                        "2019-03-02 21:57:49.294 | INFO     | __main__:_train_epoch:175 - [Epoch 0] Starting training phase\n" +
+                        "2019-03-02 21:58:52.011 | INFO     | __main__:_train_epoch:189 - [Epoch 0] Starting eval phase\n" +
+                        "2019-03-02 21:58:58.073 | INFO     | __main__:train:159 - Validation Loss Decreased: inf => 4.704965. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 21:58:58.096 | INFO     | __main__:_train_epoch:175 - [Epoch 1] Starting training phase\n" +
+                        "2019-03-02 22:00:01.268 | INFO     | __main__:_train_epoch:189 - [Epoch 1] Starting eval phase\n" +
+                        "2019-03-02 22:00:07.681 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.704965 => 4.440237. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 22:00:07.700 | INFO     | __main__:_train_epoch:175 - [Epoch 2] Starting training phase\n" +
+                        "2019-03-02 22:01:10.125 | INFO     | __main__:_train_epoch:189 - [Epoch 2] Starting eval phase\n" +
+                        "2019-03-02 22:01:16.491 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.440237 => 4.318264. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 22:01:16.514 | INFO     | __main__:_train_epoch:175 - [Epoch 3] Starting training phase\n" +
+                        "2019-03-02 22:02:19.505 | INFO     | __main__:_train_epoch:189 - [Epoch 3] Starting eval phase\n" +
+                        "2019-03-02 22:02:25.860 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.318264 => 4.110924. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 22:02:25.886 | INFO     | __main__:_train_epoch:175 - [Epoch 4] Starting training phase\n" +
+                        "2019-03-02 22:03:27.334 | INFO     | __main__:_train_epoch:189 - [Epoch 4] Starting eval phase\n" +
+                        "2019-03-02 22:03:33.551 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.110924 => 4.011838. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 22:03:33.574 | INFO     | __main__:_train_epoch:175 - [Epoch 5] Starting training phase\n" +
+                        "2019-03-02 22:04:37.324 | INFO     | __main__:_train_epoch:189 - [Epoch 5] Starting eval phase\n" +
+                        "2019-03-02 22:04:43.689 | INFO     | __main__:train:159 - Validation Loss Decreased: 4.011838 => 3.990763. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 22:04:43.718 | INFO     | __main__:_train_epoch:175 - [Epoch 6] Starting training phase\n" +
+                        "2019-03-02 22:05:46.730 | INFO     | __main__:_train_epoch:189 - [Epoch 6] Starting eval phase\n" +
+                        "2019-03-02 22:05:53.396 | INFO     | __main__:train:159 - Validation Loss Decreased: 3.990763 => 3.849251. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 22:05:53.421 | INFO     | __main__:_train_epoch:175 - [Epoch 7] Starting training phase\n" +
+                        "2019-03-02 22:06:58.002 | INFO     | __main__:_train_epoch:189 - [Epoch 7] Starting eval phase\n" +
+                        "2019-03-02 22:07:04.432 | INFO     | __main__:_train_epoch:175 - [Epoch 8] Starting training phase\n" +
+                        "2019-03-02 22:08:07.631 | INFO     | __main__:_train_epoch:189 - [Epoch 8] Starting eval phase\n" +
+                        "2019-03-02 22:08:14.045 | INFO     | __main__:_train_epoch:175 - [Epoch 9] Starting training phase\n" +
+                        "2019-03-02 22:09:16.695 | INFO     | __main__:_train_epoch:189 - [Epoch 9] Starting eval phase\n" +
+                        "2019-03-02 22:09:23.421 | INFO     | __main__:train:159 - Validation Loss Decreased: 3.849251 => 3.717872. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 22:09:23.445 | INFO     | __main__:_train_epoch:175 - [Epoch 10] Starting training phase\n" +
+                        "2019-03-02 22:10:27.581 | INFO     | __main__:_train_epoch:189 - [Epoch 10] Starting eval phase\n" +
+                        "2019-03-02 22:10:34.121 | INFO     | __main__:train:159 - Validation Loss Decreased: 3.717872 => 3.588202. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 22:10:34.144 | INFO     | __main__:_train_epoch:175 - [Epoch 11] Starting training phase\n" +
+                        "2019-03-02 22:11:38.351 | INFO     | __main__:_train_epoch:189 - [Epoch 11] Starting eval phase\n" +
+                        "2019-03-02 22:11:44.652 | INFO     | __main__:_train_epoch:175 - [Epoch 12] Starting training phase\n" +
+                        "2019-03-02 22:12:47.946 | INFO     | __main__:_train_epoch:189 - [Epoch 12] Starting eval phase\n" +
+                        "2019-03-02 22:12:54.915 | INFO     | __main__:_train_epoch:175 - [Epoch 13] Starting training phase\n" +
+                        "2019-03-02 22:13:58.543 | INFO     | __main__:_train_epoch:189 - [Epoch 13] Starting eval phase\n" +
+                        "2019-03-02 22:14:04.912 | INFO     | __main__:_train_epoch:175 - [Epoch 14] Starting training phase\n" +
+                        "2019-03-02 22:15:07.638 | INFO     | __main__:_train_epoch:189 - [Epoch 14] Starting eval phase\n" +
+                        "2019-03-02 22:15:14.058 | INFO     | __main__:_train_epoch:175 - [Epoch 15] Starting training phase\n" +
+                        "2019-03-02 22:16:17.191 | INFO     | __main__:_train_epoch:189 - [Epoch 15] Starting eval phase\n" +
+                        "2019-03-02 22:16:23.634 | INFO     | __main__:_train_epoch:175 - [Epoch 16] Starting training phase\n" +
+                        "2019-03-02 22:17:26.982 | INFO     | __main__:_train_epoch:189 - [Epoch 16] Starting eval phase\n" +
+                        "2019-03-02 22:17:33.304 | INFO     | __main__:_train_epoch:175 - [Epoch 17] Starting training phase\n" +
+                        "2019-03-02 22:18:36.207 | INFO     | __main__:_train_epoch:189 - [Epoch 17] Starting eval phase\n" +
+                        "2019-03-02 22:18:42.790 | INFO     | __main__:_train_epoch:175 - [Epoch 18] Starting training phase\n" +
+                        "2019-03-02 22:19:46.360 | INFO     | __main__:_train_epoch:189 - [Epoch 18] Starting eval phase\n" +
+                        "2019-03-02 22:19:53.077 | INFO     | __main__:train:159 - Validation Loss Decreased: 3.588202 => 3.558330. Saving Model to /home/ksharma/tmp/dog_breed_classifier.model\n" +
+                        "2019-03-02 22:19:53.106 | INFO     | __main__:_train_epoch:175 - [Epoch 19] Starting training phase\n" +
+                        "2019-03-02 22:20:57.718 | INFO     | __main__:_train_epoch:189 - [Epoch 19] Starting eval phase\n" +
+                        "2019-03-02 22:21:04.343 | INFO     | __main__:train:248 - Training Results: TrainedModel(train_losses=[4.828373968033565, 4.561895974477133, 4.3049539429800845, 4.10613343602135, 3.9616453170776356, 3.837490134012132, 3.729485934121267, 3.6096336637224464, 3.4845925603594092, 3.390888084684101, 3.2799783706665036, 3.20562988917033, 3.072563396181379, 2.9623924732208247, 2.870406493686495, 2.7523970808301663, 2.665678980236962, 2.535139397212437, 2.430639664332072, 2.333072783833458], validation_losses=[4.704964978354318, 4.440237283706664, 4.318263803209577, 4.110924073628017, 4.011837703841073, 3.990762727601187, 3.8492509978158136, 3.8797887223107472, 3.911121691976275, 3.717871563775199, 3.5882019826344083, 3.6028132949556624, 3.6062802246638705, 3.741273845945086, 3.6166011095047, 3.5896864277975893, 3.968828797340393, 3.668894120625087, 3.558329514094762, 3.6221354859215875], optimal_validation_loss=3.558329514094762)\n" +
                         "Process finished with exit code 0\n"} hideLineNumbers/>
                 </Panel>
             </Collapse>
@@ -403,11 +403,11 @@ class DogBreedClassification extends React.Component {
             "    predicted_labels = np.append(predicted_labels, predicted.numpy())\n" +
             "    target_labels = np.append(target_labels, target.numpy())"}/>
             <BashSnippet
-                text={"2020-03-03 21:54:56.620 | INFO     | breed_classifier:__init__:27 - ROOT_DIR: /data/dog_images/\n" +
-                "2020-03-03 21:54:56.620 | INFO     | breed_classifier:__init__:28 - BATCH_SIZE: 64\n" +
-                "2020-03-03 21:54:56.620 | INFO     | breed_classifier:__init__:29 - NUM WORKERS: 0\n" +
-                "2020-03-03 21:54:56.663 | INFO     | breed_classifier:__init__:137 - CUDA is enabled - using GPU\n" +
-                "2020-03-03 21:55:04.558 | INFO     | __main__:test:39 - Test Results: TestResult(test_loss=3.607608267239162, correct_labels=161, total_labels=836)"}
+                text={"2019-03-03 21:54:56.620 | INFO     | breed_classifier:__init__:27 - ROOT_DIR: /data/dog_images/\n" +
+                "2019-03-03 21:54:56.620 | INFO     | breed_classifier:__init__:28 - BATCH_SIZE: 64\n" +
+                "2019-03-03 21:54:56.620 | INFO     | breed_classifier:__init__:29 - NUM WORKERS: 0\n" +
+                "2019-03-03 21:54:56.663 | INFO     | breed_classifier:__init__:137 - CUDA is enabled - using GPU\n" +
+                "2019-03-03 21:55:04.558 | INFO     | __main__:test:39 - Test Results: TestResult(test_loss=3.607608267239162, correct_labels=161, total_labels=836)"}
                 hideLineNumbers/>
             <br/>
             <Typography>
