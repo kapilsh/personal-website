@@ -1,7 +1,8 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import {Collapse} from 'antd';
 import {Typography} from "antd";
 import {Alert} from 'antd';
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label} from 'recharts';
 import {Link} from "react-router-dom";
 import {PythonSnippet} from "../snippets/PythonSnippet";
 import {Code, dracula} from "react-code-blocks";
@@ -11,9 +12,45 @@ import Image2 from "../../../../static/dog-breed-classification-2.svg";
 import Image3 from "../../../../static/impressed.gif";
 import Image4 from "../../../../static/dog-breed-classification-3.png";
 import Image5 from "../../../../static/dog-breed-classification-4.png";
+import {lossValues} from "../data/DogBreedClassficationData";
 
 const {Title, Paragraph} = Typography;
 const {Panel} = Collapse;
+
+
+class Chart extends PureComponent {
+    render() {
+        return (
+            <ResponsiveContainer width="70%" height={450}>
+                <LineChart
+                    width={500}
+                    height={450}
+                    data={lossValues}
+                    margin={{
+                        top: 5,
+                        right: 30,
+                        left: 50,
+                        bottom: 50,
+                    }}
+                    style={{"backgroundColor": "white"}}
+                >
+                    <CartesianGrid strokeDasharray="3 3"/>
+                    <XAxis dataKey="epochs">
+                        <Label value="Epochs" position="bottom" offset={10}/>
+                    </XAxis>
+                    <YAxis>
+                        <Label angle={270} value="Loss Value" position="left" offset={10}/>
+                    </YAxis>
+                    <Tooltip/>
+                    <Legend verticalAlign="top" height={36}/>
+                    <Line type="monotone" dataKey="training" stroke="#8884d8" activeDot={{r: 8}}/>
+                    <Line type="monotone" dataKey="validation" stroke="#82ca9d"/>
+                </LineChart>
+            </ResponsiveContainer>
+        );
+    }
+}
+
 
 class DogBreedClassification extends React.Component {
     render() {
@@ -365,16 +402,12 @@ class DogBreedClassification extends React.Component {
                     Let's look at the loss function for the training and validation routines.
                 </Paragraph>
             </Typography>
-            <img
-                alt="Loss Function"
-                src={Image2}
-                style={{
-                    width: "50%",
-                    display: "block",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                }}
-            />
+            <Chart style={{
+                width: "50%",
+                display: "block",
+                marginLeft: "auto",
+                marginRight: "auto",
+            }}/>
             <br/>
             <Alert
                 message="NOTE"
