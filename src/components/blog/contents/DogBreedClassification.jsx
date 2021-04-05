@@ -22,23 +22,28 @@ class Chart extends PureComponent {
         return (
             <ResponsiveContainer width="70%" height={450}>
                 <LineChart
-                    width={500}
+                    width={"70%"}
                     height={450}
                     data={lossValues}
                     margin={{
                         top: 5,
                         right: 30,
-                        left: 50,
-                        bottom: 50,
+                        left: 35,
+                        bottom: 35
                     }}
-                    style={{"backgroundColor": "white"}}
+                    style={{
+                        backgroundColor: "white",
+                        display: "block",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                    }}
                 >
                     <CartesianGrid strokeDasharray="3 3"/>
                     <XAxis dataKey="epochs">
-                        <Label value="Epochs" position="bottom" offset={10}/>
+                        <Label value="Epochs" position="bottom" offset={10} style={{color: "white"}}/>
                     </XAxis>
                     <YAxis>
-                        <Label angle={270} value="Loss Value" position="left" offset={10}/>
+                        <Label angle={270} value="Loss Value" position="left" offset={10} style={{"color": "white"}}/>
                     </YAxis>
                     <Tooltip/>
                     <Legend verticalAlign="top" height={36}/>
@@ -401,12 +406,7 @@ class DogBreedClassification extends React.Component {
                     Let's look at the loss function for the training and validation routines.
                 </Paragraph>
             </Typography>
-            <Chart style={{
-                width: "50%",
-                display: "block",
-                marginLeft: "auto",
-                marginRight: "auto",
-            }}/>
+            <Chart/>
             <br/>
             <Alert
                 message="NOTE"
