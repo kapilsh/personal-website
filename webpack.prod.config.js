@@ -1,12 +1,14 @@
 const merge = require('webpack-merge')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const UglifyEsPlugin = require('uglify-es-webpack-plugin')
 const common = require('./webpack.common.config.js')
 const webpack = require('webpack')
 
 module.exports = merge(common, {
   plugins: [
-    new UglifyJSPlugin({
-      sourceMap: true
+    new UglifyEsPlugin({
+      compress:{
+        drop_console: true
+      }
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
