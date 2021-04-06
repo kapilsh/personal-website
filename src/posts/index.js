@@ -7,9 +7,10 @@ import networkImage from "../../static/network.jpg";
 import matrixImage from "../../static/matrix.png";
 import linRegImage from "../../static/lin_reg.jpg";
 import regressionImage from "../../static/regression.png";
-import faceDetectionImage from "../../static/face-detection.jpg"
-import dogDetectionImage from "../../static/dog-detection-cover.jpg"
-import dogBreedClassifyImage from "../../static/dog-breed-classify.jpg"
+import faceDetectionImage from "../../static/face-detection.jpg";
+import dogDetectionImage from "../../static/dog-detection-cover.jpg";
+import dogBreedClassifyImage from "../../static/dog-breed-classify.jpg";
+import vggDogBreedImage from "../../static/vgg-dog-breed.jpg";
 
 
 import MyPersonalSetup from "../components/blog/contents/MyPersonalSetup";
@@ -23,8 +24,19 @@ import GeometryOfRegression from "../components/blog/contents/GeometryOfRegressi
 import FaceDetection from "../components/blog/contents/FaceDetection";
 import PreTrainedDogDetection from "../components/blog/contents/PreTrainedDogDetection";
 import DogBreedClassification from "../components/blog/contents/DogBreedClassification";
+import VGGDogBreedClassification from "../components/blog/contents/VGGDogBreedClassification";
+
 
 const posts = [
+    {
+        title: "Dog Breed Classification using Transfer Learning",
+        tags: ["Python", "Machine Learning", "Deep Learning", "CNN"],
+        description: "Use transfer learning on VGG-16 to detect dog breeds",
+        image: vggDogBreedImage,
+        date: "April 04, 2019",
+        content: "This is part 2 of the dog breed classification project. In this post, I use transfer learning to get much better accuracy on dog breed classification",
+        component: <VGGDogBreedClassification/>,
+    },
     {
         title: "Dog Breed Classification",
         tags: ["Python", "Machine Learning", "Deep Learning", "CNN"],
