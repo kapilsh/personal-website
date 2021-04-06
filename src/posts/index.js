@@ -29,7 +29,7 @@ import VGGDogBreedClassification from "../components/blog/contents/VGGDogBreedCl
 
 const posts = [
     {
-        title: "Dog Breed Classification - 2",
+        title: "Dog Breed Classification using Transfer Learning",
         tags: ["Python", "Machine Learning", "Deep Learning", "CNN"],
         description: "Use transfer learning on VGG-16 to detect dog breeds",
         image: vggDogBreedImage,
