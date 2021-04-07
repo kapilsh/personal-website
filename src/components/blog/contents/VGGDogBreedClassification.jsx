@@ -78,7 +78,6 @@ class VGGDogBreedClassification extends React.Component {
                     description="We are changing the final layer to resemble our target classes."
                     type="info"
                     showIcon
-                    style={{width: "50%"}}
                 />
                 <br/>
                 <Typography>
@@ -363,7 +362,6 @@ class VGGDogBreedClassification extends React.Component {
                     description="The test accuracy is almost 67%, way better than 19% from original model"
                     type="info"
                     showIcon
-                    style={{width: "70%"}}
                 />
                 <br/>
                 <Typography>
@@ -453,7 +451,6 @@ class VGGDogBreedClassification extends React.Component {
                     description="On the other hand, 30 breeds had a perfect 100% accuracy"
                     type="info"
                     showIcon
-                    style={{width: "50%"}}
                 />
                 <br/>
                 <Typography>
