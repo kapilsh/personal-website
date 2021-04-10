@@ -11,6 +11,7 @@ import faceDetectionImage from "../../static/face-detection.jpg";
 import dogDetectionImage from "../../static/dog-detection-cover.jpg";
 import dogBreedClassifyImage from "../../static/dog-breed-classify.jpg";
 import vggDogBreedImage from "../../static/vgg-dog-breed.jpg";
+import convAutoencoderImage from "../../static/conv-autoencoder.jpg"
 
 
 import MyPersonalSetup from "../components/blog/contents/MyPersonalSetup";
@@ -25,9 +26,19 @@ import FaceDetection from "../components/blog/contents/FaceDetection";
 import PreTrainedDogDetection from "../components/blog/contents/PreTrainedDogDetection";
 import DogBreedClassification from "../components/blog/contents/DogBreedClassification";
 import VGGDogBreedClassification from "../components/blog/contents/VGGDogBreedClassification";
+import ConvolutionalAutoencoders from "../components/blog/contents/ConvolutionalAutoencoders";
 
 
 const posts = [
+    {
+        title: "Convolutional Autoencoders",
+        tags: ["Python", "Machine Learning", "Deep Learning"],
+        description: "Use convolutional neural networks for image compression",
+        image: convAutoencoderImage,
+        date: "Sep 07, 2020",
+        content: "In this post, I train a simple convolutional auto-encoder using PyTorch on FMNIST dataset",
+        component: <ConvolutionalAutoencoders/>,
+    },
     {
         title: "Dog Breed Classification using Transfer Learning",
         tags: ["Python", "Machine Learning", "Deep Learning", "CNN"],
