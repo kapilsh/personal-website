@@ -458,7 +458,7 @@ class LSTMWritesAnimalFarm extends React.Component {
                 "  \"validation_split\": 0.1,\n" +
                 "  \"drop_prob\": 0.5,\n" +
                 "  \"validation_counts\": 10,\n" +
-                "  \"use_gpu\": true\n" +
+                "  \"use_gpu\": True\n" +
                 "}\n" +
                 "\n" +
                 "parameters = ModelHyperParameters(**parameters)"}/>
