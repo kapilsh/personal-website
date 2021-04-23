@@ -45,6 +45,7 @@
     "@ant-design/icons": "^4.2.1",
     "@bokeh/bokehjs": "^2.1.1",
     "@nteract/display-area": "^5.0.4-alpha.0",
+    "@nteract/presentational-components": "^3.4.9",
     "antd": "^4.3.5",
     "axios": "^0.21.1",
     "hyvor-talk-react": "^1.0.1",
@@ -64,6 +65,7 @@
     "react-player": "^2.5.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "recharts": "^2.0.9"
+    "recharts": "^2.0.9",
+    "terminal-in-react": "^4.3.1"
   }
 }
