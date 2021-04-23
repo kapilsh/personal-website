@@ -1,7 +1,7 @@
 import React from "react";
-import {CodeBlock, dracula} from "react-code-blocks";
+import { CodeBlock, dracula } from "react-code-blocks";
 
-export const PythonSnippet = (props) => {
+export const HTMLSnippet = (props) => {
     return (
         <div
             style={{
@@ -10,12 +10,12 @@ export const PythonSnippet = (props) => {
         >
             <CodeBlock
                 text={props.text}
-                language={"python"}
-                showLineNumbers={!props.hideLineNumbers}
+                language={"html"}
+                showLineNumbers={false}
                 theme={dracula}
-                monokai
+                wrapLines
             />
-            {(!props.noBottomSpacing) && <br/>}
+            <br/>
         </div>
     );
 };

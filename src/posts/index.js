@@ -12,6 +12,7 @@ import dogDetectionImage from "../../static/dog-detection-cover.jpg";
 import dogBreedClassifyImage from "../../static/dog-breed-classify.jpg";
 import vggDogBreedImage from "../../static/vgg-dog-breed.jpg";
 import convAutoencoderImage from "../../static/conv-autoencoder.jpg"
+import lstmImage from "../../static/LSTM.png"
 
 
 import MyPersonalSetup from "../components/blog/contents/MyPersonalSetup";
@@ -27,9 +28,19 @@ import PreTrainedDogDetection from "../components/blog/contents/PreTrainedDogDet
 import DogBreedClassification from "../components/blog/contents/DogBreedClassification";
 import VGGDogBreedClassification from "../components/blog/contents/VGGDogBreedClassification";
 import ConvolutionalAutoencoders from "../components/blog/contents/ConvolutionalAutoencoders";
+import LSTMWritesAnimalFarm from "../components/blog/contents/LSTMWritesAnimalFarm";
 
 
 const posts = [
+    {
+        title: "LSTM Writes Animal Farm",
+        tags: ["Python", "Machine Learning", "Deep Learning", "RNN"],
+        description: "Train LSTM on Animal Farm and create new text",
+        image: lstmImage,
+        date: "Apr 17, 2021",
+        content: "Let create a George Orwell AI",
+        component: <LSTMWritesAnimalFarm/>,
+    },
     {
         title: "Convolutional Autoencoders",
         tags: ["Python", "Machine Learning", "Deep Learning"],

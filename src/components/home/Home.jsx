@@ -69,7 +69,6 @@ class Home extends React.Component {
                             <BlogDate date={post.date} />
                           </Tag>
                         </Title>
-                        <Paragraph>{post.content}</Paragraph>
                       </Typography>
                       {post.tags.map((t, i) => {
                         return <PostTag text={t} key={i} />;
