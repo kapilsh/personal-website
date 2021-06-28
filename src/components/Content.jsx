@@ -26,8 +26,8 @@ class ContentPage extends React.Component {
           </Switch>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Kapil Sharma © {new Date().getFullYear()} | Data Scientist, Math Geek,
-          Programmer, Musician
+          Kapil Sharma © {new Date().getFullYear()} | Machine Learning Engineer, Math Geek,
+          Musician
         </Footer>
       </Layout>
     );

@@ -16,12 +16,11 @@ class About extends React.Component {
             cover={<img alt="profile picture" src={profileImage} />}
           >
             <Meta
-              title="Kapil Sharma | Data Scientist, Math Geek, Programmer, Musician"
+              title="Kapil Sharma | Machine Learning Engineer, Math Geek, Musician"
               description={
                 <Typography>
                   <Paragraph>
-                    Hi, I’m Kapil Sharma. I am a Chicago-based Quantitative
-                    Researcher and Data Scientist working in the High Frequency
+                    Hi, I’m Kapil Sharma. I am a Chicago-based Machine Learning Engineer working in the High Frequency
                     Trading industry. Before that, I studied graduate-level
                     Mathematics and Quantitative Finance at Columbia University
                     in New York City. My professional interests include High
@@ -46,7 +45,7 @@ class About extends React.Component {
                   that I encounter on a daily basis
                 </li>
                 <li>
-                  My experiments with Machine Learning, Data Science,
+                  My experiments with Machine Learning,
                   Algorithmic Trading, Trading System Design, Time-series
                   Analysis, etc.
                 </li>
